@@ -6,9 +6,10 @@ Add any bugs, issues or feature request for Amplify (Umbraco 8 theme) here.
 To view the theme please go here:
 [amplify.jacker.io](https://amplify.jacker.io/)
 
-Documentation is here:
+### Documentation:
 [amplify-docs.jacker.io](https://amplify-docs.jacker.io/)
 
-Buy Amplify here:
+### Buy **Amplify**:
 [jacker.io/buy](https://jacker.io/buy)
 
+![Amplify](/amplify-theme-umbraco-mockups.png)
