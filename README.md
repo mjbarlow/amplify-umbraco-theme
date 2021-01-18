@@ -3,8 +3,11 @@ Amplify is the open source and extendable theme that will get you started with U
 The theme is now available under the MIT licence, and is open for collaboration. 
 
 <a href='https://ko-fi.com/mattbarlow' target='_blank'><img height='35' style='border:0px;height:46px;' src='https://az743702.vo.msecnd.net/cdn/kofi3.png?v=0' border='0' alt='Buy Me a Coffee at ko-fi.com' />
+  
+![Amplify](/amplify-theme-umbraco-mockups.png)
 
 ### Amplify Theme Key Features
+
 - Supports Umbraco 8.9+
 - Blocklist editor (no nested content)
 - Easy theme creation and assignment
@@ -27,13 +30,13 @@ Happy Umbracoing!
 
 -- Matt
 
-### Live demo:
+### Demo
 [amplify.jacker.io](https://amplify.jacker.io/)
 
-### Documentation:
+### Documentation
 [amplify-docs.jacker.io](https://amplify-docs.jacker.io/)
 
-### Download Amplify:
+### Download
 [our.umbraco.com/packages/starter-kits/amplify-theme](https://our.umbraco.com/packages/starter-kits/amplify-theme/)
 
-![Amplify](/amplify-theme-umbraco-mockups.png)
+
