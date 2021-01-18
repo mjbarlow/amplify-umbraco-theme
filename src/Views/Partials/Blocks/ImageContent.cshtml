@@ -1,0 +1,90 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Core.Models.Blocks.BlockListItem>
+@using Amplify.Web.Custom.Extensions
+
+@{
+    var content = new ImageContent(Model.Content);
+}
+
+@if (content.AlignImage == "is-left" || content.AlignImage == "is-right")
+{
+    <div class="columns has-margin-top-5 has-margin-bottom-5">
+        @if (content.AlignImage == "is-left")
+        {
+            <div class="column">
+                @RenderImage(content)
+            </div>
+            <div class="column">
+                @RenderImageText(content)
+            </div>
+        }
+        else
+        {
+            <div class="column is-hidden-tablet">
+                @RenderImage(content)
+            </div>
+            <div class="column">
+                @RenderImageText(content)
+            </div>
+            <div class="column is-hidden-mobile">
+                @RenderImage(content)
+            </div>
+        }
+    </div>
+}
+else
+{
+    <div class="has-margin-top-5 has-margin-bottom-5">
+        <div class="image has-margin-bottom-5" data-aos="zoom-in">
+            @if (content.Image.HasValue())
+            {
+                @RazorHelper.ResponsiveImage(content.Image, classList: "is-background")
+            }
+        </div>
+        @if (content.Title.HasValue())
+        {
+            <h4 class="is-size-5">@content.Title</h4>
+        }
+        @if (content.SubTitle.HasValue())
+        {
+            @content.SubTitle
+        }
+        @if (content.Buttons.HasValue())
+        {
+            <div class="buttons is-grouped">
+                @RazorHelper.RenderLinkButtons(content.Buttons, "is-normal")
+            </div>
+        }
+    </div>
+}
+
+@helper RenderImage(ImageContent content)
+{
+    <div class="image has-margin-bottom-3 has-margin-bottom-0-tablet" data-aos="zoom-in">
+        @if (content.Image.HasValue())
+        {
+            @RazorHelper.ResponsiveImage(content.Image, classList: "is-background")
+        }
+    </div>
+}
+
+@helper RenderImageText(ImageContent content)
+{
+    <div class="align-content-vertical-center">
+        <div>
+            @if (content.Title.HasValue())
+            {
+                <h4 class="is-size-5">@content.Title</h4>
+            }
+            @if (content.SubTitle.HasValue())
+            {
+                @content.SubTitle
+            }
+            @if (content.Buttons.HasValue())
+            {
+            <div class="buttons is-grouped">
+                @RazorHelper.RenderLinkButtons(content.Buttons, "is-normal")
+            </div>
+            }
+        </div>
+    </div>
+}

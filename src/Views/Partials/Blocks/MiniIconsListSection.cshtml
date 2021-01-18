@@ -1,0 +1,35 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Core.Models.Blocks.BlockListItem>
+@using Amplify.Web.Custom.Extensions
+@{
+    var content = Model.Content as MiniIconsListSection;
+    var settings = Model.Settings as MiniIconsListSettings;
+}
+
+@SectionHelper.RenderSectionStart(
+    backgroundClass: settings.BgColor?.Alias,
+    bgTexture: settings.BgTexture?.Url(),
+    gradient: settings.BgGradient,
+    textClass: settings.TextColor?.Alias,
+    paddingSize: settings.Spacing,
+    className: "amplify-mini-icon-section",
+    mobileColumns: true)
+
+@Html.Partial($"~/Views/Partials/Blocks/SectionTitleItem.cshtml", new TitleItem(Model.Content))
+
+@foreach (var item in content.Items)
+{
+    var miniIcon = item.Content as MiniIcon;
+    if (!miniIcon.HasValue())
+    {
+        return;
+    }
+
+    miniIcon.IconColor = settings.IconColor.Alias;
+    <div class="column is-half-mobile has-margin-bottom-4 @RazorHelper.ColumnClass(settings.Columns)">
+        @Html.Partial($"~/Views/Partials/Blocks/MiniIconItem.cshtml", miniIcon)
+    </div>
+}
+
+@Html.Partial($"~/Views/Partials/Blocks/LinkComponent.cshtml", new ButtonsComposition(content))
+
+@SectionHelper.RenderSectionEnd()

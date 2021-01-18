@@ -1,0 +1,42 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Product>
+@using Amplify.Web.Custom.Extensions
+
+<div class="amplify-card amplify-image-card card has-equal-height" data-aos="fade-up">
+    @if (Model.Image.HasValue())
+    {
+        <a href="@Model.Url()">
+            <div class="image is-3by2">
+                @RazorHelper.ResponsiveImage(Model.Image, Model.ProductName, "is-background", Model.ItemsPerRow)
+            </div>
+        </a>
+    }
+    <div class="card-content has-equal-height">
+        <div class="content has-equal-height">
+            <div class="has-margin-bottom-5">
+                @if (Model.ProductName.HasValue())
+                {
+                    <a class="has-text-dark" href="@Model.Url()">
+                        <h4 class="is-size-5">@Model.ProductName</h4>
+                    </a>
+                }
+                @if (Model.Description.HasValue())
+                {
+                    @Model.Description
+                }
+            </div>
+            <div>
+                <div class="level is-mobile">
+                    <div class="level-left">
+                        <a class="button is-link" href="@Model.Url()">
+                            <span>@Umbraco.GetDictionaryValue("General.Find.Out.More")</span>
+                        </a>
+                    </div>
+                    <div class="level-right">
+                        <span class="has-text-weight-semibold is-size-5">@Model.Parent.GetProperty("currency").Value()@Model.Price.ToString("F")</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

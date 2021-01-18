@@ -1,0 +1,11 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Core.Models.Blocks.BlockListItem>
+@using Amplify.Web.Custom.Extensions
+
+@{
+    var content = new RichTextContent(Model.Content);
+}
+
+@if (content.Text.HasValue())
+{
+    @content.Text
+}

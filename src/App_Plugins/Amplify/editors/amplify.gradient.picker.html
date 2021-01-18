@@ -1,0 +1,20 @@
+﻿<div ng-controller="amplifyGradientPickerController as vm">
+    <div class="umb-color-swatches">
+        <button type="button" class="umb-color-box umb-color-box-m"
+                ng-repeat="item in vm.config.items | orderBy: 'Order'" title="{{item.name}}"
+                ng-class="{ 'active': vm.isSelected(item.alias)}"
+                ng-click="vm.selectColor(item)"
+                style="{{vm.gradientStyle(item)}}">
+            <div class="umb-color-box-inner">
+                <div class="check_circle">
+                    <i class="icon icon-check small" ng-show="vm.isSelected(item.alias)" aria-hidden="false"></i>
+                </div>
+            </div>
+        </button>
+        <input type="hidden" name="selectedColor" ng-model="vm.selectedColor" />
+    </div>
+
+    <div ng-if="!vm.isConfigured">
+        <localize key="colorpicker_noColors">You haven't defined any colors</localize>
+    </div>
+</div>

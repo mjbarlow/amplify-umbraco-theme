@@ -1,0 +1,49 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Core.Models.Blocks.BlockListItem>
+@using Amplify.Web.Custom.Helpers
+
+@{
+    var content = Model.Content as VideoSection;
+    var settings = Model.Settings as VideoSectionSettings;
+
+    var isFullWidth = AmplifyHtmlHelper.IsFullWidth(settings.SectionWidth);
+    var columnWidth = "";
+
+    switch (settings.SectionWidth)
+    {
+        case "is-6-desktop":
+            columnWidth = "is-offset-2-desktop is-8-desktop";
+            break;
+
+        case "is-8-desktop":
+            columnWidth = "is-12";
+            break;
+    }
+}
+
+@SectionHelper.RenderSectionStart(
+    backgroundClass: settings.BgColor?.Alias,
+    bgTexture: settings.BgTexture?.Url(),
+    gradient: settings.BgGradient,
+    textClass: settings.TextColor?.Alias,
+    paddingSize: settings.Spacing,
+    className: $"amplify-video {settings.CustomClass}",
+    renderContainer: !isFullWidth,
+    sectionClass: true)
+
+@Html.Partial($"~/Views/Partials/Blocks/SectionTitleItem.cshtml", new TitleItem(content))
+
+@if (!isFullWidth)
+{
+    @:<div class="column @columnWidth">
+}
+
+    @Html.Partial($"~/Views/Partials/Blocks/Video.cshtml", Model)
+
+@if (!isFullWidth)
+{
+    @:</div>
+}
+
+@Html.Partial($"~/Views/Partials/Blocks/LinkComponent.cshtml", new ButtonsComposition(content))
+
+@SectionHelper.RenderSectionEnd(renderContainer: false)

@@ -1,0 +1,97 @@
+
+// define sizes
+$__sizes: ('0':  0, '1': 0.125, '2': 0.25, '3': 0.5, '4': 1, '5': 2, '6': 4, '7': 6, '8': 8)
+$__positions: ( 'x': ('left', 'right'), 'y': ('top', 'bottom'), 'top': ('top'), 'right': ('right'), 'bottom': ('bottom'), 'left': ('left') )
+
+// Classics
+//
+//  eg:
+//
+// .has-padding-4 {
+//    padding: 1rem !important;
+// }
+//
+@each $__s, $__size in $__sizes
+
+  // padding
+  .has-padding-#{$__s} 
+    padding: #{$__size}rem !important
+
+  // margin
+  .has-margin-#{$__s}
+    margin: #{$__size}rem !important
+
+
+//  Specifics
+//
+//  eg:
+//
+// .has-padding-left-4 {
+//  padding-left: 1rem !important;
+// }
+//
+@each $__s, $__size in $__sizes
+
+  @each $__p, $__position in $__positions
+
+    // padding
+    .has-padding-#{$__p}-#{$__s}
+      @each $__pos in $__position
+        padding-#{$__pos}: #{$__size}rem !important
+
+    // margin
+    .has-margin-#{$__p}-#{$__s}
+      @each $__pos in $__position
+        margin-#{$__pos}: #{$__size}rem !important
+
+
+//  Responsive
+//
+//  eg:
+//
+// @media screen and (min-width: 1088px) {
+//  .has-padding-left-4-desktop {
+//    padding-left: 1rem !important;
+//  }
+// }
+//
+@each $__s, $__size in $__sizes
+
+  // padding
+  +tablet
+    @each $__p, $__position in $__positions
+      .has-padding-#{$__p}-#{$__s}-tablet
+        @each $__pos in $__position
+          padding-#{$__pos}: #{$__size}rem !important
+
+  +desktop
+    @each $__p, $__position in $__positions
+      .has-padding-#{$__p}-#{$__s}-desktop
+        @each $__pos in $__position
+          padding-#{$__pos}: #{$__size}rem !important
+
+  +fullhd
+    @each $__p, $__position in $__positions
+      .has-padding-#{$__p}-#{$__s}-fullhd
+        @each $__pos in $__position
+          padding-#{$__pos}: #{$__size}rem !important
+
+  // margin
+  +tablet
+    @each $__p, $__position in $__positions
+      .has-margin-#{$__p}-#{$__s}-tablet
+        @each $__pos in $__position
+          margin-#{$__pos}: #{$__size}rem !important
+
+  +desktop
+    @each $__p, $__position in $__positions
+      .has-margin-#{$__p}-#{$__s}-desktop
+        @each $__pos in $__position
+          margin-#{$__pos}: #{$__size}rem !important
+
+  +fullhd
+    @each $__p, $__position in $__positions
+      .has-margin-#{$__p}-#{$__s}-fullhd
+        @each $__pos in $__position
+          margin-#{$__pos}: #{$__size}rem !important
+

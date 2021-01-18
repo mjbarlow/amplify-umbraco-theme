@@ -1,0 +1,32 @@
+﻿@inherits Amplify.Web.Custom.ViewPages.AmplifyViewPage<ContactInformation>
+@using Amplify.Web.Custom.Extensions
+
+@{
+    var appSettings = SiteService.SiteConfig.AppConfig;
+    var linkClass = Model.LinkClass.HasValue() ? Model.LinkClass : "has-text-info";
+}
+
+@if (appSettings.HasValue())
+{
+    var array = new[] { appSettings.SiteName, appSettings.Address1, appSettings.Address2, appSettings.Town, appSettings.City, appSettings.Region, appSettings.PostZipCode, appSettings.Country };
+    var fullAddress = string.Join(", ", array.Where(s => !string.IsNullOrEmpty(s)));
+
+    if (fullAddress.HasValue())
+    {
+        <p class="has-margin-bottom-3">
+            @RazorHelper.RenderFaIcon(new FaLinksPropertyEditor.Models.FaIcon() { ClassName = $"fas fa-map-marker-alt {linkClass}" }) @fullAddress
+        </p>
+    }
+    if (appSettings.Telephone.HasValue())
+    {
+        <p class="has-margin-bottom-3">
+            @RazorHelper.RenderFaIcon(new FaLinksPropertyEditor.Models.FaIcon() { ClassName = $"fas fa-phone {linkClass}", }) @appSettings.Telephone
+        </p>
+    }
+    if (appSettings.Email.HasValue())
+    {
+        <p class="has-margin-bottom-3">
+            @RazorHelper.RenderFaIcon(new FaLinksPropertyEditor.Models.FaIcon() { ClassName = $"fas fa-envelope {linkClass}", }) @appSettings.Email
+        </p>
+    }
+}

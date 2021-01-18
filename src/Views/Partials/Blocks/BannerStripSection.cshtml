@@ -1,0 +1,57 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Core.Models.Blocks.BlockListItem>
+@using Amplify.Web.Custom.Extensions
+
+@{
+    var isContentPage = Model.Content.ContentType.Alias == BannerStripComponent.ModelTypeAlias 
+        ? ((BannerStripComponent)Model.Content).IsContentPage
+        : ((BannerStripSection)Model.Content).IsContentPage;
+
+    var content = new BannerStripSection(Model.Content);
+
+    var settings = Model.Content.ContentType.Alias == BannerStripComponent.ModelTypeAlias 
+        ? new BannerStripSettings(Model.Content) 
+        : new BannerStripSettings(Model.Settings);
+
+    var alignment = RazorHelper.AlignmentClass(settings.TextAlignment);
+    var spacingClass = isContentPage ? "has-margin-bottom-5 has-margin-top-5" : "";
+}
+
+@SectionHelper.RenderSectionStart(
+    backgroundClass: settings.BgColor?.Alias,
+    bgTexture: settings.BgTexture?.Url(),
+    gradient: settings.BgGradient,
+    textClass: settings.TextColor?.Alias,
+    paddingSize: settings.Spacing,
+    className: $"amplify-banner-strip {spacingClass}")
+
+<div class="column @(settings.TextAlignment)" data-aos="zoom-in">
+    @if(isContentPage){
+        @:<div class="columns is-centered"><div class="column is-two-thirds-desktop @settings.TextAlignment">
+    }
+    @if (content.Image.HasValue())
+    {
+        <img src="@content.Image.Url()" alt="" class="has-margin-bottom-5"/>
+    }
+
+    @if (content.Title.HasValue())
+    {
+        <h3 class="title is-size-3 is-size-2-tablet has-margin-top-0">@content.Title</h3>
+    }
+    @if (content.Subtitle.HasValue())
+    {
+        <div class="subtitle is-size-5 is-size-4-tablet">
+            @content.Subtitle
+        </div>
+    }
+    @if (content.Buttons.HasValue())
+    {
+        <div class="buttons is-grouped @alignment">
+            @RazorHelper.RenderLinkButtons(content.Buttons, "is-medium")
+        </div>
+    }
+    @if(isContentPage){
+        @:</div></div>
+    }
+</div>
+
+@SectionHelper.RenderSectionEnd()

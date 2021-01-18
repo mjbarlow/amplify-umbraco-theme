@@ -1,0 +1,28 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Core.Models.Blocks.BlockListItem>
+@using Amplify.Web.Custom.Extensions
+
+@{
+    var content = new AlignedText(Model.Content);
+}
+
+@if (content.HasValue())
+{
+    <div class="level is-mobile has-margin-bottom-3">
+        @if (content.TextLeft.HasValue())
+        {
+            <div class="level-left">
+                <div class="level-item">
+                    @content.TextLeft
+                </div>
+            </div>
+        }
+        @if (content.TextRight.HasValue())
+        {
+            <div class="level-right">
+                <div class="level-item">
+                    @content.TextRight
+                </div>
+            </div>
+        }
+    </div>
+}

@@ -1,0 +1,12 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<MiniIcon>
+@using Amplify.Web.Custom.Extensions
+
+<div class="icon-item level align-content-center is-mobile" data-aos="fade-up">
+    <div class="level-item @RazorHelper.TextColorClass(Model.IconColor)">
+        @RazorHelper.RenderFaIcon(Model.Icon)
+    </div>
+    @if (Model.Text.HasValue())
+    {
+        <p class="is-size-5 level-item">@Model.Text</p>
+    }
+</div>

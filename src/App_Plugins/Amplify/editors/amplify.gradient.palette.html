@@ -1,0 +1,57 @@
+﻿<div ng-controller="amplifyGradientPaletteController as vm" class="amplify">
+    <div class="umb-textstring">
+        <div class="control-group  umb-prevalues-multivalues__add color-picker-preval">
+            <div class="umb-prevalues-multivalues__left">
+                <div class="thumbnail thumbnail-gradient" style="{{vm.gradientStyle(vm.newGradient.StartColor, vm.newGradient.EndColor, vm.newGradient.Degree)}}"></div>
+                <spectrum-colorpicker ng-model="vm.newGradient.StartColor"
+                                      options="{showInitial: false, chooseText: 'Choose', cancelText: 'Cancel', preferredFormat: 'hex', showInput: true}"
+                                      class="ml2">
+                </spectrum-colorpicker>
+                <spectrum-colorpicker ng-model="vm.newGradient.EndColor"
+                                      options="{showInitial: false, chooseText: 'Choose', cancelText: 'Cancel', preferredFormat: 'hex', showInput: true}"
+                                      on-change="vm.spectrumColorUpdate(color, false,'')"
+                                      class="ml2">
+                </spectrum-colorpicker>
+                <span class="ml2">Dg</span><input type="number" min="0" max="360" class="input-small" ng-model="vm.newGradient.Degree" />
+                <input class="ml2" val-highlight="" type="text" ng-model="vm.newGradient.Name" placeholder="Gradient name..." />
+                <span>$</span><input val-highlight="" type="text" ng-model="vm.newGradient.Alias" placeholder="Gradient alias..." />
+            </div>
+            <div class="umb-prevalues-multivalues__right">
+                <a ng-disabled="vm.addDisabled()" class="btn btn-info add" ng-click="vm.add(); event.stopPropagation()"><localize key="general_add">Add</localize></a>
+            </div>
+        </div>
+        <div ui-sortable="vm.sortableOptions" ng-model="model.value" class="amplify-values-colors umb-prevalues-multivalues">
+            <div class="control-group umb-prevalues-multivalues__listitem color-picker-preval" ng-repeat="item in model.value">
+                <i class="icon icon-navigation handle"></i>
+                <div class="umb-prevalues-multivalues__left">
+                    <div class="thumbnail thumbnail-gradient" style="{{vm.gradientStyle(item.StartColor, item.EndColor, item.Degree)}}"></div>
+                    <div class="color-picker-prediv">
+                        <spectrum-colorpicker data-newcolor="false"
+                                              ng-model="item.StartColor"
+                                              options="{showInitial: false, chooseText: 'Choose', cancelText: 'Cancel', preferredFormat: 'hex', showInput: true}"
+                                              on-change="vm.spectrumColorUpdate(color, false, color.Alias)">
+                        </spectrum-colorpicker>
+                        <spectrum-colorpicker data-newcolor="false"
+                                              ng-model="item.EndColor"
+                                              options="{showInitial: false, chooseText: 'Choose', cancelText: 'Cancel', preferredFormat: 'hex', showInput: true}"
+                                              on-change="vm.spectrumColorUpdate(color, false, color.Alias)">
+                        </spectrum-colorpicker>
+                        <span>Dg</span><input type="number" min="0" max="360" class="input-small" ng-model="item.Degree" />
+                        <pre>{{item.Name}}</pre>
+                        <pre>{{item.Alias}}</pre>
+                    </div>
+                    <div class="umb-prevalues-multivalues__right">
+                        <div class="list-view-layout__remove">
+                            <i class="icon-trash" ng-click="vm.showPrompt(item)"></i>
+                            <umb-confirm-action ng-if="item.deletePrompt"
+                                                direction="left"
+                                                on-confirm="vm.remove($index)"
+                                                on-cancel="vm.hidePrompt(color)">
+                            </umb-confirm-action>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

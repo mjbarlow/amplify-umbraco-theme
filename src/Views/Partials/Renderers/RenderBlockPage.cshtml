@@ -1,0 +1,27 @@
+﻿@using System.Web.Mvc.Html
+@using Amplify.Web.Custom.Extensions
+@using Amplify.Web.Custom.Helpers
+@using Umbraco.Core.Models.Blocks
+
+@inherits Umbraco.Web.Mvc.UmbracoViewPage<BlockListModel>
+
+@if (Model.HasValue())
+{
+    foreach (var block in Model)
+    {
+        switch (block.Content.ContentType.Alias)
+        {
+            case BannerStripSection.ModelTypeAlias:
+            case Gallery.ModelTypeAlias:
+            case ShareLinks.ModelTypeAlias:
+            case Slider.ModelTypeAlias:
+            case UmbracoFormItem.ModelTypeAlias:
+            case Video.ModelTypeAlias:
+                var valHelper = new ValueHelper();
+                valHelper.SetValues(block.Content);
+                break;
+        }
+        @Html.Partial($"~/Views/Partials/Blocks/{block.Content.ContentType.Alias}.cshtml", block);
+    }
+}
+

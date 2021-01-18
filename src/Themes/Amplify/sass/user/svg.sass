@@ -1,0 +1,13 @@
+
+@each $name, $pair in $colors
+  $color: nth($pair, 1)
+  .has-svg-#{$name}
+    svg
+      path
+        fill: $color !important
+
+@each $name, $shade in $shades
+  .has-svg-#{$name}
+    svg
+      path
+        fill: $shade !important

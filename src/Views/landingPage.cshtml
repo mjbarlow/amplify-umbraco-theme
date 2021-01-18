@@ -1,0 +1,6 @@
+﻿@inherits  Amplify.Web.Custom.ViewPages.AmplifyViewPage<LandingPage>
+@{
+    Layout = "master.cshtml";
+}
+
+@Html.Partial($"~/Views/Partials/Renderers/RenderBlockList.cshtml", Model.ContentBlocks)

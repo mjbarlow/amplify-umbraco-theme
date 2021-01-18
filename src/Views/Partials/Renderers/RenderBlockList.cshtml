@@ -1,0 +1,14 @@
+﻿@using System.Web.Mvc.Html
+@using Amplify.Web.Custom.Extensions
+@using Umbraco.Core.Models.Blocks
+
+@inherits Umbraco.Web.Mvc.UmbracoViewPage<BlockListModel>
+
+@if (Model.HasValue())
+{
+    foreach (var block in Model)
+    {
+        @Html.Partial($"~/Views/Partials/Blocks/{block.Content.ContentType.Alias}.cshtml", block);
+    }
+}
+

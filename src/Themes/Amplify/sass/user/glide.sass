@@ -1,0 +1,38 @@
+.glide-container
+    .glide__slide
+        zoom: 1
+        &--active
+            z-index: 1 !important
+        a
+            transition-property: none
+    &.amplify-slider 
+        .glide__bullets 
+            bottom: 1.5em
+        .amplify-banner-section
+            height: 100%
+        
+    .glide__bullets 
+        bottom: -3em
+
+    .glide__bullet
+       box-shadow: 0 0.25em 0.5em 0 rgba(0, 0, 0, 0.2)
+       width: 16px
+       height: 16px
+       margin: 0 0.5em
+    
+    .glide__bullet--active
+        background-color: $link
+
+    .glide__slide
+        height: auto
+        &--active
+            z-index: 1
+
+    .amplify-parallax 
+        +tablet
+            background-attachment: scroll
+    
+    .glide__arrows
+        display: none
+
+  

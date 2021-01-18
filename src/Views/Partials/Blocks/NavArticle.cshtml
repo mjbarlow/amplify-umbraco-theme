@@ -1,0 +1,27 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Article>
+@using Amplify.Web.Custom.Extensions
+
+<article class="media has-padding-right-4-desktop">
+    @if (Model.Image.HasValue())
+    {
+        <figure class="media-left  has-margin-right-4">
+            <a class="image is-64x64" href="@Model.Url()">
+
+                @RazorHelper.GetThumbnailImage(Model.Image, Model.Title)
+            </a>
+        </figure>
+    }
+    <div class="media-content">
+        <div class="content">
+            <p>
+                <small class="has-text-grey">@Model.DisplayDate.ToDisplayDate()</small><br />
+                <a href="@Model.Url()" class="has-text-dark">
+                    @if (Model.Title.HasValue())
+                    {
+                        @Model.Title
+                    }
+                </a>
+            </p>
+        </div>
+        </div>
+</article>

@@ -1,0 +1,80 @@
+﻿@inherits  Amplify.Web.Custom.ViewPages.AmplifyViewPage<ContentPage>
+@using Amplify.Web.Custom.Extensions
+
+@{
+    Layout = "master.cshtml";
+}
+
+<section class="section is-medium has-text-dark has-text-centered has-background-white has-padding-bottom-0 amplify-header">
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-8">
+                <div class="has-margin-bottom-3">
+                    @if (Model.Title.HasValue())
+                    {
+                        <h1 class="is-size-3 is-size-2-desktop has-no-text-transform regular-font has-margin-bottom-3">@Model.Title</h1>
+                    }
+                    @if (Model.Subtitle.HasValue())
+                    {
+                        <div class="is-size-5">
+                            @Model.Subtitle.StripHtml()
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@if (Model.Image.HasValue())
+{
+    <section class="section has-padding-bottom-4">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-10">
+                    <div class="image is-hidden-mobile @Model.ImageRatio">
+                        @if (Model.Image.HasValue())
+                        {
+                            <img src="@Model.Image.Url()" class="is-background" alt="@Model.Title" />
+                        }
+                    </div>
+                    <div class="image is-hidden-tablet">
+                        @if (Model.Image.HasValue())
+                        {
+                            <img src="@Model.Image.Url()" class="is-background" alt="@Model.Title" />
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+
+<section class="section has-padding-top-3 has-padding-top-6-tablet">
+    <div class="container">
+        <div class="columns @(!Model.HideSideNavs ? "" : "is-centered")">
+            @if (!Model.HideSideNavs)
+            {
+                <div class="column is-2-tablet">
+                    <aside class="menu amplify-menu">
+                        <a href="@(Model.Level == 2 ? Model.Url() : Model.Parent.Url())" class="menu-label has-text-weight-semibold amplify-menu-link has-text-link">
+                            <span>@(Model.Level == 2 ? Model.Name : Model.Parent.Name)</span>
+                        </a>
+                        <a class="menu-label has-text-weight-semibold amplify-menu-header has-text-link">
+                            <span>@(Model.Level == 2 ? Model.Name : Model.Parent.Name)</span>
+                        </a>
+                        <ul class="menu-list amplify-menu-list">
+                            @Html.Partial($"~/Views/Partials/SubNavigation.cshtml")
+                        </ul>
+                    </aside>
+                </div>
+            }
+            <div class="column is-8-tablet @(!Model.HideSideNavs ? "" : "is-center")">
+                <div class="content is-normal">
+                    @Html.Partial($"~/Views/Partials/Renderers/RenderBlockPage.cshtml", Model.ContentBlocks)
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

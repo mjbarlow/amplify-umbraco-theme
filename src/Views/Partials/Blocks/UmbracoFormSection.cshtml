@@ -1,0 +1,42 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Core.Models.Blocks.BlockListItem>
+@using Amplify.Web.Custom.Extensions
+
+@{
+    var content = Model.Content as UmbracoFormSection;
+    var settings = Model.Settings as UmbracoFormSettings;
+}
+
+@SectionHelper.RenderSectionStart(
+    backgroundClass: settings.BgColor?.Alias,
+    bgTexture: settings.BgTexture?.Url(),
+    gradient: settings.BgGradient,
+    textClass: settings.TextColor?.Alias,
+    paddingSize: settings.Spacing,
+    isCentered: true,
+    className: $"amplify-umbraco-form {settings.CustomClass}")
+
+<div class="column is-two-thirds-desktop">
+    @if (content.Form != null)
+    {
+        <div class="amplify-form">
+            @if (content.Title.HasValue() || content.SubTitle.HasValue())
+            {
+
+                <div class="has-text-centered has-margin-bottom-5">
+                    @if (content.Title.HasValue())
+                    {
+                        <h2 class="title is-size-4 is-size-3-tablet is-spaced">@content.Title</h2>
+                    }
+                    @if (content.SubTitle.HasValue())
+                    {
+                        <h4 class="subtitle is-size-5 is-size-4-tablet">@content.SubTitle</h4>
+                    }
+                </div>
+            }
+            @Umbraco.RenderMacro("renderUmbracoForm", new {FormGuid = content.Form, FormTheme = "amplify", ExcludeScripts = "1"})
+        </div>
+    }
+</div>
+
+@SectionHelper.RenderSectionEnd()
+

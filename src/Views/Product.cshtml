@@ -1,0 +1,115 @@
+﻿@inherits Amplify.Web.Custom.ViewPages.AmplifyViewPage<Product>
+@using Amplify.Web.Custom.Extensions
+
+@{
+    Layout = "master.cshtml";
+    var relatedProducts = Model.RelatedProducts(3);
+}
+
+@SectionHelper.RenderSectionStart(
+    backgroundClass: Model.ContentBgColor?.Alias,
+    bgTexture: Model.ContentBgTexture?.Url(),
+    gradient: Model.ContentBgGradient,
+    textClass: Model.ContentTextColor?.Alias,
+    isCentered: true,
+    className: "amplify-product is-normal-top",
+    columnsClass: "has-margin-bottom-4",
+    paddingSize: "is-medium"
+    )
+<div class="column is-10-tablet has-text-centered">
+    <div class="has-width-80-percent">
+        <div class="has-margin-bottom-4">
+            <h1 class="title is-size-3 is-size-2-tablet">
+                @Model.ProductName
+            </h1>
+        </div>
+    </div>
+</div>
+<div class="column is-4-tablet amplify-gallery">
+    <div class="image">
+        <a href="@Model.Image.Url()" class="glightbox image">
+            @RazorHelper.ResponsiveImage(Model.Image, Model.ProductName, "is-background amplify-card", Model.ItemsPerRow)
+        </a>
+    </div>
+    @if (Model.Images.Any())
+    {
+        <div class="amplify-sub-gallery has-margin-bottom-3">
+            @foreach (var image in Model.Images)
+            {
+                <div>
+                    <a href="@image.Url()" class="glightbox image is-square has-margin-top-4">
+                        @(RazorHelper.GetThumbnailImage(image, image.Name, "is-background has-box-radius"))
+                    </a>
+                </div>
+            }
+        </div>
+    }
+</div>
+<div class="column is-6-tablet">
+    <div class="card amplify-card">
+        <div class="card-content">
+            <div class="content">
+                @if (Model.FullDescription.HasValue())
+                {
+                    @Model.FullDescription
+                }
+
+                <div class="has-text-weight-semibold is-size-5 has-margin-bottom-4">@Model.Parent.GetProperty("currency").Value()@Model.Price.ToString("F")</div>
+                <div class="buttons">
+                    <a class="button is-link has-icons-left" href="#">
+                        <span class="icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </span>
+                        <span>@Umbraco.GetDictionaryValue("Products.Add.Basket")</span>
+                    </a>
+                </div>
+                @if (Model.FeaturesBlocks.HasValue())
+                {
+                    <hr class="has-margin-top-4 has-margin-bottom-4" />
+                    foreach (var feature in Model.FeaturesBlocks)
+                    {
+                        var featureBlock = new FeatureComponent(feature.Content);
+
+                        <div class="media has-margin-bottom-0">
+                            <div class="media-left">
+                                @RazorHelper.RenderFaIcon(featureBlock.Icon)
+                            </div>
+                            <div class="media-content">
+                                <p>
+                                    <strong>@featureBlock.Feature</strong><br />
+                                    @featureBlock.Description
+                                </p>
+                            </div>
+                        </div>
+                        if (Model.FeaturesBlocks.IndexOf(feature) != Model.FeaturesBlocks.Count() - 1)
+                        {
+                            <hr class="has-margin-top-4 has-margin-bottom-4" />
+                        }
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>
+@if (relatedProducts.Any())
+{
+  
+        <div class="column is-10-tablet">
+            <section class="has-margin-top-5">
+                <div class="columns is-multiline ">
+                    <div class="column is-12-tablet">
+                        <h4 class="is-size-5 has-text-weight-semibold">Related Products</h4>
+                    </div>
+                    @foreach (var item in relatedProducts)
+                    {
+                        <div class="column is-4-tablet">
+                            @Html.Partial($"~/Views/Partials/Blocks/productmini.cshtml", item)
+                        </div>
+                    }
+                </div>
+            </section>
+        </div>
+
+}
+
+@SectionHelper.RenderSectionEnd()

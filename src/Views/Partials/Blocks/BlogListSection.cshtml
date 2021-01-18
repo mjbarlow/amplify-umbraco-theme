@@ -1,0 +1,37 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Core.Models.Blocks.BlockListItem>
+@using Amplify.Web.Custom.Extensions
+
+@{
+    var content = Model.Content as BlogListSection;
+    var settings = Model.Settings as ArticleListSettings;
+    int.TryParse(settings.ItemsPerPage, out var numberOfPosts);
+}
+
+@SectionHelper.RenderSectionStart(
+    backgroundClass: settings.BgColor?.Alias,
+    bgTexture: settings.BgTexture?.Url(),
+    gradient: settings.BgGradient,
+    textClass: settings.TextColor?.Alias,
+    paddingSize: settings.Spacing,
+    className: $"amplify-articles-list {settings.CustomClass}")
+
+@Html.Partial($"~/Views/Partials/Blocks/SectionTitleItem.cshtml", new TitleItem(Model.Content))
+
+@if (content.Blog.HasValue())
+{
+    var blogsNode = new Articles(content.Blog);
+    var take = numberOfPosts;
+    var articles = blogsNode.Children.Select(x => new Article(x))
+        .OrderByDescending(y => y.DisplayDate)
+        .Take(take);
+
+    foreach (var article in articles)
+    {
+        <div class="column @RazorHelper.ColumnClass(settings.Columns)">
+            @Html.Partial($"~/Views/Partials/Blocks/Article.cshtml", article)
+        </div>
+    }
+}
+
+@Html.Partial($"~/Views/Partials/Blocks/LinkComponent.cshtml", new ButtonsComposition(content))
+@SectionHelper.RenderSectionEnd()

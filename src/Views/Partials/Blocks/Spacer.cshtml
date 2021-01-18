@@ -1,0 +1,17 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Core.Models.Blocks.BlockListItem>
+@{
+    var content = Model.Content as Spacer;
+}
+
+<section class="section amplify-spacer @RazorHelper.BackgroundClass(content.BgColor.Alias)">
+    <div class="container">
+        <div class="columns is-centered is-mobile">
+            <div class="column is-6-tablet is-9-mobile">
+                @if (!content.HideSpacerLine)
+                {
+                    <hr class="@RazorHelper.BackgroundClass(content.SpacerColor.Alias)" />
+                }
+            </div>
+        </div>
+    </div>
+</section>

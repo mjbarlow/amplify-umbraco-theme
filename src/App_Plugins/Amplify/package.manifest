@@ -1,0 +1,80 @@
+﻿{
+  "propertyEditors": [
+    {
+      "alias": "amplifyColorPalette",
+      "name": "Amplify Color Palette",
+      "icon": "icon-palette",
+      "group": "pickers",
+      "editor": {
+        "valueType": "TEXT",
+        "view": "~/app_plugins/amplify/editors/amplify.color.palette.html"
+      }
+    },
+    {
+      "alias": "amplifyGradientPalette",
+      "name": "Amplify Gradient Palette",
+      "icon": "icon-palette",
+      "group": "pickers",
+      "editor": {
+        "valueType": "TEXT",
+        "view": "~/app_plugins/amplify/editors/amplify.gradient.palette.html"
+      }
+    },
+    {
+      "alias": "amplifyColorPicker",
+      "name": "Amplify Color Picker",
+      "icon": "icon-colorpicker",
+      "group": "pickers",
+      "editor": {
+        "valueType": "TEXT",
+        "view": "~/app_plugins/amplify/editors/amplify.color.picker.html"
+      },
+      "prevalues": {
+        "fields": [
+          {
+            "label": "Property alias",
+            "description": "Add the property alias of the palette.",
+            "key": "propertyAlias",
+            "view": "textstring"
+          }
+        ]
+      }
+    },
+    {
+      "alias": "amplifyGradientPicker",
+      "name": "Amplify Gradient Picker",
+      "icon": "icon-colorpicker",
+      "group": "pickers",
+      "editor": {
+        "valueType": "TEXT",
+        "view": "~/app_plugins/amplify/editors/amplify.gradient.picker.html"
+      },
+      "prevalues": {
+        "fields": [
+          {
+            "label": "Property alias",
+            "description": "Add the property alias of the palette.",
+            "key": "propertyAlias",
+            "view": "textstring"
+          }
+        ]
+      }
+    }
+  ],
+  "dashboards": [
+    {
+      "alias": "amplifyDashboard",
+      "sections": [ "content" ],
+      "view": "~/App_Plugins/amplify/dashboard/amplify.dashboard.html",
+      "weight": -10
+    }],
+  "javascript": [
+    "~/app_plugins/amplify/amplify.vendor.js",
+    "~/app_plugins/amplify/amplify.modules.js",
+    "~/app_plugins/amplify/controllers/amplify.controllers.js",
+    "~/app_plugins/amplify/amplify.service.js"
+  ],
+  "css": [
+    "~/app_plugins/amplify/amplify.css"
+  ]
+}

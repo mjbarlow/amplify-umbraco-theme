@@ -1,0 +1,46 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Core.Models.Blocks.BlockListItem>
+@using Amplify.Web.Custom
+@using Amplify.Web.Custom.Extensions
+@using Amplify.Web.Custom.Helpers
+
+@{
+    var content = Model.Content as HeroBanner;
+    var settings = Model.Settings as HeroBannerSettings;
+    var alignment = AmplifyHtmlHelper.Alignment(settings?.TextAlignment);
+    var heroColumnClass = AmplifyHtmlHelper.CenteredContent(settings?.TextAlignment);
+}
+
+@SectionHelper.RenderSectionStart(
+    backgroundClass: settings?.BgColor?.Alias,
+    textClass: settings?.TextColor?.Alias,
+    bgTexture: settings?.BgTexture?.Url(),
+    gradient: settings?.BgGradient,
+    paddingSize: settings?.Spacing,
+    className: HtmlConstants.AmplifySection + " amplify-hero-section " + settings?.CustomClass,
+    isFullWidth: false,
+    isCentered: true
+    )
+
+<div class="column is-two-thirds-desktop @(settings?.TextAlignment) @heroColumnClass" data-aos="zoom-in" data-aos-delay="300">
+    <div class="hero-banner-content">
+        @if (content.Title.HasValue())
+        {
+            <h1 class="title is-size-2 is-size-1-tablet block">@content.Title</h1>
+        }
+        @if (content.Subtitle.HasValue())
+        {
+            <div class="hero-banner-text is-size-4 is-size-3-tablet block">
+                @content.Subtitle
+            </div>
+        }
+        @if (content.Buttons.HasValue())
+        {
+            <div class="buttons is-grouped @alignment">
+                @RazorHelper.RenderLinkButtons(content.Buttons,"is-medium")
+            </div>
+        }
+    </div>
+</div>
+
+@SectionHelper.RenderSectionEnd()
+

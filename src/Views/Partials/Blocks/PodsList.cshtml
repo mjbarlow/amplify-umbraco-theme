@@ -1,0 +1,43 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Core.Models.Blocks.BlockListItem>
+@using Amplify.Web.Custom
+@using Amplify.Web.Custom.Extensions
+
+@{
+    var content = Model.Content as PodsList;
+    var settings = Model.Settings as PodsListSettings;
+
+    var spacingClass = settings.IsArticlePage ? "has-margin-bottom-5" : "";
+}
+
+@SectionHelper.RenderSectionStart(
+    backgroundClass: settings.BgColor?.Alias,
+    bgTexture: settings.BgTexture?.Url(),
+    gradient: settings.BgGradient,
+    textClass: settings.TextColor?.Alias,
+    className: $"{HtmlConstants.AmplifySection} amplify-icon-section {spacingClass} {settings.CustomClass}",
+    isFullWidth: false,
+    columnsClass: "amplify-pods"
+    )
+
+@Html.Partial($"~/Views/Partials/Blocks/SectionTitleItem.cshtml", new TitleItem(Model.Content))
+
+@foreach (var item in content.Items)
+{
+    var pod = item.Content as PodItem;
+    if (!pod.HasValue())
+    {
+        return;
+    }
+
+    pod.BorderColor = settings.BorderColor?.Alias;
+    pod.IconColor = settings.IconColor?.Alias;
+    pod.FillGradient = settings.FillGradient.Alias;
+
+    <div data-aos="fade-up" class="column has-margin-bottom-6 @RazorHelper.ColumnClass(settings.Columns)">
+        @Html.Partial($"~/Views/Partials/Blocks/PodItem.cshtml", pod)
+    </div>
+}
+
+@Html.Partial($"~/Views/Partials/Blocks/LinkComponent.cshtml", new ButtonsComposition(Model.Content))
+
+@SectionHelper.RenderSectionEnd()

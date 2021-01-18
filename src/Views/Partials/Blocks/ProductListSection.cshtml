@@ -1,0 +1,27 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Core.Models.Blocks.BlockListItem>
+
+@{
+    var content = Model.Content as ProductListSection;
+    var settings = Model.Settings as ProductListSettings;
+}
+
+@SectionHelper.RenderSectionStart(
+    backgroundClass: settings?.BgColor?.Alias,
+    bgTexture: settings?.BgTexture?.Url(),
+    gradient: settings?.BgGradient,
+    textClass: settings?.TextColor?.Alias,
+    paddingSize: settings?.Spacing,
+    className: $"amplify-products-list {settings?.CustomClass}")
+
+@Html.Partial($"~/Views/Partials/Blocks/SectionTitleItem.cshtml", new TitleItem(Model.Content))
+
+@foreach (var productNode in content.Products)
+{
+    <div class="column @RazorHelper.ColumnClass(settings?.Columns)">
+        @Html.Partial($"~/Views/Partials/Blocks/ProductItem.cshtml", productNode)
+    </div>
+}
+
+@Html.Partial($"~/Views/Partials/Blocks/LinkComponent.cshtml", new ButtonsComposition(content))
+@SectionHelper.RenderSectionEnd()
+

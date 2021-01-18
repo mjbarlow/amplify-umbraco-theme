@@ -1,0 +1,93 @@
+﻿@inherits  Amplify.Web.Custom.ViewPages.AmplifyViewPage<Contact>
+@using Amplify.Web.Custom.Extensions
+@{
+    Layout = "master.cshtml";
+}
+<div class="columns @RazorHelper.BackgroundClass(Model.ContentBgColor?.Alias) @RazorHelper.BackgroundClass(Model.ContentBgGradient.Alias)">
+    <div class="column">
+        @SectionHelper.RenderSectionStart(
+            backgroundClass: "",
+            bgTexture: "",
+            textClass: Model.ContentTextColor?.Alias, 
+            isCentered: false,
+            className: "has-width-80-tablet",
+            columnsClass: "has-margin-bottom-4",
+            paddingSize: "is-normal"
+            )
+
+        <div class="column">
+            @if (Model.Title.HasValue())
+            {
+                <h4 class="is-size-4-desktop is-size-5 has-text-weight-semibold block">@Model.Title</h4>
+            }
+            @if (Model.Subtitle.HasValue())
+            {
+                @Model.Subtitle
+            }
+            <div class="has-margin-bottom-5 has-margin-top-5">
+                @{
+                    var array = new[] { Model.Address1, Model.Address2, Model.Town, Model.City, Model.Region, Model.PostZipCode, Model.Country };
+                    var fullAddress = string.Join(", ", array.Where(s => !string.IsNullOrEmpty(s)));
+                }
+                <div class="amplify-contact-information">
+                    @if (fullAddress.HasValue())
+                    {
+                        <p class="has-margin-bottom-2">
+                            @RazorHelper.RenderFaIcon(new FaLinksPropertyEditor.Models.FaIcon() { ClassName = "fas fa-map-marker-alt has-text-link" }) @fullAddress <br />
+                        </p>
+                    }
+                    @if (Model.Telephone.HasValue())
+                    {
+                        <p class="has-margin-bottom-2">
+                            @RazorHelper.RenderFaIcon(new FaLinksPropertyEditor.Models.FaIcon() { ClassName = "fas fa-phone has-text-link" }) @Model.Telephone
+                        </p>
+                    }
+                    @if (Model.Email.HasValue())
+                    {
+                        <p class="has-margin-bottom-2">
+                            @RazorHelper.RenderFaIcon(new FaLinksPropertyEditor.Models.FaIcon() { ClassName = "fas fa-envelope has-text-link" }) @Model.Email<br />
+                        </p>
+                    }
+                </div>
+            </div>
+
+            @{
+                <h4 class="is-size-4-desktop is-size-5 has-text-weight-semibold block">@Model.ContactFormHeader</h4>
+            }
+            @if (Model.ContactIntro.HasValue())
+            {
+                <div class="block">
+                    @Model.ContactIntro
+                </div>
+            }
+            @if (Model.ContactForm != null)
+            {
+                <div>
+                    @Umbraco.RenderMacro("renderUmbracoForm", new { FormGuid = Model.ContactForm, FormTheme = "amplify", ExcludeScripts = "1" })
+                </div>
+            }
+
+
+        </div>
+       
+               
+        
+        @SectionHelper.RenderSectionEnd()
+    
+    </div>
+    <div class="column has-padding-0">
+        @if (Model.MapEmbedLink.HasValue())
+        {
+            <div class="iframe-container" style="width:100%; height: 100%">
+                <iframe class="iframe has-background-light"
+                        frameborder="0"
+                        scrolling="no"
+                        marginheight="0"
+                        marginwidth="0"
+                        src="@Model.MapEmbedLink">
+                </iframe>
+            </div>
+        }
+    </div>
+  
+</div>

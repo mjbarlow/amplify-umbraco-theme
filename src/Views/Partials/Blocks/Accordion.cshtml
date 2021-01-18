@@ -1,0 +1,35 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Core.Models.Blocks.BlockListItem>
+@using Amplify.Web.Custom.Extensions
+
+@{
+    var content = new Accordion(Model.Content);
+    var firstOpen = false;
+    var allOpen = content.OpenOptions == "all-open";
+    var index = 0;
+
+    if (!allOpen)
+    {
+        firstOpen = content.OpenOptions == "first-open";
+    }
+}
+
+@if (content.AccordionBlocks.HasValue())
+{
+    var accordions = content.AccordionBlocks.Select(x => new AccordionItem(x.Content)).ToList();
+    <div class="amplify-accordion has-margin-top-5 has-margin-bottom-5">
+        @foreach (var accordionPanel in accordions)
+        {
+            <div class="card @(allOpen | (index == 0 & firstOpen) ? "is-active" : "")">
+                <div class="card-header">
+                    <a class="card-header-title">@accordionPanel.Title</a>
+                </div>
+                <div class="card-block">
+                    <div class="card-content">
+                        @accordionPanel.Content
+                    </div>
+                </div>
+            </div>
+            index++;
+        }
+    </div>
+}

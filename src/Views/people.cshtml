@@ -1,0 +1,34 @@
+﻿@inherits Amplify.Web.Custom.ViewPages.AmplifyViewPage<People>
+@using Amplify.Web.Custom.Extensions
+
+@{
+    Layout = "master.cshtml";
+    var people = Model.Children.Select(x => new Person(x));
+}
+
+@SectionHelper.RenderSectionStart(
+    backgroundClass: Model.ContentBgColor?.Alias,
+    bgTexture: Model.ContentBgTexture?.Url(),
+    gradient: Model.ContentBgGradient,
+    textClass: Model.ContentTextColor?.Alias,
+    isCentered: false,
+    className: "amplify-people is-normal-top",
+    columnsClass: "has-margin-bottom-4",
+    paddingSize: "is-medium"
+    )
+
+@Html.Partial($"~/Views/Partials/PageHeader.cshtml", Model)
+
+@if (people.HasValue())
+{
+    foreach (var person in people)
+    {
+        <div class="column @RazorHelper.ColumnClass(Model.Columns)">
+            @Html.Partial($"~/Views/Partials/Blocks/PersonItem.cshtml", person)
+        </div>
+    }
+}
+
+@SectionHelper.RenderSectionEnd()
+
+

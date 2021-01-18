@@ -1,0 +1,185 @@
+﻿@inherits  Amplify.Web.Custom.ViewPages.AmplifyViewPage<Article>
+@using Amplify.Web.Custom.Extensions
+
+@{
+    Layout = "master.cshtml";
+    var relatedArticles = Model.RelatedArticles(2);
+    var authorName = "";
+    var index = 1;
+
+    if (Model.Author.HasValue())
+    {
+        authorName = "by " + Model.Author;
+    }
+    else if (Model.SelectedAuthor.HasValue())
+    {
+        authorName = "by " + (Model.SelectedAuthor as Person)?.Name;
+    }
+}
+
+@section Header {
+    <meta content="@(Model.FullUrl())" property="og:url" />
+    <meta content="@Model.Title" name="twitter:title" />
+    <meta content="@Model.Subtitle.StripHtml()" name="twitter:description" />
+    @if (Model.Image.HasValue())
+    {
+        <meta content="@(Model.Image.FullUrl())" name="twitter:image:src" />
+    }
+    <meta content="@Model.Title" property="og:title" />
+    <meta content="@Model.Subtitle.StripHtml()" property="og:description" />
+    @if (Model.Image.HasValue())
+    {
+        <meta content="@(Model.Image.FullUrl())" property="og:image" />
+    }
+    @if (Model.AppConfig.TwitterUsername.HasValue())
+    {
+        <meta content="@($"@{Model.AppConfig.TwitterUsername}")" name="twitter:site" />
+    }
+    <meta content="summary_large_image" name="twitter:card" />
+    <meta content="@Model.AppConfig.SiteName - @Model.AppConfig.ShortDescription" property="og:site_name" />
+    <meta content="article" property="og:type" />
+}
+
+<section class="section has-text-dark has-background-white has-padding-bottom-0">
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-8">
+                <div class="has-margin-bottom-3">
+                    <h4 class="is-small has-text-grey">@Model.DisplayDate.ToDisplayDate()</h4>
+                    @if (Model.Title.HasValue())
+                    {
+                        <h1 class="is-size-3 is-size-2-desktop has-no-text-transform regular-font has-margin-bottom-3">@Model.Title</h1>
+                    }
+                    @if (Model.Subtitle.HasValue())
+                    {
+                        <div class="is-size-5">
+                            @Model.Subtitle.StripHtml()
+                        </div>
+                    }
+                </div>
+                @if (Model.Categories.HasValue() || authorName.HasValue())
+                {
+                    <div class="has-margin-bottom-5">
+                        @if (authorName.HasValue())
+                        {
+                            <span class="has-margin-right-2">@authorName @Html.Raw(Model.Categories.HasValue() ? "&nbsp;&nbsp;&ndash;" : "")</span>
+                        }
+                        @if (Model.Categories.HasValue())
+                        {
+                            foreach (var category in Model.Categories)
+                            {
+                                <a class="has-margin-right-2 is-size-6" href="@($"{Model.Parent.Url()}?tag={category}")">@category</a>
+                                if (index != Model.Categories.Count())
+                                {
+                                    <span class="has-text-grey-lighter">&nbsp;|&nbsp;</span>
+                                }
+                                index++;
+                            }
+                        }
+                    </div>
+                }
+                <div class="has-margin-bottom-4">
+                    @Html.Action("RenderShareLinks", "Site", new { title = Model.Title, textClass = "has-text-link", noColumn = true, hasLargeIcons = false })
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@if (Model.Image.HasValue())
+{
+    <section class="section  has-padding-top-4 has-padding-bottom-4">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-10">
+                    <div class="image is-hidden-mobile @Model.ImageRatio">
+                        @if (Model.Image.HasValue())
+                        {
+                            <img src="@Model.Image.Url()" class="is-background" alt=""/>
+                        }
+                    </div>
+                    <div class="image is-hidden-tablet">
+                        @if (Model.Image.HasValue())
+                        {
+                            <img src="@Model.Image.Url()" class="is-background" alt=""/>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+<section class="section has-padding-top-3 has-padding-top-6-tablet has-padding-bottom-5 has-text-dark">
+    <div class="container">
+        <div class="columns  @(!Model.HideSideNavs ? "" : "is-centered")">
+
+            @if (Model.SideNav().HasValue() && !Model.HideSideNavs)
+            {
+                <div class="column is-2-tablet">
+                    <aside class="menu amplify-menu">
+                        <h4 href="@Model.Url()" class="menu-label has-text-weight-semibold amplify-menu-link">
+                            <span>@Umbraco.GetDictionaryValue("Article.Contents")</span>
+                        </h4>
+                        <a class="menu-label has-text-weight-semibold amplify-menu-header has-text-link">
+                            <span>@Umbraco.GetDictionaryValue("Article.Contents")</span>
+                        </a>
+                        <ul class="menu-list amplify-menu-list">
+                            @foreach (var navItem in Model.SideNav())
+                            {
+                                <li><a href="#@navItem.url">@navItem.name</a></li>
+                            }
+                        </ul>
+                    </aside>
+                </div>
+            }
+
+            <div class="column is-8-tablet @(Model.HideSideNavs || !Model.SideNav().HasValue() ? "is-offset-2" : "")">
+                <article>
+                    <div class="content amplify-article">
+                        @Html.Partial("~/Views/Partials/Renderers/RenderBlockPage.cshtml", Model.ContentBlocks)
+                    </div>
+                </article>
+                @if (relatedArticles.Any())
+                {
+                    <section class="has-margin-top-6 has-margin-bottom-6">
+                        <div class="columns is-multiline ">
+                            <div class="column is-12-tablet">
+                                <h4 class="is-size-5 has-text-weight-semibold">Related Articles</h4>
+                            </div>
+                            @foreach (var relatedArticle in relatedArticles)
+                            {
+                                <div class="column is-6-tablet">
+                                    @Html.Partial("~/Views/Partials/Blocks/ArticleMini.cshtml", relatedArticle)
+                                </div>
+                            }
+                        </div>
+                    </section>
+                }
+            </div>
+            @if (!Model.HideSideNavs)
+            {
+                <section class="column is-2-tablet is-hidden-mobile">
+                    @if (Model.Next().HasValue())
+                    {
+                        <aside class="menu has-margin-bottom-4">
+                            <h4 class="is-size-6 has-text-weight-semibold">@Umbraco.GetDictionaryValue("Article.Next")</h4>
+                            <ul class="menu-list">
+                                <li><a href="@Model.Next().Url()">@Model.Next().Title</a></li>
+                            </ul>
+                        </aside>
+                    }
+
+                    @if (Model.Prev().HasValue())
+                    {
+                        <aside class="menu has-margin-bottom-4">
+                            <h4 class="is-size-6 has-text-weight-semibold">@Umbraco.GetDictionaryValue("Article.Prev")</h4>
+                            <ul class="menu-list">
+                                <li><a href="@Model.Prev().Url()">@Model.Prev().Title</a></li>
+                            </ul>
+                        </aside>
+                    }
+                </section>
+            }
+
+        </div>
+    </div>
+</section>

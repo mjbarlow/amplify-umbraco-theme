@@ -1,0 +1,32 @@
+﻿@using Amplify.Web.Custom.Extensions
+@inherits Umbraco.Web.Mvc.UmbracoViewPage<AppConfig>
+@{
+    var index = 1;
+}
+
+<script>
+    window.amplify.alert = {
+        title: '@Html.Raw(HttpUtility.JavaScriptStringEncode(Model.AlertTitle))',
+        text: '@Html.Raw(HttpUtility.JavaScriptStringEncode(Model.AlertContent.ToString()))',
+        bgColor: '@RazorHelper.BackgroundClass(Model.AlertBgColor.Alias) @RazorHelper.BackgroundClass(Model.AlertBgGradient.Alias)',
+        textColor: '@RazorHelper.TextColorClass(Model.AlertTextColor.Alias)',
+        display: @Model.AlertEnabled.ToString().ToLower(),
+        buttons : [
+        @foreach (var link in Model.Buttons)
+        {
+            var linkClasses = link.PrimaryClass.HasValue() ? link.PrimaryClass : "is-link";
+            var linkClass = $"button {linkClasses} {link.SecondaryClass}";
+            <text>
+            {
+                linkClass: '@linkClass',
+                className: 'is-medium',
+                url: '@(link.Link?.Url)',
+                text: '@Html.Raw(HttpUtility.JavaScriptStringEncode(link.Link?.Name))'
+            },
+            </text>
+            index++;
+        }
+        ]
+    };
+</script>
+<div id="amplify-alert"></div>

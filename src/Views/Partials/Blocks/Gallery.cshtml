@@ -1,0 +1,45 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Core.Models.Blocks.BlockListItem>
+@using Amplify.Web.Custom.Extensions
+
+@{
+    var isContentPage = Model.Content.ContentType.Alias == GalleryComponent.ModelTypeAlias 
+        ? ((GalleryComponent)Model.Content).IsContentPage
+        : ((Gallery)Model.Content).IsContentPage;
+
+    var content = new Gallery(Model.Content);
+    var settings = Model.Content.ContentType.Alias == GalleryComponent.ModelTypeAlias ?
+        new GallerySettings(Model.Content) : 
+        new GallerySettings(Model.Settings);
+
+    var gapClass = settings.NoSpacing ? "is-gapless" : "";
+    var marginClass = isContentPage ? "has-margin-bottom-5 has-margin-top-5" : "";
+    var columnClass = RazorHelper.ColumnClass(settings.RowItems);
+}
+
+@if (content.Items.HasValue())
+{
+    <div class="amplify-gallery @marginClass">
+        <div class="columns is-multiline @gapClass">
+            @foreach (var item in content.Items)
+            {
+                var block = item.Content as GalleryItem;
+                if (block.HasValue())
+                {
+                    <div class="column @columnClass">
+                        @if (block.Image.HasValue())
+                        {
+                            var slideUrl = block.Video.HasValue() ? block.Video.Url() : (block.VideoUrl.HasValue() ? block.VideoUrl : block.Image.Url());
+                            <div class="gallery-box">
+                                <div class="inner">
+                                    <a href="@slideUrl" class="glightbox image is-square" data-title="@(block.Title.HasValue() ? block.Title : "")" data-description="@(block.Description.HasValue() ? block.Description.ToHtmlString() : "")"  data-desc-position="@(block.TextAlignment.HasValue() ? block.TextAlignment  : "")">
+                                        @(RazorHelper.GetThumbnailImage(block.Image, block.Title,"is-background"))
+                                    </a>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                }
+            }
+        </div>
+    </div>
+}

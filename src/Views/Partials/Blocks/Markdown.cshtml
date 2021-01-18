@@ -1,0 +1,76 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Core.Models.Blocks.BlockListItem>
+@using Amplify.Web.Custom.Extensions
+@using HtmlAgilityPack
+
+@{
+    var content = new Markdown(Model.Content);
+}
+
+@if (content.Content.HasValue())
+{
+    var htmlDoc = new HtmlAgilityPack.HtmlDocument();
+    htmlDoc.LoadHtml(content.Content.ToString());
+
+    // H2s
+
+    var html1 = htmlDoc.DocumentNode.OuterHtml;
+
+    var h2s = htmlDoc.DocumentNode.Descendants("h2").ToList();
+
+    foreach (var h2 in h2s)
+    {
+
+        h2.SetAttributeValue("id", h2.InnerText.ToUrlSegment());
+        h2.SetAttributeValue("class", "title is-size-3 is-85-percent");
+
+        var nextNode = h2.NextSibling?.NextSibling;
+        if (nextNode != null && nextNode.Name == "p")
+        {
+            nextNode.SetAttributeValue("class", "subtitle is-size-4 is-85-percent");
+        }
+    };
+
+    // code
+
+    var codes = htmlDoc.DocumentNode.Descendants("code");
+
+    foreach (var code in codes.ToList())
+    {
+        var pre = HtmlNode.CreateNode($"<pre>{code.InnerText}</pre>");
+        code.ParentNode.ReplaceChild(pre, code);
+        code.Remove();
+    }
+
+    // images
+
+    var images = htmlDoc.DocumentNode.Descendants("img");
+
+    foreach (var image in images.ToList())
+    {
+        image.SetAttributeValue("class", "is-background");
+        image.SetAttributeValue("srcset", RazorHelper.SetImageSrcSet(image.GetAttributeValue("src", "")));
+        image.SetAttributeValue("data-aos", "zoom-in");
+        image.Attributes.Remove("src");
+
+        var parentNode = image.ParentNode;
+        var container = HtmlNode.CreateNode(
+            $"<div class=\"columns has-margin-top-3 has-margin-bottom-5\">" +
+                $"<div class=\"column\">" +
+                    $"<div class=\"image  has-margin-bottom-3 has-margin-bottom-0-tablet \">" +
+                        $"{image.OuterHtml}" +
+                    $"</div>" +
+                $"</div>" +
+                 $"<div class=\"column\"> <div class=\"align-content-vertical-center\"><div>" +
+                    $"<h4 class=\"is-size-5 \">" +
+                        image.GetAttributeValue("alt", "") +
+                    $"</h4>" +
+                    $"<p>" + image.GetAttributeValue("title", "") + "</p>" +
+                $"</div></div></div>" +
+            $"</div>");
+
+        parentNode.ReplaceChild(container, image);
+    }
+
+    var html = new HtmlString(htmlDoc.DocumentNode.OuterHtml);
+    @html
+}

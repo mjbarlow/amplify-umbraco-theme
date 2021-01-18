@@ -1,0 +1,45 @@
+﻿<div ng-controller="amplifyColorPaletteController as vm" class="amplify">
+    <div class="umb-textstring">
+        <div class="control-group  umb-prevalues-multivalues__add color-picker-preval">
+            <div class="umb-prevalues-multivalues__left">
+                <spectrum-colorpicker ng-model="vm.newColor.Value"
+                                      options="{preferredFormat: 'hex',  showInitial: false, chooseText: 'Choose', cancelText: 'Cancel', showInput: true}"
+                                      on-change="vm.spectrumColorUpdate(color, true, '')">
+                </spectrum-colorpicker>
+                <span class="amplify-margin-left"></span><input name="newColor" val-highlight="" type="text" ng-model="vm.newColor.Name" placeholder="Color name..." />
+                <span class="amplify-margin-left">$</span><input name="newColor" val-highlight="" type="text" ng-model="vm.newColor.Alias" placeholder="Color alias..." />
+                <pre class="amplify-hsl amplify-color-preview">{{vm.newColor.Value}}</pre>
+            </div>
+            <div class="umb-prevalues-multivalues__right">
+                <a ng-disabled="vm.addDisabled()" class="btn btn-info add" ng-click="vm.add(); event.stopPropagation()"><localize key="general_add">Add</localize></a>
+            </div>
+        </div>
+        <div ui-sortable="vm.sortableOptions" ng-model="model.value" class="amplify-values-colors umb-prevalues-multivalues">
+            <div class="control-group umb-prevalues-multivalues__listitem color-picker-preval" ng-repeat="color in model.value">
+                <i class="icon icon-navigation handle"></i>
+                <div class="umb-prevalues-multivalues__left">
+                    <spectrum-colorpicker data-newcolor="false"
+                                          ng-model="color.Value"
+                                          options="{preferredFormat: 'hex',  showInitial: false, chooseText: 'Choose', cancelText: 'Cancel', showInput: true}"
+                                          on-change="vm.spectrumColorUpdate(color, false, color.Alias)">
+                    </spectrum-colorpicker>
+                    <div class="color-picker-prediv">
+                        <pre>{{color.Name}}</pre>
+                        <pre>{{color.Alias}}</pre>
+                        <pre class="amplify-hsl">{{color.Value}}</pre>
+                    </div>
+                    <div class="umb-prevalues-multivalues__right">
+                        <div class="list-view-layout__remove">
+                            <i class="icon-trash" ng-click="vm.showPrompt(color)"></i>
+                            <umb-confirm-action ng-if="color.deletePrompt"
+                                                direction="left"
+                                                on-confirm="vm.remove($index)"
+                                                on-cancel="vm.hidePrompt(color)">
+                            </umb-confirm-action>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

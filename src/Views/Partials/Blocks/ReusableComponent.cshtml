@@ -1,0 +1,81 @@
+﻿@using System.Web.Mvc.Html
+@using Amplify.Web.Custom.Helpers
+@using Umbraco.Core.Models.Blocks
+@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Core.Models.Blocks.BlockListItem>
+
+@{
+    var reusableBlock = Model.Content as ReusableComponent;
+    var contentBlock = reusableBlock?.Component;
+
+    if (contentBlock != null)
+    {
+        var block = new BlockListItem(new GuidUdi("document", contentBlock.Key), contentBlock, null, null);
+        var alias = string.Empty;
+        var valHelper = new ValueHelper();
+
+        switch (contentBlock.ContentType.Alias)
+        {
+            case AccordionComponent.ModelTypeAlias:
+                alias = Accordion.ModelTypeAlias;
+                break;
+
+            case BannerStripComponent.ModelTypeAlias:
+                alias = BannerStripSection.ModelTypeAlias;
+                valHelper.SetValues(block.Content);
+                break;
+
+            case CodeComponent.ModelTypeAlias:
+
+                alias = Code.ModelTypeAlias;
+                break;
+
+            case GalleryComponent.ModelTypeAlias:
+                alias = Gallery.ModelTypeAlias;
+                valHelper.SetValues(block.Content);
+                break;
+
+            case ImageComponent.ModelTypeAlias:
+                alias = ImageContent.ModelTypeAlias;
+                break;
+
+            case MarkdownComponent.ModelTypeAlias:
+                alias = Markdown.ModelTypeAlias;
+                break;
+
+            case QuoteComponent.ModelTypeAlias:
+                alias = QuoteContent.ModelTypeAlias;
+                break;
+
+            case ShareLinksComponent.ModelTypeAlias:
+                valHelper.SetValues(block.Content);
+                alias = ShareLinks.ModelTypeAlias;
+                break;
+
+            case SliderComponent.ModelTypeAlias:
+                alias = Slider.ModelTypeAlias;
+                valHelper.SetValues(block.Content);
+                break;
+
+            case TabsComponent.ModelTypeAlias:
+                alias = Tabs.ModelTypeAlias;
+                break;
+
+            case TitleItemComponent.ModelTypeAlias:
+                alias = TitleItem.ModelTypeAlias;
+                break;
+
+            case UmbracoFormComponent.ModelTypeAlias:
+                alias = UmbracoFormItem.ModelTypeAlias; 
+                valHelper.SetValues(block.Content);
+                break;
+
+            case VideoComponent.ModelTypeAlias:
+                alias = Video.ModelTypeAlias;
+                valHelper.SetValues(block.Content);
+                break;
+        }
+        @Html.Partial($"~/Views/Partials/Blocks/{alias}.cshtml", block);
+    }
+}
+
+

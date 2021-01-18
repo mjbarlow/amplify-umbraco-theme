@@ -1,0 +1,21 @@
+﻿@inherits Amplify.Web.Custom.ViewPages.AmplifyViewPage<Footer>
+@{
+    var hideFooter = Model.Value<bool>("hideFooter");
+}
+@if (Model.FooterBlocks.Any() && !hideFooter)
+{
+    <div class="amplify-footer">
+        @SectionHelper.RenderSectionStart(
+            backgroundClass: Model.FooterColor?.Alias,
+            bgTexture: "",
+            gradient: Model.FooterGradient,
+            textClass: Model.FooterTextColor?.Alias,
+            paddingSize: "is-medium",
+            className: $"amplify-footer-section",
+            renderContainer: true,
+            sectionClass: true)
+       
+        @Html.Partial($"~/Views/Partials/Renderers/RenderBlockList.cshtml", Model.FooterBlocks)
+        @SectionHelper.RenderSectionEnd()
+    </div>
+}

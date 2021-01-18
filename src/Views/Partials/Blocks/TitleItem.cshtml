@@ -1,0 +1,17 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Core.Models.Blocks.BlockListItem>
+@using Amplify.Web.Custom.Extensions
+
+@{
+    var content = new TitleItem(Model.Content);
+}
+<div id="@(content.Title.ToUrlSegment())" class="has-margin-top-5">
+    @if (content.Title.HasValue())
+    {
+        <h4 class="is-size-5">@content.Title</h4>
+    }
+
+    @if (content.SubTitle.HasValue())
+    {
+        <p>@content.SubTitle</p>
+    }
+</div>

@@ -1,0 +1,12 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Core.Models.Blocks.BlockListItem>
+
+@{
+    var content = new UmbracoFormItem(Model.Content);
+}
+
+@if (content.Form != null)
+{
+    <div class="box">
+        @Umbraco.RenderMacro("renderUmbracoForm", new { FormGuid = content.Form, FormTheme = "amplify", ExcludeScripts = "1" })
+    </div>
+}

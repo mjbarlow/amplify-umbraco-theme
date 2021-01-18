@@ -1,0 +1,229 @@
+﻿@using Umbraco.Core.Models.PublishedContent
+@using Umbraco.Web
+@using FaLinksPropertyEditor.Models
+@using Amplify.Web.Custom.Extensions
+@using HtmlAgilityPack
+@using System.Web.Mvc
+@using Amplify.Web.Custom
+@using Umbraco.Web.Models
+
+@helper ResponsiveImage(IPublishedContent image, string alt = "", string classList = "", string itemsPerRow = "1")
+{
+    var srcSet = "";
+    switch (itemsPerRow)
+    {
+        case "4":
+        case "3":
+        case "2":
+            srcSet = image.GetCropUrl(480) + " 480w, " +
+                     image.GetCropUrl(769) + " 1480w";
+            break;
+
+        default:
+            srcSet = image.GetCropUrl(480) + " 480w, " +
+                     image.GetCropUrl(769) + " 769w, " +
+                     image.GetCropUrl(1024) + " 1024w, " +
+                     image.GetCropUrl(1216) + " 1216w, " +
+                     image.GetCropUrl(1408) + " 1408w";
+            break;
+    }
+    <img srcset="@srcSet" alt="@alt" class="@classList">
+}
+
+@helper GetThumbnailImage(IPublishedContent image, string alt = "", string classList = "")
+{
+    var src = image.GetCropUrl(HtmlConstants.ThumbnailImageSize, HtmlConstants.ThumbnailImageSize); ;
+    <img src="@src" alt="@alt" class="@classList">
+}
+
+@helper GetFeaturedThumbnailImage(IPublishedContent image, string alt = "", string classList = "")
+{
+    var src = image.GetCropUrl(420, 270);
+    <img src="@src" alt="@alt" class="@classList">
+}
+
+@helper GetSmallImage(IPublishedContent image, string alt = "", string classList = "")
+{
+    if (image.HasValue())
+    {
+        var src = image.GetCropUrl(320);
+        <img src="@src" alt="@alt" class="@classList">
+    }
+}
+
+@helper RenderLinkButtons(IEnumerable<FaLink> faLinks, string classList)
+{
+    if (faLinks.HasValue())
+    {
+        foreach (var faLink in faLinks)
+        {
+            @RenderLinkButton(faLink, classList)
+        }
+    }
+}
+
+@helper RenderLinkButton(FaLink faLink, string classList)
+{
+    if (faLink.Link.HasValue())
+    {
+        var primaryClass = faLink.PrimaryClass.HasValue() ? faLink.PrimaryClass : "is-link";
+
+        <a href="@faLink.Link.Url" class="button @primaryClass @faLink.SecondaryClass  @classList" target="@faLink.Link.Target">
+            @faLink.Link.Name
+        </a>
+    }
+}
+
+@helper RenderLink(Link link, string classList)
+{
+    <a href="@link.Url" class="@classList" target="@link.Target">
+        @link.Name
+    </a>
+}
+
+@helper RenderFaIcon(FaIcon faIcon)
+{
+    <span class="icon">
+        <i class="@faIcon.ClassName"></i>
+    </span>
+}
+
+@helper RenderSocialLink(string href, string iconClass, string value)
+{
+    <a href="@href" target="_blank" class="button is-outlined is-link has-icons-left">
+        <span class="icon">
+            <i class="@iconClass"></i>
+        </span>
+        <span>@value</span>
+    </a>
+}
+
+@helper RenderSocialLinkContent(string href, string iconClass, string value)
+{
+    <div class="level-item has-margin-right-0">
+        <a href="@href" title="@value" target="_blank" class="has-margin-left-3 button is-link is-inverted">
+            <span class="icon is-large">
+                <i class="@iconClass fa-lg"></i>
+            </span>
+        </a>
+    </div>
+}
+
+
+@functions
+{
+    public static string BackgroundClass(string color)
+    {
+        return color.HasValue() ? $"has-background-{color.Substring(1).ToLower()}" : string.Empty;
+    }
+
+    public static string SvgClass(string color)
+    {
+        return color.HasValue() ? $"has-svg-{color.Substring(1).ToLower()}" : string.Empty;
+    }
+
+    public static string TextColorClass(string color)
+    {
+        return color.HasValue() ? $"has-text-{color.Substring(1).ToLower()}" : string.Empty;
+    }
+
+    public static string IsColorClass(string color)
+    {
+        return color.HasValue() ? $"is-{color.Substring(1).ToLower()}" : string.Empty;
+    }
+
+    public static string BorderColorClass(string color)
+    {
+        return color.HasValue() ? $"has-border-{color.Substring(1).ToLower()}" : string.Empty;
+    }
+
+    public static string ColumnClass(string itemsPerRow)
+    {
+        var result = "is-12";
+        switch (itemsPerRow)
+        {
+            case "2":
+                result = "is-6";
+                break;
+            case "3":
+                result = "is-4";
+                break;
+            case "4":
+                result = "is-6-tablet is-3-desktop";
+                break;
+
+            case "5":
+                result = "is-one-fifth";
+                break;
+        }
+        return result;
+    }
+
+    public static string SetImageSrcSet(string url)
+    {
+        var imageSrcSet = url.GetCropUrl(480) + " 480w, " +
+                     url.GetCropUrl(769) + " 769w, " +
+                     url.GetCropUrl(1024) + " 1024w, " +
+                     url.GetCropUrl(1216) + " 1216w, " +
+                     url.GetCropUrl(1408) + " 1408w";
+
+        return imageSrcSet;
+    }
+
+    public static IHtmlString AddClass(IHtmlString source, string classNames, string elementType)
+    {
+
+        var htmlDoc = new HtmlDocument();
+        htmlDoc.LoadHtml(source.ToHtmlString());
+        var elements = htmlDoc.DocumentNode.Descendants(elementType);
+
+        foreach (var element in elements)
+        {
+            element.SetAttributeValue("class", classNames);
+        };
+
+        var html = new HtmlString(htmlDoc.DocumentNode.OuterHtml);
+        return html;
+    }
+
+    public static string AlignmentClass(string value)
+    {
+        var result = "";
+
+        switch (value)
+        {
+            case "has-text-centered":
+                result = "is-centered";
+                break;
+
+            case "has-text-right":
+                result = "is-right";
+                break;
+        }
+        return result;
+
+    }
+
+    public static IHtmlString Truncate(IHtmlString value, int words)
+    {
+
+        var helper = new System.Web.Mvc.HtmlHelper(new ViewContext(), new ViewPage());
+        var truncatedSubtitle = helper.TruncateByWords(value, words, false);
+        var addEllipsis = (truncatedSubtitle.ToString().Length < value.ToString().Length);
+
+        if (addEllipsis)
+        {
+            var subtitle = new HtmlDocument();
+            subtitle.LoadHtml(truncatedSubtitle.ToString());
+            var node = subtitle.DocumentNode.SelectSingleNode("//p//text()") as HtmlTextNode;
+            if (node != null) node.Text += "&hellip;";
+            var html = new HtmlString(subtitle.DocumentNode.OuterHtml);
+            return html;
+        }
+        else
+        {
+            return truncatedSubtitle;
+        }
+    }
+
+}

@@ -1,0 +1,13 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Core.Models.Blocks.BlockListItem>
+@using Amplify.Web.Custom.Extensions
+
+@{
+    var content = new Code(Model.Content);
+}
+
+@if (content.CodeContent.HasValue())
+{
+    <pre class="has-margin-bottom-5 has-margin-top-5">
+        @content.CodeContent
+    </pre>
+}

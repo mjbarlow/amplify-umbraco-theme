@@ -1,0 +1,34 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Core.Models.Blocks.BlockListItem>
+@{
+    var isContentPage = Model.Content.ContentType.Alias == ShareLinks.ModelTypeAlias ? ((ShareLinks)Model.Content).IsContentPage
+        : ((ShareLinksComponent)Model.Content).IsContentPage;
+
+    var content = new ShareLinks(Model.Content);
+    var settings = Model.Content.ContentType.Alias == ShareLinksComponent.ModelTypeAlias ?
+        new ShareLinksSettings(Model.Content) : 
+        new ShareLinksSettings(Model.Settings);
+
+    var spacingClass = isContentPage ? "has-margin-bottom-5 has-margin-top-5" : "";
+}
+
+@SectionHelper.RenderSectionStart(
+    backgroundClass: settings.BgColor?.Alias,
+    bgTexture: settings.BgTexture?.Url(),
+    gradient: settings.BgGradient,
+    textClass: settings.TextColor?.Alias,
+    paddingSize: settings.Spacing,
+    isCentered: true,
+    className: $"amplify-share-list {settings.CustomClass} {spacingClass}")
+
+<div>
+    @Html.Action($"RenderShareLinks", $"Site", new
+    {
+        title = content.ShareText,
+        textClass = RazorHelper.TextColorClass(settings.TextColor?.Alias),
+        hasLargeIcons = content.HasLargeIcons,
+        alignment = string.Empty,
+        isCentered = true
+    })
+</div>
+
+@SectionHelper.RenderSectionEnd()

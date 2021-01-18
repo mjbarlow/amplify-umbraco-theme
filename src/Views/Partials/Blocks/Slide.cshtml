@@ -1,0 +1,51 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Core.Models.Blocks.BlockListItem>
+@using Amplify.Web.Custom
+@using Amplify.Web.Custom.Extensions
+@using Amplify.Web.Custom.Helpers
+
+@{
+    var content = Model.Content as Slide;
+    var settings = Model.Settings as SlideSettings;
+    var alignment = AmplifyHtmlHelper.Alignment(settings?.TextAlignment);
+    var textAlignment = settings?.TextAlignment;
+}
+
+@SectionHelper.RenderSectionStart(
+    backgroundClass: settings?.BgColor?.Alias,
+    bgTexture: settings?.BgTexture?.Url(),
+    gradient: settings?.BgGradient,
+    textClass: settings?.TextColor?.Alias,
+    paddingSize: settings?.Spacing,
+    className: HtmlConstants.AmplifySection + " amplify-hero-section " + settings?.CustomClass,
+    isFullWidth: false,
+    renderContainer:false,
+    sectionClass:false
+    )
+<div class="hero-body">
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column @textAlignment is-two-thirds-desktop">
+                <div class="has-margin-bottom-6 has-margin-bottom-0-tablet @textAlignment">
+                    @if (content.Title.HasValue())
+                    {
+                        <h4 class="is-size-4 is-size-3-tablet has-margin-top-6 has-margin-top-0-tablet has-margin-bottom-3">@content.Title</h4>
+                    }
+                    @if (content.Subtitle.HasValue())
+                    {
+                        <div class="is-size-5 is-size-4-tablet has-margin-bottom-4">
+                            @content.Subtitle
+                        </div>
+                    }
+                    @if (content.Buttons.HasValue())
+                    {
+                        <div class="buttons is-grouped @alignment has-margin-bottom-4">
+                            @RazorHelper.RenderLinkButtons(content.Buttons, "is-medium")
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@SectionHelper.RenderSectionEnd(renderContainer: false)
+

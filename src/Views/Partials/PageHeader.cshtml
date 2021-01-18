@@ -1,0 +1,26 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<IPublishedContent>
+@using Amplify.Web.Custom.Extensions;
+
+@if (Model.ContentType != null)
+{
+    var content = new HeaderTitleComposition(Model);
+    if (content.Title.HasValue() || content.Subtitle.HasValue())
+    {
+        <div class="column has-text-centered is-full has-margin-top-3 has-margin-top-4-tablet has-margin-bottom-4">
+            <div class="has-width-80-percent">
+                <div class="has-margin-bottom-4">
+                    @if (content.Title.HasValue())
+                    {
+                        <h1 class="title is-size-3 is-size-2-tablet">@content.Title</h1>
+                    }
+                    @if (content.Subtitle.HasValue())
+                    {
+                        <h4 class="subtitle is-size-5 is-size-4-tablet">
+                            @content.Subtitle.StripHtml()
+                        </h4>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+}

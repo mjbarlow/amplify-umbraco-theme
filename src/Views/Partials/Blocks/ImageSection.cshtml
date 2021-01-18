@@ -1,0 +1,125 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Core.Models.Blocks.BlockListItem>
+@using Amplify.Web.Custom.Extensions
+
+@{
+    var content = Model.Content as ImageSection;
+    var settings = Model.Settings as ImageSectionSettings;
+
+    var imageWidth = string.Empty;
+
+    switch (settings.SectionWidth)
+    {
+        case "is-6-desktop":
+
+            imageWidth = "has-width-50 has-margin-auto";
+            break;
+
+        case "is-8-desktop":
+            imageWidth = "has-width-70 has-margin-auto";
+            break;
+    };
+}
+
+@SectionHelper.RenderSectionStart(
+backgroundClass: settings.BgColor?.Alias,
+bgTexture: settings.BgTexture?.Url(),
+gradient: settings.BgGradient,
+textClass: settings.TextColor?.Alias,
+paddingSize: settings.Spacing,
+className: $"amplify-image-section {settings.CustomClass}",
+isFullWidth: true,
+renderContainer: false)
+
+<div class="columns is-multiline has-margin-0">
+    @if (content?.AlignImage == "is-left" || content?.AlignImage == "is-right")
+    {
+        if (content.AlignImage == "is-left")
+        {
+
+            <div class="column has-padding-0" data-aos="fade-left">
+                @RenderImage(imageWidth, settings, content)
+            </div>
+            <div class="column has-padding-0" data-aos="fade-right">
+                <div class="align-content-vertical-center has-margin-left-4-tablet">
+                    @RenderImageText(content)
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="column has-padding-0 is-hidden-tablet" data-aos="fade-right">
+                @RenderImage(imageWidth, settings, content)
+            </div>
+            <div class="column has-padding-0" data-aos="fade-left">
+                <div class="align-content-vertical-center has-margin-left-4-tablet">
+                    @RenderImageText(content)
+                </div>
+            </div>
+            <div class="column has-padding-0 is-hidden-mobile" data-aos="fade-right">
+                @RenderImage(imageWidth, settings, content)
+            </div>
+        }
+    }
+    else
+    {
+        <div class="column has-padding-0" data-aos="zoom-in">
+            @RenderImage(imageWidth, settings, content)
+            <div class="has-margin-top-4 has-margin-top-6-tablet">
+                @RenderImageText(content)
+            </div>
+        </div>
+    }
+</div>
+
+@SectionHelper.RenderSectionEnd()
+
+@helper RenderImage(string imageWidth, ImageSectionSettings settings, ImageSection content)
+{
+    if (settings.SectionWidth == "is-8-desktop")
+    {
+        @:<div class="has-centered-content">
+    }
+
+    <div class="image has-margin-bottom-5 has-margin-bottom-0-tablet @imageWidth">
+        @if (content.Image.HasValue())
+        {
+            <img src="@content.Image.Url()" class="is-background" alt="" />
+        }
+    </div>
+
+    if (settings.SectionWidth == "is-8-desktop")
+    {
+        @:</div>
+    }
+}
+
+@helper RenderImageText(ImageSection content)
+{
+    <div class="text-inner has-margin-left-4 has-margin-right-4 has-margin-left-6-tablet has-margin-right-6-tablet">
+        @if (content.Title.HasValue())
+        {
+            <h3 class="title is-size-3 is-size-2-tablet is-spaced">@content.Title</h3>
+        }
+        @if (content.SubTitle.HasValue())
+        {
+            <div class="subtitle is-size-5 is-size-4-tablet">
+                @content.SubTitle
+            </div>
+        }
+        @if (content.BulletList.Any())
+        {
+            <ul class="list-checked has-margin-bottom-5">
+                @foreach (var bullet in content.BulletList)
+                {
+                    <li>@bullet</li>
+                }
+            </ul>
+        }
+        @if (content.Buttons.HasValue())
+        {
+            <div class="has-margin-bottom-5 buttons is-grouped">
+               @RazorHelper.RenderLinkButtons(content.Buttons, "is-medium")
+            </div>
+        }
+    </div>
+}

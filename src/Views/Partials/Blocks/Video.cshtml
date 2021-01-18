@@ -1,0 +1,83 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Core.Models.Blocks.BlockListItem>
+@using Amplify.Web.Custom.Extensions
+
+@{
+    var isContentPage = false;
+
+    switch (Model.Content.ContentType.Alias)
+    {
+        case Video.ModelTypeAlias:
+            isContentPage = ((Video) Model.Content).IsContentPage;
+            break;
+        case VideoComponent.ModelTypeAlias:
+            isContentPage = ((VideoComponent)Model.Content).IsContentPage;
+            break;
+    }
+
+    var content = new Video(Model.Content);
+}
+
+@if (content.VideoPicker.HasValue() || content.VideoUrl.HasValue())
+{
+    if (isContentPage)
+    {
+        @:<div class="has-margin-top-5 has-margin-bottom-5 amplify-video">
+    }
+        <div @(content.IsContentPage ? "" : "data-aos=\"zoom-in\"")>
+            @if (content.VideoPicker.HasValue())
+            {
+                var posterUrl = "";
+
+                if (content.Poster.HasValue())
+                {
+                    posterUrl = content.Poster.Url();
+                }
+                <video poster="@posterUrl" playsinline controls>
+                    <source src="@content.VideoPicker.Url()" type="video/mp4" />
+                </video>
+            }
+            else
+            {
+
+                if (content.VideoUrl.HasValue())
+                {
+                    var url = content.VideoUrl.Trim();
+                    var isUrl = Uri.TryCreate(url, UriKind.Absolute, out var videoUri);
+                    var src = "";
+
+                    if (isUrl)
+                    {
+
+                        switch (videoUri.Host)
+                        {
+                            case "www.youtube.com":
+                                var currentDomain = Request?.Url?.GetLeftPart(UriPartial.Authority);
+                                src = videoUri.GetLeftPart(UriPartial.Path) + $"?origin={currentDomain}&amp;iv_load_policy=3&amp;modestbranding=1&amp;playsinline=1&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1";
+                                break;
+
+                            case "player.vimeo.com":
+                                src = videoUri.GetLeftPart(UriPartial.Path) + $"?loop=false&amp;byline=false&amp;portrait=false&amp;title=false&amp;speed=true&amp;transparent=0&amp;gesture=media";
+                                break;
+                        }
+
+                        if (src.HasValue())
+                        {
+                            <div class="plyr__video-embed image is-16by9">
+                                <iframe src="@src"
+                                        allowfullscreen
+                                        allowtransparency
+                                        allow="autoplay">
+                                </iframe>
+                            </div>
+                        }
+
+                    }
+                }
+            }
+        </div>
+        if (isContentPage)
+        {
+        @:</div>
+    }
+
+}

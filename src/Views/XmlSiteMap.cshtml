@@ -1,0 +1,39 @@
+﻿@inherits Amplify.Web.Custom.ViewPages.AmplifyViewPage<XmlSiteMap>
+@using Amplify.Web.Custom.Extensions
+
+@{
+    Layout = null;
+    Response.ContentType = "text/xml";
+    var siteHomePage = Model.Root();
+    int.TryParse(Model.MaxSiteMapDepth, out var maxDepth);
+    var documentTypes = Model.AllowListedDocumentTypes.Split(',').Select(p => p.Trim()).ToList();
+}
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemalocation="http://www.google.com/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+    @RenderSiteMapUrlEntry(siteHomePage)
+    @RenderSiteMapUrlEntriesForChildren(siteHomePage, maxDepth, documentTypes)
+</urlset>
+
+@helper RenderSiteMapUrlEntry(IPublishedContent node)
+{
+    <url>
+        <loc>@node.FullUrl()</loc>
+        <lastmod>@($"{node.UpdateDate:s}+00:00")</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+}
+
+@helper RenderSiteMapUrlEntriesForChildren(IPublishedContent parentPage, int maxSiteMapDepth, List<string> documentTypes)
+{
+    foreach (var page in parentPage.Children.Where(f => documentTypes.Contains(f.ContentType.Alias.ToString())
+    && !f.Value<bool>("hideFromXmlSiteMap")))
+    {
+        @RenderSiteMapUrlEntry(page)
+        if (page.Level < maxSiteMapDepth && page.Children.Any(f => documentTypes.Contains(f.ContentType.Alias.ToString())
+        && !f.Value<bool>("hideFromXmlSiteMap")))
+        {
+            @RenderSiteMapUrlEntriesForChildren(page, maxSiteMapDepth, documentTypes)
+        }
+    }
+}
