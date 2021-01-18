@@ -1,5 +1,5 @@
 # Amplify Theme for Umbraco 8
-Amplify is the open source and extendable theme that will get you started with Umbraco in minutes.
+Amplify is the open source and extendable theme that will get you started with Umbraco in minutes.  
 The theme is now available under the MIT licence, and is open for collaboration. 
 
 <a href='https://ko-fi.com/mattbarlow' target='_blank'><img height='35' style='border:0px;height:46px;' src='https://az743702.vo.msecnd.net/cdn/kofi3.png?v=0' border='0' alt='Buy Me a Coffee at ko-fi.com' />
@@ -37,6 +37,6 @@ Happy Umbracoing!
 [amplify-docs.jacker.io](https://amplify-docs.jacker.io/)
 
 ### Download
-[our.umbraco.com/packages/starter-kits/amplify-theme](https://our.umbraco.com/packages/starter-kits/amplify-theme/)
+[our.umbraco.com](https://our.umbraco.com/packages/starter-kits/amplify-theme/)
 
 
