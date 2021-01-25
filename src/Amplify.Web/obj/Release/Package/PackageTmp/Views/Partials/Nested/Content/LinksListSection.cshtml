@@ -1,0 +1,11 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<LinksListSection>
+@using Umbraco.Web.PublishedModels
+
+@SectionHelper.RenderSectionStart(Model.BackgroundColor.Label)
+@foreach (var linksList in Model.Links)
+{
+    <div class="column has-no-background @RazorHelper.ColumnClass(Model.ItemsPerRow?.ToString())">
+        @Html.Partial($"~/Views/Partials/Nested/Item/LinksList.cshtml", linksList)
+    </div>
+}
+@SectionHelper.RenderSectionEnd()

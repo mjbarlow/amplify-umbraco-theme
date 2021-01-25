@@ -1,0 +1,45 @@
+﻿@inherits Amplify.Core.ViewPages.AmplifyViewPage<XmlSiteMap>
+@using Amplify.Core.Extensions
+
+@{
+    Layout = null;
+    Response.ContentType = "text/xml";
+    var siteHomePage = Model.Root();
+    var maxSiteMapDepth = Model.MaxSiteMapDepth == 0 ? int.MaxValue : Model.MaxSiteMapDepth;
+    //var documentTypes = Model.AllowListedDocumentTypes.HasValue() ? Model.AllowListedDocumentTypes.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(p => p.Trim()).ToArray() : new string[] { };
+    var documentTypes = Model.AllowListedDocumentTypes.ToObject<string[]>();
+}
+
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemalocation="http://www.google.com/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+    @RenderSiteMapUrlEntry(siteHomePage)
+    @RenderSiteMapUrlEntriesForChildren(siteHomePage, maxSiteMapDepth, documentTypes)
+</urlset>
+
+@helper RenderSiteMapUrlEntry(IPublishedContent node)
+{
+    var changeFreq = node.HasValue("searchEngineChangeFrequency", fallback: Fallback.ToAncestors) ? node.Value("searchEngineChangeFrequency", fallback: Fallback.ToAncestors) : "monthly";
+
+    // with the relative priority, this is a per page setting only, so we're not using recursion, so we won't pass 'true' here and we'll default to 0.5 if no value is set
+    var priority = node.HasValue("searchEngineRelativePriority") ? node.Value<string>("searchEngineRelativePriority") : "0.5";
+    <url>
+        <loc>@node.FullUrl()</loc>
+        <lastmod>@(string.Format("{0:s}+00:00", node.UpdateDate))</lastmod>
+        <changefreq>@changeFreq</changefreq>
+        <priority>@priority</priority>
+    </url>
+}
+
+@helper RenderSiteMapUrlEntriesForChildren(IPublishedContent parentPage, int maxSiteMapDepth, string[] documentTypes)
+{
+    foreach (var page in parentPage.Children.Where(f => documentTypes.Contains(f.ContentType.Id.ToString())
+    && !f.Value<bool>("hideFromXmlSiteMap")))
+    {
+        @RenderSiteMapUrlEntry(page)
+        if (page.Level < maxSiteMapDepth && page.Children.Any(f => documentTypes.Contains(f.ContentType.Id.ToString())
+        && !f.Value<bool>("hideFromXmlSiteMap")))
+        {
+            @RenderSiteMapUrlEntriesForChildren(page, maxSiteMapDepth, documentTypes)
+        }
+    }
+}

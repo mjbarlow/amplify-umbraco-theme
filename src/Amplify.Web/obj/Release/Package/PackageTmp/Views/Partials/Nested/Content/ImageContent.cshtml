@@ -1,0 +1,78 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ImageContent>
+@using Umbraco.Web.PublishedModels
+@using Amplify.Core.Extensions
+
+
+@if (Model.ImageAlignment == "Left" || Model.ImageAlignment == "Right")
+{
+
+    <div class="columns has-margin-top-3 has-margin-bottom-5">
+        <div class="column">
+            @if (Model.ImageAlignment == "Left")
+            {
+                @RenderImage()
+            }
+            else
+            {
+                <div class="is-hidden-mobile">
+                    @RenderImageText()
+                </div>
+            }
+        </div>
+        <div class="column">
+            @if (Model.ImageAlignment == "Left")
+            {
+                @RenderImageText()
+            }
+            else
+            {
+                @RenderImage()
+                <div class="is-hidden-tablet">
+                    @RenderImageText()
+                </div>
+            }
+        </div>
+    </div>
+}
+else
+{
+    <div class="has-margin-top-3 has-margin-bottom-5">
+        <div class="image is-2by1 has-margin-bottom-5-tablet" data-aos="zoom-in">
+            @if (Model.Image.HasValue())
+            {
+                @RazorHelper.ResponsiveImage(Model.Image, classList: "is-background")
+            }
+        </div>
+        @RenderImageText()
+    </div>
+}
+
+@helper RenderImage()
+{
+    <div class="image is-2by1 has-margin-bottom-5 has-margin-bottom-0-tablet" data-aos="zoom-in">
+        @if (Model.Image.HasValue())
+        {
+            @RazorHelper.ResponsiveImage(Model.Image, classList: "is-background")
+        }
+    </div>
+}
+
+@helper RenderImageText()
+{
+    if (Model.Title.HasValue())
+    {
+        <h4 class="is-size-5">@Model.Title</h4>
+    }
+    if (Model.SubTitle.HasValue())
+    {
+
+            @Model.SubTitle
+    }
+    if (Model.Buttons.HasValue())
+    {
+        foreach (var button in Model.Buttons)
+        {
+            @RazorHelper.RenderButton(button)
+        }
+    }
+}

@@ -1,0 +1,8 @@
+﻿@model IEnumerable<string>
+
+<div class="has-spacing-bottom">
+    @foreach (var category in Model)
+    {
+        <span class="tag is-medium">@category</span>
+    }
+</div>

@@ -1,0 +1,27 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Alert>
+@using Umbraco.Web.PublishedModels
+
+<script>
+    window.amplify.alert = {
+        title: '@Html.Raw(HttpUtility.JavaScriptStringEncode(Model.AlertTitle))',
+        text: '@Html.Raw(HttpUtility.JavaScriptStringEncode(Model.AlertContent.ToString()))',
+        bgColor: '@RazorHelper.BackgroundClass(Model.BgColor.Label) @RazorHelper.BackgroundClass(Model.BgGradient)',
+        textColor: '@RazorHelper.TextColorClass(Model.TextColor.Label)',
+        display: @Model.IsEnabled.ToString().ToLower(),
+        buttons : [
+        @foreach (var button in Model.Buttons)
+        {
+            var linkClass = $"{button.ButtonType} {button.ButtonSize} {(button.IsInverted ? "is-inverted" : "")} {(button.IsLight ? "is-light" : "")} {(button.IsOutlined ? "is-outlined" : "")}";
+            <text>
+            {
+                linkClass: '@linkClass',
+                className: '@button.ClassName',
+                url: '@button.Link.Url',
+                text: '@Html.Raw(HttpUtility.JavaScriptStringEncode(button.Link.Name))'
+            },
+            </text>
+        }
+        ]
+    };
+</script>
+<div id="amplify-alert"></div>

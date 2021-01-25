@@ -1,0 +1,204 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Nav>
+@using Umbraco.Web.PublishedModels
+@using Amplify.Core.Extensions
+
+@{  
+
+    var initColorClass = RazorHelper.IsColorClass(Model.NavbarColor.Label);
+    var activeColorClass = RazorHelper.IsColorClass(Model.NavbarActiveColor.Label);
+    var gradientClass = RazorHelper.BackgroundClass(Model.NavbarActiveGradient);
+
+    var initClass = Model.AlternateNavBg ? "is-transparent" : (initColorClass + " " + gradientClass);
+    var activeClass = (initColorClass + " " + gradientClass);
+
+    var index = 0;
+}
+
+<nav id="navbarMain" 
+    data-init-class="@initClass is-spaced" 
+    data-active-class="@activeClass" 
+    class="amplify-nav navbar is-spaced @initClass  @Model.FixedNav" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand has-padding-right-5-desktop">
+            @{
+                if (Model.LogoIcon.HasValue() && Model.EnableIconLogo)
+                {
+                    var icon = Model?.LogoIcon;
+                    <a class="navbar-item @RazorHelper.SvgClass(Model.LogoSvgColor.Label)" href="/">
+                        <span class="icon is-large is-circle">
+                            <i class="@icon.ClassName @(RazorHelper.TextColorClass(Model.LogoIconColor.Label))"></i>
+                        </span>
+                        @Model.LogoIconText
+                    </a>
+                }
+                else if (Model.LogoSvg.HasValue() && Model.EnableSvgLogo)
+                {
+                    <a class="navbar-item @RazorHelper.SvgClass(Model.LogoIconColor.Label)" href="/">
+                        @(new HtmlString(Model.LogoSvg))
+                        @Model.SvgText
+                    </a>
+                }
+                else if (Model.LogoImage.HasValue() && Model.EnableLogoImage)
+                {
+                    <a class="navbar-item" href="/">
+                        <img src="@Model.LogoImage.Url" alt="@Model.LogoImage.Name" />
+                    </a>
+                }
+            }
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div id="navbarMenu" class="navbar-menu">
+            <div class="navbar-start">
+                @if (Model.NavbarStart.HasValue())
+                {
+                    @renderNavs(Model.NavbarStart, index)
+                }
+            </div>
+            <div class="navbar-end">
+                @if (Model.NavbarEnd.HasValue())
+                {
+                    @renderNavs(Model.NavbarEnd, index)
+                }
+                @if (Model.EnableSearch)
+                {
+                    // todo form validation
+                    <div class="navbar-item">
+                        <form action="/search" method="GET" id="search" class="amplify-nav-search">
+                            <div class="field has-addons">
+                                <div class="control is-expanded">
+                                    <input class="input transparent-input" placeholder="@Umbraco.GetDictionaryValue("Search.Placeholder")" type="text" name="q" value="" />
+                                </div>
+                                <div class="control">
+                                    <button type="submit" class="button is-link">
+                                        <span class="icon"><i class="fas fa-search"></i></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                }
+                </div>
+        </div>
+    </div>
+</nav>
+
+@helper renderNavs(IEnumerable<IPublishedElement> nav, int index)
+{
+    foreach (var link in nav)
+    {
+        switch (link.ContentType.Alias)
+        {
+            case NavigationLink.ModelTypeAlias:
+                var navLink = link as NavigationLink;
+                @RenderNavSection(navLink, index)
+                break;
+
+            case LinkButtons.ModelTypeAlias:
+                var linkButtons = link as LinkButtons;
+                if (linkButtons.Buttons.HasValue())
+                {
+                    <div class="navbar-item">
+                        @foreach (var linkButton in linkButtons.Buttons)
+                        {
+                            @RazorHelper.RenderButton(linkButton)
+                        }
+                    </div>
+
+                }
+                break;
+        }
+        index++;
+    }
+}
+
+@helper RenderNavSection(NavigationLink navbarSection, int index)
+{
+    if (navbarSection.Link.HasValue() && navbarSection.Link.HasValue())
+    {
+        var mainNavLink = navbarSection.Link;
+        var hasDropDown = navbarSection.NavColumns.Any();
+
+        if (hasDropDown)
+        {
+            <div id="@("navbar-item-" + index)" class="navbar-item has-dropdown">
+                <a class="navbar-link" href="@mainNavLink.Url">
+                    @mainNavLink.Name
+                </a>
+                <div class="navbar-dropdown">
+                    <div class="columns has-margin-0">
+                    
+                        @foreach (var navColumn in navbarSection.NavColumns)
+                        {
+                            switch (navColumn.ContentType.Alias)
+                            {
+                                case LinksColumn.ModelTypeAlias:
+                                    var linksColumn = navColumn as LinksColumn;
+                                    <div class="column">
+                                        @if (linksColumn.Title.HasValue())
+                                        {
+                                            <div class="navbar-item">
+                                                <h6 class="title is-6 has-text-dark has-margin-bottom-0">@linksColumn.Title</h6>
+                                            </div>
+                                        }
+                                        @foreach (var link in linksColumn.ChildLinks)
+                                        {
+                                            @RazorHelper.RenderLink(link, classList: "navbar-item")
+                                        }
+                                    </div>
+                                    break;
+                                case ArticleColumn.ModelTypeAlias:
+                                    var articleColumn = navColumn as ArticleColumn;
+                                    <div class="column amplify-nav-article-column">
+                                        @if (articleColumn.Title.HasValue())
+                                        {
+                                            <h6 class="title is-6 has-text-dark has-margin-bottom-4">@articleColumn.Title</h6>
+                                        }
+                                        @foreach (var article in articleColumn.Articles)
+                                        {
+                                            if (articleColumn.IsFeatured)
+                                            {
+                                                @Html.Partial("~/views/partials/nested/item/navarticlefeatured.cshtml", article)
+                                            }
+                                            else
+                                            {
+                                                @Html.Partial("~/views/partials/nested/item/navarticle.cshtml", article)
+                                            }
+
+                                        }
+                                    </div>
+                                    break;
+                                case LatestArticles.ModelTypeAlias:
+                                    var latestArticles = navColumn as LatestArticles;
+                                    if (latestArticles.Article.HasValue())
+                                    {
+                                        var articles = latestArticles.Article.Children.OrderByDescending(x => x.Value<DateTime>("displayDate")).Take((int)latestArticles.ItemsToShow);
+                                        <div class="column amplify-nav-article-column">
+                                            @if (latestArticles.Title.HasValue())
+                                            {
+                                                <h6 class="title is-6 has-text-dark has-margin-bottom-4">@latestArticles.Title</h6>
+                                            }
+                                            @foreach (var article in articles)
+                                            {
+                                                @Html.Partial("~/views/partials/nested/item/navarticle.cshtml", article)
+                                            }
+                                        </div>
+                                    }
+                                    break;
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+            <a class="navbar-item" href="@mainNavLink.Url">
+                    @mainNavLink.Name
+            </a>
+        }
+    }
+}

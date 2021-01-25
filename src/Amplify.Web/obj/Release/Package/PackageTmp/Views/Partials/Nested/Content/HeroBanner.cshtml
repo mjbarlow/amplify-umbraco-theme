@@ -1,0 +1,59 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Web.PublishedModels.HeroBanner>
+@using Amplify.Core.Extensions
+
+@{
+    var centeredClasses = Model.CenterAlignContent ? "is-multiline is-centered" : "is-mobile";
+    var textAlignment =  Model.CenterAlignContent ? "has-text-centered" : "";
+    var alignment = Model.CenterAlignContent ? "is-centered" : "";
+    var firstColClasses = Model.CenterAlignContent ? "" : "has-margin-bottom-8-desktop has-margin-bottom-4";
+    var heroBannerContentClasses = Model.CenterAlignContent ? "has-centered-content" : "";
+}
+
+
+<div class="amplify-hero-section @Model.CustomClass">
+    <section class="amplify-section is-large amplify-hero-section-inner has-text-white">
+        <div class="container">
+            <div class="columns  has-margin-bottom-0 has-margin-top-0 @centeredClasses">
+                <div class="column @textAlignment @firstColClasses is-6" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="hero-banner-content @heroBannerContentClasses">
+                        @if (Model.Title.HasValue())
+                        {
+                            <h1 class="title amplify-logo-text has-margin-bottom-4 @(Model.LogoStyle ? "amplify-logo-text" : "")">@Model.Title</h1>
+                        }
+                        @if (Model.Subtitle.HasValue())
+                        {
+                            <div class="hero-banner-text is-size-5 is-size-4-tablet has-margin-bottom-4">
+                                @Model.Subtitle
+                            </div>
+                        }
+                        @if (Model.Buttons.HasValue())
+                        {
+                            <div class="buttons is-grouped @alignment">
+                                @foreach (var button in Model.Buttons)
+                                {
+                                    @RazorHelper.RenderButton(button)
+                                }
+                            </div>
+                        }
+                    </div>
+                </div>
+                @if (Model.FeatureImage.HasValue())
+                {
+                    if (!Model.CenterAlignContent)
+                    {
+                        <div class="column hero-banner-image has-margin-bottom-0">
+                            <img src="@Model.FeatureImage.Url" data-aos="zoom-in" alt="" data-aos-delay="500" />
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="column hero-center-image has-margin-bottom-0 is-10-mobile is-9-tablet has-centered-content">
+                            <img src="@Model.FeatureImage.Url" data-aos="zoom-in" alt="" data-aos-delay="500" data-aos-offet="500"  />
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </section>
+</div>
+

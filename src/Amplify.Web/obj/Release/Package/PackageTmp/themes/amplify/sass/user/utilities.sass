@@ -1,0 +1,49 @@
+.navbar
+    @each $name, $shade in $shades
+        $color: $shade
+        $color-invert: findColorInvert($shade)
+        &.is-#{$name}
+            background-color: $color
+            color: $color-invert
+            .navbar-brand
+                & > .navbar-item,
+                .navbar-link
+                    color: $color-invert
+                & > a.navbar-item,
+                .navbar-link
+                    &:focus,
+                    &:hover,
+                    &.is-active
+                        background-color: darken($color, 5%)
+                        color: $color-invert
+                .navbar-link
+                    &::after
+                        border-color: $color-invert
+            .navbar-burger
+                color: $color-invert
+            +from($navbar-breakpoint)
+                .navbar-start,
+                .navbar-end
+                    & > .navbar-item,
+                    .navbar-link
+                        color: $color-invert
+            & > a.navbar-item,
+            .navbar-link
+                &:focus,
+                &:hover,
+                &.is-active
+                    background-color: darken($color, 5%)
+                    color: $color-invert
+            .navbar-link
+                &::after
+                    border-color: $color-invert
+            .navbar-item.has-dropdown:focus .navbar-link,
+            .navbar-item.has-dropdown:hover .navbar-link,
+            .navbar-item.has-dropdown.is-active .navbar-link
+                background-color: darken($color, 5%)
+                color: $color-invert
+            .navbar-dropdown
+            a.navbar-item
+                &.is-active
+                    background-color: $color
+                    color: $color-invert

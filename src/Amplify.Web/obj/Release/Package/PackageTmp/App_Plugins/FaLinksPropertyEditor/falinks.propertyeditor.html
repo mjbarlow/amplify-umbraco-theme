@@ -1,0 +1,110 @@
+﻿<div ng-controller="FaLinks.PropertyEditor.Controller as vm" class="faLinks-propertyeditor">
+    <ng-form name="faLinksForm" class="list-view-falinks" >
+        <div ui-sortable="vm.sortableOptions" ng-model="model.value">
+            <div ng-repeat="item in model.value" class="list-view-falink" >
+                <i class="list-view-falink__sort-handle icon-navigation"></i>
+                <div ng-show="!item.svg" class="list-view-falink__icon-add">
+                    <a ng-click="addIcon(item)" href="" class="-full-width-input" prevent-default>
+                        <i class="icon icon-add"></i> Icon
+                    </a>
+                </div>
+                <div ng-show="item.svg" class="list-view-falink__icon-view">
+                    <div class="-full-width-input">
+                        <a ng-click="addIcon(item)" href="" prevent-default>
+                            <i class="" ng-bind-html="trustAsHtml(item.svg)"></i>
+                        </a>
+                        <a class="umb-node-preview__action" title="Remove" ng-click="removeIcon(item)">
+                            <localize key="general_remove" class="ng-isolate-scope">Remove</localize>
+                        </a>
+                    </div>
+                </div>
+                <div class="list-view-falink__link">
+                    <ng-form name="multiUrlPickerForm" class="-full-width-input">
+                        <umb-node-preview ng-repeat="link in item.link"
+                                          icon="link.icon"
+                                          name="link.name"
+                                          published="link.published"
+                                          description="link.url + (link.queryString ? link.queryString : '')"
+                                          sortable="false"
+                                          allow-remove="true"
+                                          allow-edit="true"
+                                          on-remove="removeLink(item)"
+                                          on-edit="openLinkPicker(item, link)">
+                        </umb-node-preview>
+                        <a ng-show="item.link.length == 0"
+                           class="umb-node-preview-add -full-width-input"
+                           href=""
+                           ng-click="openLinkPicker(item)"
+                           prevent-default>
+                            <i class="icon icon-add"></i> Link
+                        </a>
+                    </ng-form>
+                </div>
+                <div ng-show="model.config.primaryClassItems.length > 0" class="list-view-falink__dropdown">
+                    <select name="dropDownList" class="umb-property-editor umb-dropdown -full-width-input" ng-model="item.primaryClass">
+                        <option value="" selected></option>
+                        <option ng-repeat="option in model.config.primaryClassItems" ng-value="option.value">{{option.name}}</option>
+                    </select>
+                </div>
+                <div ng-show="model.config.secondaryClassItems.length > 0" class="list-view-falink__dropdown">
+                    <select name="dropDownList" class="umb-property-editor umb-dropdown -full-width-input"
+                            ng-model="item.secondaryClass">
+                        <option value="" selected></option>
+                        <option ng-repeat="option in model.config.secondaryClassItems" ng-value="option.value">{{option.name}}</option>
+                    </select>
+                </div>
+                <div>
+                    <div class="list-view-layout__remove">
+                        <i class="icon-trash" ng-click="vm.showPrompt(item)"></i>
+                        <umb-confirm-action ng-if="item.deletePrompt"
+                                            direction="left"
+                                            on-confirm="vm.remove($index, item)"
+                                            on-cancel="vm.hidePrompt(item)">
+                        </umb-confirm-action>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="hidden" name="minCount" ng-model="model.value" />
+        <input type="hidden" name="maxCount" ng-model="model.value" />
+        <a href="" ng-show="!model.config.maxNumber || model.value.length < model.config.maxNumber" class="list-view-add-layout" ng-click="vm.add()">Add</a>
+
+        <div ng-messages="faLinksForm.minCount.$error" show-validation-on-submit>
+            <div class="help-inline" ng-message="minCount">
+                <localize key="validation_minCount">You need to add at least</localize> {{model.config.minNumber}} <localize key="validation_items">items</localize>
+            </div>
+        </div>
+        <div ng-messages="faIconForm.maxCount.$error" show-validation-on-submit>
+            <div class="help-inline" ng-message="maxCount">
+                <localize key="validation_maxCount">You can only have</localize> {{model.config.maxNumber}} <localize key="validation_itemsSelected">items selected</localize>
+            </div>
+        </div>
+    </ng-form>
+    <div class="umb-contentpicker__min-max-help">
+        <!-- Both min and max items -->
+        <span ng-if="model.config.minNumber && model.config.maxNumber && model.config.minNumber !== model.config.maxNumber">
+            <span ng-if="model.value.length < model.config.maxNumber">Add between {{model.config.minNumber}} and {{model.config.maxNumber}} items</span>
+            <span ng-if="model.value.length > model.config.maxNumber">
+                <localize key="validation_maxCount">You can only have</localize> {{model.config.maxNumber}} <localize key="validation_itemsSelected"> items selected</localize>
+            </span>
+        </span>
+        <!-- Equal min and max -->
+        <span ng-if="model.config.minNumber && model.config.maxNumber && model.config.minNumber === model.config.maxNumber">
+            <span ng-if="model.value.length < model.config.maxNumber">Add {{model.config.minNumber - model.value.length}} item(s)</span>
+            <span ng-if="model.value.length > model.config.maxNumber">
+                <localize key="validation_maxCount">You can only have</localize> {{model.config.maxNumber}} <localize key="validation_itemsSelected"> items selected</localize>
+            </span>
+        </span>
+        <!-- Only max -->
+        <span ng-if="!model.config.minNumber && model.config.maxNumber">
+            <span ng-if="model.value.length < model.config.maxNumber">Add up to {{model.config.maxNumber}} items</span>
+            <span ng-if="model.valye.length > model.config.maxNumber">
+                <localize key="validation_maxCount">You can only have</localize> {{model.config.maxNumber}} <localize key="validation_itemsSelected">items selected</localize>
+            </span>
+        </span>
+        <!-- Only min -->
+        <span ng-if="model.config.minNumber && !model.config.maxNumber && model.value.length < model.config.minNumber">
+            Add at least {{model.config.minNumber}} item(s)
+        </span>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+﻿@inherits Amplify.Core.ViewPages.AmplifyViewPage<BannerStripSection>
+@using Umbraco.Web.PublishedModels
+@using Amplify.Core.Extensions
+
+@{
+    var alignment = RazorHelper.AlignmentClass(Model.TextAlignment);
+    var spacingClass = Model.HasMargin ? "has-margin-bottom-4 has-margin-bottom-6-tablet" : "";
+}
+
+@SectionHelper.RenderSectionStart(
+    backgroundClass: Model.BgColor.Label,
+    bgTexture: Model.BgTexture?.Url,
+    gradientAlias: Model.BgGradient,
+    textClass: Model.TextColor.Label,
+    paddingSize: Model.Spacing,
+    className: $"amplify-banner-strip {spacingClass}")
+
+<div class="column @Model.TextAlignment" data-aos="zoom-in">
+    @if (Model.HeaderImage.HasValue())
+    {
+        <img src="@Model.HeaderImage.Url" alt="" class="has-margin-bottom-5" />
+    }
+
+    @if (Model.Title.HasValue())
+    {
+        <h3 class="title is-size-3 is-size-2-tablet has-margin-top-0">@Model.Title</h3>
+    }
+    @if (Model.Content.HasValue())
+    {
+        <div class="subtitle is-size-5 is-size-4-tablet">
+            @Model.Content
+        </div>
+    }
+    @if (Model.Buttons.HasValue())
+    {
+        <div class="buttons is-grouped @alignment">
+            @foreach (var button in Model.Buttons)
+            {
+                @RazorHelper.RenderButton(button)
+            }
+        </div>
+    }
+</div>
+
+@SectionHelper.RenderSectionEnd()

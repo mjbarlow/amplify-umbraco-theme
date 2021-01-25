@@ -1,0 +1,62 @@
+﻿<div ng-controller="amplifyFontsController as vm">
+    <umb-box>
+    <umb-box-header title="Import Fonts" description="Import fonts from google for use on your Amplify site.">
+        <umb-button type="button"
+                    button-style="success"
+                    label-key="amplify_savegooglefonts"
+                    action="vm.save()"
+                    disabled="vm.working">
+    </umb-box-header>
+    <umb-box-content>
+        <div class="control-group" ng-if="vm.newFont.Value.length > 0">
+            <div>
+                <style>
+                    @import url("https://fonts.googleapis.com/css2?family={{vm.newFont.Value}}&display=swap");
+                </style>
+                <div style="font-size:30px; line-height:30px; font-family:'{{vm.newFont.Value}}'">
+                    {{vm.newFont.Value}}<br />
+                    <span>The spectacle before us was indeed sublime.</span>
+                </div>
+            </div>
+        </div>
+        <div class="control-group umb-prevalues-multivalues__add color-picker-preval">
+            <div class="umb-prevalues-multivalues__left">
+                <button class="btn btn-info amplify-no-margin-auto" ng-click="vm.chooseFont(vm.newFont)">
+                    Choose Font...
+                </button>
+                <pre class="amplify-hsl amplify-color-preview">{{vm.newFont.Value}}</pre>
+                <button ng-disabled="vm.addDisabled()" class="btn btn-info add amplify-no-margin-auto" ng-click="vm.add()"><localize key="general_add">Add</localize></button>
+            </div>
+            <div class="umb-prevalues-multivalues__right"></div>
+        </div>
+
+        <div ui-sortable="vm.sortableOptions" ng-model="vm.fonts" class="amplify-values-colors umb-prevalues-multivalues">
+            <div class="control-group umb-prevalues-multivalues__listitem color-picker-preval" ng-repeat="variable in vm.fonts">
+                <i class="icon icon-navigation handle"></i>
+                <div class="umb-prevalues-multivalues__left">
+                    <div class="color-picker-prediv">
+                        <pre class="amplify-hsl" style="font-family:'{{variable.Value}}'">{{variable.Value}}</pre>
+                        <div class="amplify-margin-left"><strong>font-family:</strong> '{{variable.Value}}' <strong>&nbsp;&nbsp;type:</strong> {{variable.Type}}</div>
+                    </div>
+                    <div class="umb-prevalues-multivalues__right">
+                        <umb-toggle input-id="{{variable.Value}}"
+                                    checked="variable.Enabled"
+                                    on-click="vm.toggleEnabled(variable)"
+                                    show-labels="true"
+                                    label-position="left"
+                                    label-on="Enabled"
+                                    label-off="Disabled">
+                        </umb-toggle>
+                        <a class="umb-node-preview__action umb-node-preview__action--red amplify-margin-left" localize="title" title="Delete" ng-click="vm.delete(vm.fonts, $index); $event.stopPropagation();"> <i class="icon icon-trash"></i> </a>
+                    </div>
+                    </div>
+                    <div class="control-group" ng-if="variable.Value.length > 0">
+                    <style>
+                        @import url("https://fonts.googleapis.com/css2?family={{variable.Value}}&display=swap");
+                    </style>
+                    </div>
+            </div>
+        </div>
+    </umb-box-content>
+    </umb-box>
+</div>

@@ -1,0 +1,15 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<TitleItem>
+@using Umbraco.Web.PublishedModels
+@using Amplify.Core.Extensions
+
+<div id="@(Model.Title.ToUrlSegment())">
+    @if (Model.Title.HasValue())
+    {
+        <h4 class="is-size-5">@Model.Title</h4>
+    }
+
+    @if (Model.SubTitle.HasValue())
+    {
+        <p>@Model.SubTitle</p>
+    }
+</div>

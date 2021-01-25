@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<language alias="en" intName="English (US)" localName="English (US)" lcid="" culture="en-US">
+  <creator>
+    <name>Matt | jacker.io</name>
+    <link>https://jacker.io</link>
+  </creator>
+  <area alias="sections">
+    <key alias="amplifySection">Amplify</key>
+  </area>
+  <area alias="amplify">
+    <key alias="savesettings">Save Settings</key>
+    <key alias="savestyles">Save Styles</key>
+    <key alias="savecolors">Save Colors</key>
+    <key alias="savegradients">Save Gradients</key>
+    <key alias="savefont">Save Fonts</key>
+    <key alias="savefontstacks">Save Fontstacks</key>
+    <key alias="savesassvariables">Save Sass Variables</key>
+    <key alias="savegooglefonts">Save Google Fonts</key>
+    <key alias="buildsass">Build Sass</key>
+    <key alias="reset">Reset</key>
+   </area>
+</language>

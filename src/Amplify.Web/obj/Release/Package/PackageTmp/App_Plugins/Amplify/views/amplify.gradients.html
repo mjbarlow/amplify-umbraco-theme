@@ -1,0 +1,76 @@
+﻿<div ng-controller="amplifyGradientsController as vm">
+    <div id="amplifyGradients">
+        <umb-box>
+            <umb-box-header title="Gradients" description="Build background gradients for use in your Amplify theme.">
+                    <umb-button-group default-button="vm.saveButton.defaultButton"
+                                      sub-buttons="vm.saveButton.subButtons"
+                                      direction="down"
+                                      float="right"
+                                      button-style="success"
+                                      state="vm.saveButton.state">
+                    </umb-button-group>
+            </umb-box-header>
+            <umb-box-content>
+                <div class="control-group umb-prevalues-multivalues__add color-picker-preval">
+                    <div class="umb-prevalues-multivalues__left">
+                        <div class="thumbnail thumbnail-gradient" style="{{vm.gradientStyle(vm.new.StartColor, vm.new.EndColor, vm.new.Degree)}}"></div>
+                        <span class="amplify-margin-left-medium">Start:</span>
+                        <spectrum-colorpicker ng-model="vm.new.StartColor"
+                                              class="amplify-color-picker"
+                                              options="{preferredFormat: hsl,  showInitial: false, chooseText: 'Choose', cancelText: 'Cancel', preferredFormat: 'hsl', showInput: true}"
+                                             >
+                        </spectrum-colorpicker>
+                        <pre class="amplify-hsl amplify-color-preview">{{vm.new.StartColor}}</pre>
+
+                        <span class="amplify-margin-left-medium">End:</span>
+                        <spectrum-colorpicker ng-model="vm.new.EndColor"
+                                              class="amplify-color-picker"
+                                              options="{preferredFormat: hsl,  showInitial: false, chooseText: 'Choose', cancelText: 'Cancel', preferredFormat: 'hsl', showInput: true}"
+                                              on-change="vm.spectrumColorUpdate(color, false,'')">
+                        </spectrum-colorpicker>
+                        <pre class="amplify-hsl amplify-color-preview">{{vm.new.EndColor}}</pre>
+                        <span class="amplify-margin-left-medium">Degrees:</span><input type="number" min="0" max="360" class="input-small" ng-model="vm.new.Degree" placeholder="Gradient Degree..." />
+                        <span class="amplify-margin-left-medium">$</span><input name="newColor" val-highlight="" type="text" ng-model="vm.new.Alias" placeholder="Gradient variable name..." />
+
+
+                    </div>
+                    <div class="umb-prevalues-multivalues__right">
+                        <button ng-disabled="vm.addDisabled()" class="btn btn-info add" ng-click="vm.add()"><localize key="general_add">Add</localize></button>
+                    </div>
+                </div>
+                <div ui-sortable="vm.sortableOptions" ng-model="vm.gradients" class="amplify-values-colors umb-prevalues-multivalues">
+                    <div class="control-group umb-prevalues-multivalues__listitem color-picker-preval" ng-repeat="item in vm.gradients">
+                        <i class="icon icon-navigation handle"></i>
+                        <div class="umb-prevalues-multivalues__left">
+                            <div class="thumbnail thumbnail-gradient" style="{{vm.gradientStyle(item.StartColor, item.EndColor, item.Degree)}}"></div>
+                            <div class="color-picker-prediv">
+                                <span class="amplify-margin-left-medium">Start:</span>
+                                <spectrum-colorpicker data-newcolor="false"
+                                                      ng-model="item.StartColor"
+                                                      class="amplify-color-picker"
+                                                      options="{preferredFormat: hsl,  showInitial: false, chooseText: 'Choose', cancelText: 'Cancel', preferredFormat: 'hsl', showInput: true}"
+                                                      >
+                                </spectrum-colorpicker>
+                                <pre>{{item.StartColor}}</pre>
+                                <span class="amplify-margin-left-medium">End:</span>
+                                <spectrum-colorpicker data-newcolor="false"
+                                                      ng-model="item.EndColor"
+                                                      class="amplify-color-picker"
+                                                      options="{preferredFormat: hsl,  showInitial: false, chooseText: 'Choose', cancelText: 'Cancel', preferredFormat: 'hsl', showInput: true}"
+                                                     >
+                                </spectrum-colorpicker>
+                                <pre>{{item.EndColor}}</pre>
+                                <span class="amplify-margin-left-medium">Degrees:</span><input type="number" min="0" max="360" class="input-small" ng-model="item.Degree" placeholder="Gradient Degree..." />
+                                <pre>{{item.Alias}}</pre>
+                            </div>
+                          
+                            <div class="umb-prevalues-multivalues__right">
+                                <a class="umb-node-preview__action umb-node-preview__action--red amplify-margin-left" localize="title" title="Delete" ng-click="vm.delete(vm.gradients, $index); $event.stopPropagation();" prevent-default=""> <i class="icon icon-trash"></i> </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </umb-box-content>
+        </umb-box>
+    </div>
+</div>

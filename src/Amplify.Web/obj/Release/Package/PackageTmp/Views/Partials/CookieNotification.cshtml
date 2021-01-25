@@ -1,0 +1,19 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<CookieNotification>
+@using Umbraco.Web.PublishedModels
+@using Amplify.Core.Extensions;
+
+@if (Model.IsEnabled)
+{
+    <script>
+        window.amplify.cookieNotification = {
+            title: '@Html.Raw(HttpUtility.JavaScriptStringEncode(Model.CookieTitle))',
+            text: '@Html.Raw(HttpUtility.JavaScriptStringEncode(Model.CookieText.ToString()))',
+            bgColor: '@RazorHelper.BackgroundClass(Model.BgColor.Label)',
+            textColor: '@RazorHelper.TextColorClass(Model.TextColor.Label)',
+            buttonColor: '@RazorHelper.IsColorClass(Model.ButtonColor.Label)',
+            buttonText: '@Html.Raw(HttpUtility.JavaScriptStringEncode(Model.ButtonText))',
+            display: @Model.IsEnabled.ToString().ToLower()
+        };
+    </script>
+    <div id="amplify-cookie"></div>
+}

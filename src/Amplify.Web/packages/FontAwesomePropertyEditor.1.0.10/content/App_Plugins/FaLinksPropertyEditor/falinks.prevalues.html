@@ -1,0 +1,27 @@
+﻿<div ng-controller="FaLinks.Prevalues.Controller as vm" class="falinks-prevalues">
+    <div>
+        <div class="list-view-layouts" ui-sortable="vm.sortableOptions" ng-model="model.value">
+            <div class="list-view-layout" ng-repeat="item in model.value">
+                <i class="icon-navigation list-view-layout__sort-handle"></i>
+                <div class="list-view-layout__name">
+                    <input type="text" ng-model="item.name" placeholder="Name..." class="-full-width-input" />
+                </div>
+                <div class="list-view-layout__name">
+                    <input type="text" ng-model="item.value" placeholder="Value..." class="-full-width-input" />
+                </div>
+                <div>
+                    <div class="list-view-layout__remove">
+                        <i class="icon-trash" ng-click="vm.showPrompt(item)"></i>
+                        <umb-confirm-action
+                            ng-if="item.deletePrompt"
+                            direction="left"
+                            on-confirm="vm.remove($index)"
+                            on-cancel="vm.hidePrompt(item)">
+                        </umb-confirm-action>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="" class="list-view-add-layout" ng-click="vm.add()">Add</a>
+    </div>
+</div>

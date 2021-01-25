@@ -1,0 +1,27 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<AlignedText>
+@using Umbraco.Web.PublishedModels
+@using Amplify.Core.Extensions
+
+@if (Model.HasValue())
+{
+    <div class="level is-mobile has-margin-bottom-3">
+        @if (Model.TextLeft.HasValue())
+        {
+            <div class="level-left">
+                <div class="level-item">
+                    @Model.TextLeft
+                </div>
+            </div>
+        }
+        @if (Model.TextRight.HasValue())
+        {
+            <div class="level-right">
+                <div class="level-item">
+                    @Model.TextRight
+                </div>
+            </div>
+        }
+    </div>
+}
+
+

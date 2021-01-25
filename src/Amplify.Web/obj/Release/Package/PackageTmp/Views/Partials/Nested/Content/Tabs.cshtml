@@ -1,0 +1,56 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Tabs>
+@using Umbraco.Web.PublishedModels
+@using Amplify.Core.Extensions
+
+@{ 
+    var index = 0;
+    var tabStyle = Model.TabStyle ? "" : "is-boxed";
+    var alignment = "";
+
+    switch(Model.Alignment)
+    {
+        case "has-text-centered":
+            alignment = "is-centered";
+            break;
+        case "has-text-right":
+            alignment = "is-right";
+            break;
+    }
+}
+
+@if (Model.TabPanels.HasValue())
+{
+    <div class="amplify-tabs has-margin-bottom-5">
+        <div class="tabs @tabStyle @Model.TabSize @alignment">
+            <ul class="has-margin-left-0">
+                @foreach (var tabPanel in Model.TabPanels)
+                {
+                    <li class="@(index == 0 ? "is-active" : "")">
+                        <a data-tab="@($"tab{index}")">
+                            @if (tabPanel.Icon.HasValue())
+                            {
+                                @RazorHelper.RenderFaIcon(tabPanel.Icon)
+                            }
+
+                            <span>@tabPanel.Title</span>
+                        </a>
+                    </li>
+                    index++;
+                }
+            </ul>
+        </div>
+        @{ 
+            index = 0;
+        }
+        <div class="tab-panels">
+            @foreach (var tab in Model.TabPanels)
+            {
+                <div class="tab-panel @(index == 0 ? "is-active" : "")" id="@($"tab{index}")">
+                    @tab.Content
+                    <hr/>
+                </div>
+                index++;
+            }
+        </div>
+    </div>
+}

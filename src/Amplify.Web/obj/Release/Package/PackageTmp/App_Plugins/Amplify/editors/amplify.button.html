@@ -1,0 +1,165 @@
+﻿<div ng-controller="amplify.Button.Controller as vm" class="amplify amplify-buttons-editor">
+    <ng-form name="amplifyButtonForm" >
+        <div ui-sortable="vm.sortableOptions" ng-model="model.value">
+
+            <div ng-repeat="item in model.value" class="amplify-buttons">
+
+                <i class="sort-handle icon-navigation" ng-show="{{model.config.maxNumber && model.config.maxNumber > 1}}"></i>
+                <button class="amplify-button amplify-margin-right {{item.buttonType}} {{item.buttonSize}} {{item.isLight ? 'is-light' : ''}}  {{item.isOutlined ? 'is-outlined' : ''}} {{item.isInverted ? 'is-inverted' : ''}}" prevent-default>
+                    <span class="icon" ng-show="item.className">
+                        <i class="{{item.className}}"></i>
+                    </span>
+                    <span>{{item.link.length === 0 ? 'Button Text' : item.link[0].name}}</span>
+                </button>
+
+                <div ng-show="!vm.showSettings">
+
+                    <div ng-show="!item.className" class="dash-box dash-box-small">
+                        <a ng-click="addIcon(item)" href="" class="full-width-input" prevent-default>
+                            <i class="icon icon-add"></i> Icon
+                        </a>
+                    </div>
+
+                    <div ng-show="item.className" class="dash-box dash-box-small">
+                        <div class="full-width-input">
+                            <a ng-click="addIcon(item)" href="" prevent-default>
+                               <i class="{{item.className}}"></i>
+                            </a>
+                            <a class="umb-node-preview__action" title="Remove" ng-click="removeIcon(item)">
+                                <localize key="general_remove" class="ng-isolate-scope">Remove</localize>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="dash-box dash-box-fill">
+                        <ng-form name="multiUrlPickerForm" class="full-width-input">
+                            <umb-node-preview ng-repeat="link in item.link"
+                                              icon="link.icon"
+                                              name="link.name"
+                                              published="link.published"
+                                              description="link.url + (link.queryString ? link.queryString : '')"
+                                              sortable="false"
+                                              allow-remove="true"
+                                              allow-edit="true"
+                                              on-remove="removeLink(item)"
+                                              on-edit="openLinkPicker(item, link)">
+                            </umb-node-preview>
+                            <a ng-show="item.link.length === 0"
+                               class="full-width-input"
+                               href=""
+                               ng-click="openLinkPicker(item)"
+                               prevent-default>
+                                <i class="icon icon-add"></i> Link
+                            </a>
+                        </ng-form>
+                    </div>
+
+                </div>
+
+                <div ng-show="vm.showSettings" class="amplify-buttons-settings">
+                    <!-- the settings dropdowns for finer granuality -->
+                    <div ng-show="vm.buttonTypes.length > 0" class="amplify-dropdown amplify-margin-right">
+                        <select name="dropDownList" class="umb-property-editor umb-dropdown -full-width-input" ng-model="item.buttonType">
+                            <option value="" selected>Type</option>
+                            <option ng-repeat="option in vm.buttonTypes" ng-value="option.value">{{option.name}}</option>
+                        </select>
+                    </div>
+                    <div ng-show="vm.buttonSizes.length > 0" class="amplify-dropdown amplify-margin-right">
+                        <select name="dropDownList" class="umb-property-editor umb-dropdown -full-width-input"
+                                ng-model="item.buttonSize">
+                            <option value="" selected>Size</option>
+                            <option ng-repeat="option in vm.buttonSizes" ng-value="option.value">{{option.name}}</option>
+                        </select>
+                    </div>
+                    <!-- toggles-->
+                    <umb-toggle class="umb-permission__toggle amplify-margin-right"
+                                checked="item.isLight"
+                                on-click="vm.setIsLight(item)"
+                                show-labels="true"
+                                label-on="Light?"
+                                label-off="Light?"
+                                label-position="left">
+                    </umb-toggle>
+                    <umb-toggle class="umb-permission__toggle amplify-margin-right"
+                                checked="item.isOutlined"
+                                on-click="vm.setIsOutlined(item)"
+                                show-labels="true"
+                                label-on="Outlined?"
+                                label-off="Outlined?"
+                                label-position="left">
+                    </umb-toggle>
+                    <umb-toggle class="umb-permission__toggle amplify-margin-right"
+                                checked="item.isInverted"
+                                on-click="vm.setIsInverted(item)"
+                                show-labels="true"
+                                label-on="Inverted?"
+                                label-off="Inverted?"
+                                label-position="left">
+                    </umb-toggle>
+                    <div ng-hide="true">
+                    <umb-toggle class="umb-permission__toggle amplify-margin-right"
+                                checked="item.isFullWidth"
+                                on-click="vm.setIsFullWidth(item)"
+                                show-labels="true"
+                                label-on="Full width?"
+                                label-off="Full width?"
+                                label-position="left">
+                    </umb-toggle>
+                        </div>
+                </div>
+
+                <div class="edit-buttons">
+                    <i class="icon icon-umb-settings" ng-click="vm.toggleShowSettings()"></i>
+                    <i class="icon-trash" ng-click="vm.showPrompt(item)"></i>
+                    <umb-confirm-action ng-if="item.deletePrompt"
+                                        direction="left"
+                                        on-confirm="vm.remove($index, item)"
+                                        on-cancel="vm.hidePrompt(item)">
+                    </umb-confirm-action>
+                </div>
+
+            </div>
+        </div>
+        <input type="hidden" name="minCount" ng-model="model.value" />
+        <input type="hidden" name="maxCount" ng-model="model.value" />
+        <a href="" ng-show="!model.config.maxNumber || model.value.length < model.config.maxNumber" class="list-view-add-layout" ng-click="vm.add()">Add</a>
+
+        <div ng-messages="faLinksForm.minCount.$error" show-validation-on-submit>
+            <div class="help-inline" ng-message="minCount">
+                <localize key="validation_minCount">You need to add at least</localize> {{model.config.minNumber}} <localize key="validation_items">items</localize>
+            </div>
+        </div>
+        <div ng-messages="faIconForm.maxCount.$error" show-validation-on-submit>
+            <div class="help-inline" ng-message="maxCount">
+                <localize key="validation_maxCount">You can only have</localize> {{model.config.maxNumber}} <localize key="validation_itemsSelected">items selected</localize>
+            </div>
+        </div>
+    </ng-form>
+    <div class="umb-contentpicker__min-max-help">
+        <!-- Both min and max items -->
+        <span ng-if="model.config.minNumber && model.config.maxNumber && model.config.minNumber !== model.config.maxNumber">
+            <span ng-if="model.value.length < model.config.maxNumber">Add between {{model.config.minNumber}} and {{model.config.maxNumber}} items</span>
+            <span ng-if="model.value.length > model.config.maxNumber">
+                <localize key="validation_maxCount">You can only have</localize> {{model.config.maxNumber}} <localize key="validation_itemsSelected"> items selected</localize>
+            </span>
+        </span>
+        <!-- Equal min and max -->
+        <span ng-if="model.config.minNumber && model.config.maxNumber && model.config.minNumber === model.config.maxNumber">
+            <span ng-if="model.value.length < model.config.maxNumber">Add {{model.config.minNumber - model.value.length}} item(s)</span>
+            <span ng-if="model.value.length > model.config.maxNumber">
+                <localize key="validation_maxCount">You can only have</localize> {{model.config.maxNumber}} <localize key="validation_itemsSelected"> items selected</localize>
+            </span>
+        </span>
+        <!-- Only max -->
+        <span ng-if="!model.config.minNumber && model.config.maxNumber">
+            <span ng-if="model.value.length < model.config.maxNumber">Add up to {{model.config.maxNumber}} items</span>
+            <span ng-if="model.valye.length > model.config.maxNumber">
+                <localize key="validation_maxCount">You can only have</localize> {{model.config.maxNumber}} <localize key="validation_itemsSelected">items selected</localize>
+            </span>
+        </span>
+        <!-- Only min -->
+        <span ng-if="model.config.minNumber && !model.config.maxNumber && model.value.length < model.config.minNumber">
+            Add at least {{model.config.minNumber}} item(s)
+        </span>
+    </div>
+</div>

@@ -1,0 +1,109 @@
+﻿@inherits Amplify.Core.ViewPages.AmplifyViewPage<Product>
+@using Umbraco.Web.PublishedModels
+@using Amplify.Core.Extensions
+@{
+    Layout = "master.cshtml";
+    var relatedProducts = Model.RelatedProducts(3);
+}
+
+<section class="amplify-section section is-medium amplify-section-top">
+    <div class="container">
+        <div class="columns is-centered is-multiline">
+            <div class="column is-10-tablet has-text-centered">
+                <div class="has-width-80-percent">
+                    <div class="has-margin-bottom-4">
+                        <h1 class="is-size-3 is-size-2-desktop has-no-text-transform regular-font has-margin-bottom-3">
+                            @Model.ProductName
+                        </h1>
+                    </div>
+                </div>
+            </div>
+            <div class="column is-4-tablet amplify-gallery">
+                <div class="image has">
+                    <a href="@Model.Image.Url" class="glightbox image">
+                        @RazorHelper.ResponsiveImage(Model.Image, Model.ProductName, "is-background amplify-card", Model.ItemsPerRow)
+                    </a>
+                </div>
+                @if (Model.Images.Any())
+                {
+                    <div class="amplify-sub-gallery has-margin-bottom-3">
+                        @foreach (var image in Model.Images)
+                        {
+                            <div>
+                                <a href="@image.Url" class="glightbox image is-square has-margin-top-4">
+                                    @(RazorHelper.GetThumbnailImage(image, image.Name, "is-background has-box-radius"))
+                                </a>
+                            </div>
+                        }
+                    </div>
+                }
+            </div>
+            <div class="column is-6-tablet">
+                <div class="card amplify-card">
+                    <div class="card-content">
+                        <div class="content">
+                            @if (Model.FullDescription.HasValue())
+                            {
+                                @Model.FullDescription
+                            }
+
+
+                            <div class="has-text-weight-semibold is-size-5 has-margin-bottom-4">@Model.Parent.GetProperty("DefaultCurrency").Value()@Model.Price.ToString("F")</div>
+                            <div class="buttons">
+                                <a class="button is-link has-icons-left" href="#">
+                                    <span class="icon">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </span>
+                                    <span>@Umbraco.GetDictionaryValue("Products.Add.Basket")</span>
+                                </a>
+                            </div>
+                            @if (Model.Features.HasValue())
+                            {
+                                <hr class="has-margin-top-4 has-margin-bottom-4" />
+                                foreach (var feature in Model.Features)
+                                {
+                                    <div class="media has-margin-bottom-0">
+                                        <div class="media-left">
+                                            @RazorHelper.RenderFaIcon(feature.Icon)
+                                        </div>
+                                        <div class="media-content">
+                                            <p>
+                                                <strong>@feature.Feature</strong><br />
+                                                @feature.Description
+                                            </p>
+                                        </div>
+                                    </div>
+                                    if (Model.Features.IndexOf(feature) != Model.Features.Count() - 1)
+                                    {
+                                        <hr class="has-margin-top-4 has-margin-bottom-4" />
+                                    }
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @if (relatedProducts.Any())
+        {
+            <div class="columns is-centered">
+                <div class="column is-10-tablet">
+                    <section class="card-section is-full-width has-margin-top-5 ">
+                        <div class="columns is-multiline ">
+                            <div class="column is-12-tablet">
+                                <h4 class="is-size-5 has-text-weight-semibold">Related Products</h4>
+                            </div>
+                            @foreach(var item in relatedProducts)
+                            {
+                                <div class="column is-4-tablet">
+                                    @Html.Partial("~/views/partials/nested/item/productmini.cshtml", item)
+                                </div>
+                            }
+                        </div>
+                    </section>
+                </div>
+            </div>
+        }
+    </div>
+</section>
+

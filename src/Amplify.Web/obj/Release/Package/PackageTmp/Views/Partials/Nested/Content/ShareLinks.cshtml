@@ -1,0 +1,32 @@
+﻿@inherits Amplify.Core.ViewPages.AmplifyViewPage<ShareLinks>
+@using Umbraco.Web.PublishedModels
+
+@{
+    var alignment = RazorHelper.AlignmentClass(Model.TextAlignment);
+    var spacingClass = Model.HasMargin ? "has-margin-bottom-4 has-margin-bottom-5-tablet" : "";
+    var pullAlignment = RazorHelper.PulledClass(Model.TextAlignment);
+}
+
+@SectionHelper.RenderSectionStart(
+    backgroundClass: Model.BgColor.Label,
+    bgTexture: Model.BgTexture?.Url,
+    gradientAlias: Model.BgGradient,
+    textClass: Model.TextColor.Label,
+    paddingSize: Model.Spacing,
+    isCentered: alignment == "is-centered",
+    mobileColumns: true,
+    className: $"amplify-share-links {spacingClass} {alignment}")
+
+    <div>
+        @Html.Action("RenderShareLinks", "Site", new
+        {
+            title = Model.ShareText,
+            textClass = RazorHelper.TextColorClass(Model.TextColor.Label),
+            hasLargeIcons = Model.HasLargeIcons,
+            alignment = pullAlignment,
+            isCentered = alignment == "is-centered"
+        })
+    </div>
+
+
+@SectionHelper.RenderSectionEnd()

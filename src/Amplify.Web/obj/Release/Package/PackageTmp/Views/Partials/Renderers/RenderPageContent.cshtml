@@ -1,0 +1,35 @@
+﻿@using Amplify.Core.Extensions
+@using Amplify.Core.Helpers
+
+@inherits Umbraco.Web.Mvc.UmbracoViewPage<IEnumerable<IPublishedElement>>
+
+@if (Model.HasValue())
+{
+    foreach (var rowContent in Model)
+    {
+        switch (rowContent.ContentType.Alias)
+        {
+            case BannerStripSection.ModelTypeAlias:
+            case IconsSection.ModelTypeAlias:
+            case ShareLinks.ModelTypeAlias:
+            case Video.ModelTypeAlias:
+            case Gallery.ModelTypeAlias:
+            case Slider.ModelTypeAlias:
+            case UmbracoFormItem.ModelTypeAlias:
+
+                // since I don't want to keep casting then setting the property per modeltype, this method does it in a generic way
+                var valHelper = new ValueHelper();
+                var typedContent = valHelper.SetValues(rowContent);
+
+                    @Html.Partial($"~/Views/Partials/Nested/Content/{rowContent.ContentType.Alias}.cshtml", typedContent)
+
+                break;
+
+            default:
+
+                @Html.Partial($"~/Views/Partials/Nested/Content/{rowContent.ContentType.Alias}.cshtml", rowContent)
+
+                break;
+        }
+    }
+}

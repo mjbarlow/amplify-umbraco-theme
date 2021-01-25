@@ -1,0 +1,23 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<SingleLineSection>
+@using Umbraco.Web.PublishedModels
+@using Amplify.Core.Extensions
+
+@if (Model.Text.HasValue())
+{
+
+    @SectionHelper.RenderSectionStart(
+    backgroundClass: Model.BgColor.Label,
+    bgTexture: Model.BgTexture?.Url,
+    gradientAlias: Model.BgGradient,
+    textClass: Model.TextColor.Label,
+    paddingSize: Model.Spacing,
+    className: $"amplify-banner-strip")
+
+    <div class="container has-no-background">
+        <div class="content has-text-centered">
+            @Model.Text
+        </div>
+    </div>
+
+    @SectionHelper.RenderSectionEnd()
+}

@@ -1,0 +1,274 @@
+﻿.falinks-picker
+.umb-iconpicker-item i,
+.faLinks-propertyeditor
+.list-view-layout__icon i {
+    width: 30px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.falinks-picker
+.umb-iconpicker-item svg {
+    height: 100%;
+}
+
+.falinks-picker .umb-iconpicker-item i {
+    padding: 10px;
+}
+
+.list-view-falinks {
+    max-width: 1024px;
+}
+
+.list-view-falink {
+    display: flex;
+    justify-content: flex-start;
+    max-height: 30px;
+    align-items: center;
+    padding: 10px 15px;
+    background: #fff;
+    margin-bottom: 4px;
+    margin-top: 4px;
+    border: 1px solid #e9e9eb;
+    border-radius: 3px;
+}
+
+.ui-sortable-disabled .list-view-falink__sort-handle {
+    cursor: default;
+}
+
+.list-view-falink__sort-handle {
+    font-size: 14px;
+    color: #d8d7d9;
+    margin-right: 15px;
+    cursor: move;
+}
+
+.list-view-falink__icon-add,
+.list-view-falink__icon-view,
+.list-view-falink__link,
+.list-view-falink__dropdown,
+.list-view-falink div.-full-width-input {
+    display: flex;
+    flex: auto;
+}
+
+.list-view-falink div.-full-width-input {
+    justify-content: space-between
+}
+
+.list-view-falink a.-full-width-input,
+.list-view-falink div.-full-width-input,
+.list-view-falink ng-form.-full-width-input,
+.list-view-falink select.-full-width-input {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.list-view-falink__icon-add {
+    border: 1px dashed #bbbabf;
+    padding: 5px 15px;
+    margin-right: 15px;
+    flex: 0 1 10%;
+    border-radius: 3px;
+}
+
+    .list-view-falink__icon-add a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: 700;
+        text-decoration: none;
+    }
+
+        .list-view-falink__icon-add a:hover {
+            color: #2152a3;
+            border-color: #2152a3;
+            text-decoration: none;
+        }
+
+    .list-view-falink__icon-add i {
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+.list-view-falink__icon-view {
+    border: 0;
+    padding: 5px 8px;
+    margin-right: 15px;
+    flex: 0 1 10%;
+    border-radius: 3px;
+    background-color: #f6f4f4;
+}
+
+    .list-view-falink__icon-view a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .list-view-falink__icon-view .umb-node-preview__action:hover {
+        color: #d42054;
+    }
+
+    .list-view-falink__icon-view > div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .list-view-falink__icon-view i {
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .list-view-falink__icon-view i svg {
+            fill: #2152a3;
+            height: 100%;
+        }
+
+.list-view-falink__link,
+.list-view-falink__dropdown {
+    margin-right: 15px;
+}
+
+.list-view-falink__icon-view-wide label {
+    margin-bottom: 0;
+    margin-left: 15px;
+    max-height: 20px;
+    overflow: hidden;
+}
+
+.list-view-falink__dropdown {
+    flex: 0 1 20%;
+}
+
+.list-view-falink__link {
+    flex: 1 1 40%;
+}
+
+    .list-view-falink__link .umb-node-preview-add {
+        box-sizing: initial;
+        font-weight: normal;
+        max-width: none;
+        font-weight: 700;
+        font-size: 14px;
+        border-radius: 3px;
+    }
+
+    .list-view-falink__link .umb-node-preview {
+        border: 0;
+        display: flex;
+        max-width: none;
+        box-sizing: initial;
+        border-radius: 3px;
+        background-color: #f6f4f4;
+    }
+
+        .list-view-falink__link .umb-node-preview > div {
+            max-height: 20px;
+            flex: 0 1 auto;
+            overflow: hidden;
+        }
+
+        .list-view-falink__link .umb-node-preview .umb-node-preview__actions {
+            align-items: end;
+            padding-right: 5px;
+        }
+
+    .list-view-falink__link .umb-node-preview__icon {
+        width: 15px;
+        height: 15px;
+        font-size: 15px;
+    }
+
+    .list-view-falink__link .umb-node-preview__name {
+        overflow: hidden;
+        font-size: 13px;
+        margin-top: 0;
+        max-width: 125px;
+        overflow: hidden;
+    }
+
+    .list-view-falink__link .umb-node-preview__description {
+        display: none;
+    }
+
+    .list-view-falink__link .umb-node-preview__icon {
+        margin-left: 5px;
+        margin-top: -3px;
+        margin-right: 5px;
+    }
+
+.faiconbuttons .btn {
+    width: auto;
+    min-width: 50px;
+    margin: 3px;
+    font-weight: 700;
+    border: 1px solid #e9e9eb;
+    background: #ffffff;
+}
+
+.faiconbuttons .btn-wide {
+    width: auto;
+    min-width: 90px;
+    height: 80px;
+    font-size: 14px;
+}
+
+.faiconbuttons .btn-selection {
+    color: #1b264f;
+    border-color: #f5c1bc #f5c1bc #eb8379;
+    border-color: rgba(0,0,0,.1) rgba(0,0,0,.1) rgba(0,0,0,.25);
+    background-color: #f5c1bc;
+}
+
+    .faiconbuttons .btn-selection i svg {
+        fill: #ffffff;
+    }
+
+.faiconbuttons i {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+    .faiconbuttons i svg {
+        height: 100%;
+        fill: #bbbbbb;
+    }
+
+.list-view-falink__icon-view-single {
+    flex: 0 0 auto;
+    width: auto;
+    min-width: 35px;
+    align-items: center;
+    justify-content: center;
+    min-height: 35px;
+    margin-right: 10px;
+    background-color: #fee4e1;
+}
+
+    .list-view-falink__icon-view-single i {
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 5px;
+        margin-top: 5px;
+    }
+
+.list-view-falink-single {
+    height: auto;
+    max-height: none;
+}

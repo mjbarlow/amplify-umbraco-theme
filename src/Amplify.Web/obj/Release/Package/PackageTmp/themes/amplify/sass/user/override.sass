@@ -1,0 +1,861 @@
+a
+    transition: all 0.3s
+
+    
+h1, h2, h3, .title
+ font-family: $family-primary
+ font-weight: normal
+ text-transform: uppercase
+
+h1
+    &.regular-font
+        font-family: $family-secondary
+        text-transform: none
+        font-weight: 600
+
+h3, h3.title, h4, h4.title
+    text-transform: none
+    font-weight: normal
+
+.content 
+    h1, h2, h3, h4, h5, h6
+        text-transform: none
+        font-family: $family-secondary
+
+.amplify-section
+    position: relative
+    &.no-spacing
+        padding: 0
+        .amplify-title
+            margin-top: 4rem
+        .amplify-button
+            margin-bottom: 2rem
+
+.amplify-hero
+    &-section 
+        background: radial-gradient(closest-corner circle at 65% 30%, #D16FF5 0%, transparent 100%), linear-gradient(to right, #009FE3, #8019C1)
+        &-inner
+            background-color:transparent
+            background-image: url('/themes/amplify/images/amplify-curve.svg') 
+            background-size: 100% auto
+            background-repeat: no-repeat 
+            background-position: bottom
+        h1.amplify-logo-text
+            font-weight: normal
+            text-transform: uppercase
+            font-size: 2rem !important
+            letter-spacing: 0.14em
+            +tablet
+                font-size: 50px !important   
+            +desktop
+                font-size: 70px !important
+        .hero-banner-content
+            margin-top: 5rem
+            margin-bottom: 5rem
+            margin-left: 2rem
+            +tablet
+                margin-top: 30%
+                margin-bottom: 20%
+                margin-left: 15%
+            +desktop
+                margin-top: 30%
+                margin-bottom: 30%
+                max-width: 430px
+                margin-left: 20%
+        .hero-banner-image
+            position: relative
+            margin-right: 5%
+            +desktop
+                margin-right: 0
+            img
+                position: absolute
+                top: 7%
+                right: 10%
+                max-height: 90%
+                +tablet 
+                    max-height: 90%
+                +desktop
+                    right: 20%
+                    max-height: 100%
+        .hero-banner-text
+            @media screen and (min-width: 680px), print
+                font-size: 1.3rem
+                .button
+                &.is-medium
+                    font-size: 1rem
+            +tablet
+                font-size: 1.75rem
+            
+.amplify-icon-section 
+    .icon-item 
+        max-width: 90%
+        margin: 0 auto
+        .has-line-circle
+            .icon 
+                font-size: 2rem
+                width: 100%
+                height: 100%
+                +desktop
+                    font-size: 3.5rem
+
+.amplify-mini-icon-section
+    .level-item
+        min-width: 50px
+    div.level-item
+        width: 30%
+        justify-content: right
+        margin-right: 1rem
+    p.level-item
+        width: 70%
+        justify-content: left
+        margin-left: 1rem
+    .icon-item 
+        margin: 0 auto
+        .icon 
+            font-size: 2rem
+            width: 100%
+            height: 100%
+            justify-content: flex-end
+
+.amplify-image-section
+    .text-content
+        display:flex
+    .text-inner
+        max-width: 480px
+
+.amplify-banner-section 
+    .hero-body
+        .container
+            z-index: 111
+
+.amplify-nav
+    transition: all 100ms linear
+    .navbar-dropdown
+        transition: 0.3s
+        .icon i
+            margin-right: 0.8em
+    .navbar-brand
+        svg
+            height: 42px
+        .navbar-item
+            font-size: 1.3rem
+            letter-spacing: .1em
+            text-transform: uppercase
+            font-weight: 600
+            font-family: $family-primary
+            .icon
+                font-size: 1.85rem
+                margin-right: 5px
+            img
+                max-height: 2.25rem
+    &.is-transparent 
+        background-color: transparent
+        .navbar-brand
+            a
+                color: $white
+                &:hover,
+                &.is-active,
+                &.is-hoverable:focus,
+                &.is-hoverable:focus-within,
+                &.is-hoverable:hover
+                    color: $white
+        .navbar-menu > div > .navbar-item, 
+        .navbar-menu > div > .navbar-item > .navbar-link
+            color: $white
+            background-color: transparent
+            &:hover,
+            &.is-active,
+            &.is-hoverable:focus,
+            &.is-hoverable:focus-within,
+            &.is-hoverable:hover
+                color: $white
+                background-color: transparent
+        
+        .navbar-menu.is-active > div > a.navbar-item, 
+        .navbar-menu.is-active > div > .navbar-item > .navbar-link
+            color: $dark
+            &:hover,
+            &.is-active,
+            &.is-hoverable:focus,
+            &.is-hoverable:focus-within,
+            &.is-hoverable:hover
+                color: $link
+                background-color: $white-bis
+        .navbar-menu.is-active > div > .navbar-item > .navbar-link
+            background-color: $grey-lightest
+            border-bottom: 1px solid $grey-lighter
+            margin-bottom: 1px
+            &:hover,
+            &.is-active,
+            &.is-hoverable:focus,
+            &.is-hoverable:focus-within,
+            &.is-hoverable:hover
+                color: $white
+
+    .navbar-menu.is-active
+        padding-bottom: 1rem
+        padding-top: 0
+        .button
+            display: flex
+            width: 100%
+        .column
+            padding-top: 0
+        .navbar-item 
+            .navbar-dropdown
+                height: 0
+                overflow: hidden
+                transition: all .3s
+                padding: 0
+                .navbar-item
+                    padding-left: 0
+                    padding-right: 0
+            &.is-active
+                .navbar-dropdown
+                    height: auto
+                    overflow: auto
+                    padding: 8px 0
+
+.amplify-overlay 
+    height: 0
+    width: 100%
+    position: fixed
+    z-index: 112
+    left: 0
+    top: 0
+    background-color: rgba(0,0,0, 0.2)
+    overflow-x: hidden
+
+.is-clipped
+    .amplify-overlay 
+        height: 100%
+
+.navbar-item
+    > .icon
+        font-size: 1.33333em
+        line-height: 0.75em
+        vertical-align: -.0667em
+    .amplify-nav-article-column
+        .media-content,
+        .content p
+            min-width: 120px
+        figure.has-margin-bottom-4
+            max-width: 200px
+        +desktop
+            img, figure.has-margin-bottom-4
+                max-width: none
+                width: 100%
+            .content p
+                min-width: 200px
+        img
+            max-height: none
+            border-radius: 4px
+        a
+            &:hover,
+            &:focus
+                color: darken($link, 10%) !important
+    
+.navbar-button 
+    padding: 0.5rem
+
+.amplify-testimonial
+    padding-top: 2rem !important
+    padding-bottom: 6rem !important
+    article
+        padding-top: 7rem
+        background: url('/images/amplify-umbraco-theme-quotes.png') no-repeat top center
+    .media
+        justify-content: center
+        align-items: center
+        .media-content
+            flex-grow: 0
+
+.amplify-client-logos
+    .amplify-logo
+        max-width: 80%
+        padding: 0.5rem
+        margin-left: auto
+        margin-right: auto
+        +tablet
+            max-width: 80%
+            padding: 0.25rem
+        +desktop
+            max-width: 100%
+            padding: 0.25rem 0.5rem
+        +widescreen
+            max-width: 90%
+            padding: 0.25rem 0.5rem
+    img
+        max-height: 130px
+        display: flex
+        margin-left: auto
+        margin-right: auto
+       
+.amplify-card
+    border-radius: $box-radius
+    .content
+        display: flex
+        justify-content: space-between
+        flex-direction: column
+
+.amplify-image-card
+    img
+        border-radius: $box-radius $box-radius 0 0  
+
+.amplify-texture-overlay 
+    height: 100%
+    width: 100%
+    top: 0
+    left: 0
+    position: absolute
+    background-position: center center
+    opacity: 1
+    transition: background 0.3s, border-radius 0.3s, opacity 0.3s
+    background-size: cover
+    +tablet
+        background-attachment: fixed
+
+.amplify-parallax 
+    +tablet
+        background-attachment: fixed
+
+.amplify-background-image 
+    background-position: center center
+    opacity: 1
+    transition: background 0.3s, border-radius 0.3s, opacity 0.3s
+    background-size: cover
+
+.amplify-signup-form
+    .image,
+    img
+        background: transparent
+        max-width: 100px
+        max-height: 100px    
+
+.amplify-cookie-notification
+    position: fixed
+    width: 100%
+    margin-bottom: 0 !important
+    z-index: 150
+    right: 0
+    bottom: 0
+    +tablet
+        right: 1.5em
+        bottom: 1.5em
+        max-width: 400px
+
+.amplify-divider 
+    display: block
+    margin: 1em 0 1.5em
+    overflow: hidden
+    text-align: center
+    span
+        padding: 0 1em
+        position: relative
+        &:after, 
+        &:before
+            border-top: 2px solid $white
+            content: ""
+            display: block
+            position: absolute
+            top: 50%
+            width: 9999em
+        &:before
+            right: 100%
+        &:after
+            left: 100%
+
+.amplify-login-register
+    &.is-fullheight,
+    .is-fullheight
+       min-height: 100vh
+    +desktop
+        display: flex
+    .section
+        padding-bottom: 0
+        padding-top: 0
+    .columns
+        z-index: 1
+    .amplify-login-form
+        width: 100%
+    .tabs
+        a
+            border-bottom-width: 3px
+        ul
+            li
+                width: 50%
+
+.amplify-form-small
+    .field-body
+        +tablet
+            flex-grow: 2
+    .label 
+        //color: $white
+
+.amplify-sitemap
+    .content 
+        > ul
+            margin-left: 1em
+        ul 
+            ul
+                margin-top: 0.5em
+                margin-bottom: 1em
+
+.amplify-search-results 
+    img
+        border-radius: 4px
+           
+.amplify-nav-search
+    input, .button
+        height: 2em
+
+    button
+        padding-top: 4px
+
+    .transparent-input
+        color: $light
+        background: transparent
+        border-color: $white
+        +placeholder
+            color: darken($white, 5%)
+
+.amplify-search
+    .button.is-medium
+        font-size: 1.25rem
+
+.amplify-share-links
+    .columns.is-centered
+        .level-left
+            margin: 0 auto
+
+
+.amplify-menu
+    &-link
+        display: none
+    &-header
+        display: block
+        position: relative
+        span
+            &::after
+                @extend %arrow
+                border-color: $link
+                margin-top: -0.375em
+                right: 1.125em
+    &-list
+        padding: 0
+        overflow-y: hidden
+        max-height: 0
+        transition: max-height .3s ease
+    &.is-active
+        .amplify-menu-list
+            max-height: 100em
+    +tablet
+        .amplify-menu-list
+            max-height: 100em 
+        &-header
+            display: none 
+            span
+                &::after
+                    display: none 
+        &-link
+            display: block
+
+.amplify-accordion 
+    .card 
+        margin-bottom: 0
+        .card-header-title
+            &::after
+                @extend %arrow
+                border-color: $link
+                margin-top: -0.375em
+                right: 1.125em
+        .card-header
+            position: relative
+            border-bottom: 1px solid $grey-lightest
+        .card-block
+            padding: 0
+            overflow-y: hidden
+            max-height: 0
+            transition: max-height .3s ease
+        .card-content
+            padding: 1em
+    .is-active
+        .card-block
+            max-height: 100em
+
+.amplify-tabs
+    .tab-panels
+        .tab-panel
+            padding: 0
+            display: none
+            transition: display .3s ease
+        .is-active
+            display: block
+
+.amplify-gallery 
+    .gallery-box
+        .inner
+            position: relative
+        a
+            display: block
+            width: 100%
+            height: auto
+            position: relative
+            overflow: hidden
+            &:before
+                content: ''
+                display: block
+                width: 100%
+                height: 100%
+                position: absolute
+                top: 0
+                left: 0
+                background: $black
+                z-index: 99
+                opacity: 0
+                transition: opacity 0.4s
+        img
+            width: calc(100% + 20px)
+            max-width: calc(100% + 20px)
+            transition: opacity 0.35s, transform 0.35s
+            transform: translate3d(-10px, 0, 0)
+        &:hover
+            img
+                +tablet
+                    transform: translate3d(0, 0, 0)
+                    transition: opacity 0.35s, transform 0.35s
+            a
+                &:before
+                    +tablet
+                        opacity: 0.2
+                        transition: opacity 0.5s
+
+    
+    
+    
+    
+    // Utility
+
+.amplify-alert-notification
+    position: fixed
+    bottom: 0
+    margin-bottom: 0 !important
+    z-index: 150
+    width: 100%
+    border-radius: 0
+
+.amplify-slider
+    .amplify-texture-overlay
+        +tablet
+            background-attachment: scroll
+
+.amplify-video iframe,
+.amplify-video object,
+.amplify-video embed,
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+
+.amplify-video video, 
+    width: 100%    !important
+    height: auto   !important
+    object-fit: cover
+    
+.amplify-footer-section
+    .title
+        border-bottom: 1px solid $media-border-color
+        margin-bottom: 1rems
+        padding-bottom: 1rem
+    .amplify-footer-column
+        img
+            border-radius: 4px
+    .amplify-footer-featured
+        figure 
+            +tablet
+                max-width: 220px
+    .column
+        +desktop
+            padding-left: 2em
+            padding-right: 2em      
+    .amplify-footer-social
+        a
+            display: inline-block
+    .amplify-brand-name
+        font-size: 1.3rem
+        letter-spacing: .1em
+        text-transform: uppercase
+        font-weight: 600
+    .amplify-brand-icon
+        i
+            font-size: 1.85rem
+
+.amplify-footer   
+    .amplify-banner-strip
+        &.is-normal
+            padding: 2rem 1.5rem
+
+.amplify-contact-information
+    .icon
+        margin-right: 5px
+
+.amplify-section-top 
+    padding-top: 6rem
+    +tablet
+        padding-top: initial
+
+.amplify-subscribe-form
+    article
+        max-width: 300px    
+
+.amplify-grid-section
+    .block-spacing
+        max-width: 90%
+        margin: 0 auto
+
+.amplify-form-dark
+    .label 
+        color: $white
+    input, textarea
+        background: $blue-grey-dark
+        border: $blue-grey-dark
+        color: $white
+
+.amplify-form
+    max-width: 600px
+    margin: 0 auto
+
+.amplify-top
+    border-radius: 3px
+    position: fixed
+    bottom: 20px
+    right: 20px
+    display: inline-block
+    height: 40px
+    width: 40px
+    padding: 12px
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05)
+    background-color: $link
+    transition: 0.3s
+    visibility: hidden
+    opacity: 0
+    &:hover
+        background-color: darken($link, 10%) !important
+    &--is-visible
+        visibility: visible
+        opacity: 1
+    &--fade-out
+        opacity: .5
+    &::after
+        border: 3px solid $white
+        border-radius: 2px
+        border-right: 0
+        border-top: 0
+        content: " "
+        display: block
+        height: 0.925em
+        margin-top: -0.2em
+        pointer-events: none
+        position: absolute
+        top: 50%
+        transform: rotate(135deg)
+        transform-origin: center
+        width: 0.925em
+ 
+.amplify-article-header
+    padding-top: 6rem
+
+.amplify-sub-gallery
+    display: flex 
+    flex-wrap: wrap  
+    justify-content: space-between
+    div
+        width: calc(33.3% - 10px)
+
+
+.amplify-buy-page 
+    background: radial-gradient(closest-corner circle at 90% 90%, #D16FF5 0%, transparent 100%), linear-gradient(to right, #009FE3, #8019C1)
+    .hero-banner-content 
+        max-width: 80%
+        margin-bottom: 0
+        +tablet
+            max-width: 540px
+            margin-top: 20%
+            margin-left: auto
+            margin-right: auto
+            margin-bottom: 0
+    .hero-center-image
+        position: relative
+        +desktop
+            height: 380px
+        +widescreen
+            height: 500px
+        img
+            position: relative
+            max-width: 90%
+            margin: 0 auto
+            +desktop
+                position: absolute
+                width: 100%
+                bottom: -155px
+                z-index: 1
+                max-width: 100%
+
+.amplify-spacer
+    padding-top: 0
+    padding-bottom: 0
+    +tablet
+        padding-top: 3rem
+        padding-bottom: 3rem
+
+.amplify-pods
+    > *:last-child 
+        margin-bottom: 0 !important
+
+.is-dark
+    .is-link
+        &:hover
+            color: lighten($link,5%)
+
+.has-line-circle
+    border: 3px solid rgba(0,0,0,0.1)
+    height: 100px
+    width: 100px
+    border-radius: 50%
+    margin: 0 auto 20px auto
+    justify-content: center
+    flex-direction: column
+    text-align: center
+    +desktop
+        height: 130px
+        width: 130px
+
+.has-icon-center
+    border-radius: 50%
+    justify-content: center
+    flex-direction: column
+    text-align: center
+    .icon
+        width: 100%
+        height: 100%
+   
+.align-content-center
+    display: flex
+    align-content: center
+    justify-content: center
+    align-items: center
+    width: 100%
+    height:  100%
+
+.align-content-vertical-center
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 100%
+    height:  100%
+
+.is-background 
+    object-fit: cover
+    object-position: center center
+    height: 100%
+    width: 100%
+
+.image-overlay 
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    background: rgba(0,0,0,0.5)
+    cursor: default
+    z-index: 110
+    +tablet
+        background: transparent
+        background-image: linear-gradient(90deg, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.3) 20%,rgba(0,0,0,0) 70%)
+
+.has-width-80-percent
+    +desktop
+        width: 80%
+        margin-left: auto
+        margin-right: auto
+
+.has-width-80-all
+    width: 70% !important
+    margin-left: auto !important
+    margin-right: auto !important
+
+.has-width-80
+    +desktop
+        width: 80% !important
+
+.has-width-80-tablet
+    +tablet
+        width: 80% !important
+        margin-left: auto !important
+        margin-right: auto !important
+
+.has-margin-auto
+    +desktop
+        margin-left: auto !important
+        margin-right: auto !important
+
+.has-equal-height 
+    height: 100%
+    display: flex
+    flex-direction: column
+
+.is-circular
+    border-radius: 50%
+
+.menu-label 
+    font-size: 0.9em
+
+.has-padding-0 
+    padding: 0 !important
+    
+.has-padding-0-tablet
+    padding: 3rem 1.5rem
+    +tablet
+        padding: 0 !important
+
+.has-margin-0
+    margin: 0 !important
+
+.has-hero-above
+    margin-top: -2px !important
+    padding-top: 0 !important
+    
+.has-buy-hero-above
+    margin-top: -2px !important
+    padding-top: 1rem
+    +tablet
+        padding-top: 2rem    
+    +desktop
+        padding-top: 8.5rem    
+
+.has-no-text-transform
+    text-transform: none
+    line-height: 1.2
+
+.has-box-radius
+    border-radius: $box-radius
+
+.has-centered-content
+    display: flex !important
+    justify-content: center !important
+    flex-direction: column !important
+    margin-left: auto !important
+    margin-right: auto !important
+
+.iframe-container
+    overflow: hidden
+    position: relative
+    min-height: 100vh
+
+.iframe-container iframe 
+    border: 0
+    height: 100%
+    left: 0
+    position: absolute
+    top: 0
+    width: 100%

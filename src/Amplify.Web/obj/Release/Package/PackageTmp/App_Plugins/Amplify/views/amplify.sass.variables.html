@@ -1,0 +1,48 @@
+﻿<div ng-controller="amplifySassVariablesController as vm">
+    <umb-box>
+        <umb-box-header title="Sass Variables" description="Set your sass variables for your Amplify theme.">
+            <umb-button-group default-button="vm.saveButton.defaultButton"
+                                sub-buttons="vm.saveButton.subButtons"
+                                direction="down"
+                                float="right"
+                                button-style="success"
+                                state="vm.saveButton.state">
+            </umb-button-group>
+        </umb-box-header>
+        <umb-box-content>
+            <div class="control-group">
+                <div class="umb-panel-group__details-status-action">
+                    Amplify is based upon the <strong>Bulma CSS framework</strong> you can override the default Sass variables below, see the available variables and their <a href="https://bulma.io/documentation/customize/variables/" target="_blank" class="btn-link -underline">defaults here</a>.
+                </div>
+            </div>
+            <div class="control-group umb-prevalues-multivalues__add color-picker-preval">
+                <div class="umb-prevalues-multivalues__left">
+                    <span class="amplify-margin-left">$</span>
+                    <input val-highlight="" type="text" ng-model="vm.newSassVariable.Alias" placeholder="Sass variable name..." />
+                    <input val-highlight="" type="text" ng-model="vm.newSassVariable.Value" placeholder="Value..." />
+                </div>
+                <div class="umb-prevalues-multivalues__right">
+                    <button ng-disabled="vm.addDisabled()" class="btn btn-info add" ng-click="vm.add()">
+                        <localize key="general_add">Add</localize>
+                    </button>
+                </div>
+            </div>
+            <div ui-sortable="vm.sortableOptions" ng-model="vm.sassVariables" class="amplify-values-colors umb-prevalues-multivalues">
+                <div class="control-group umb-prevalues-multivalues__listitem color-picker-preval" ng-repeat="variable in vm.sassVariables">
+                    <i class="icon icon-navigation handle"></i>
+                    <div class="umb-prevalues-multivalues__left">
+                        <div class="color-picker-prediv">
+                            <pre>{{variable.Alias}}</pre>
+                            <input class="amplify-margin-left" type="text" ng-model="variable.Value" placeholder="Value..." />
+                        </div>
+                        <div class="umb-prevalues-multivalues__right">
+                            <button class="umb-node-preview__action umb-node-preview__action--red" ng-click="vm.resetVariable(vm.sassVariables, $index)"><localize key="amplify_reset">Reset</localize></button>
+                            <a class="umb-node-preview__action umb-node-preview__action--red amplify-margin-left" localize="title" title="Delete" ng-click="vm.deleteVariable(vm.sassVariables, $index); $event.stopPropagation();"> <i class="icon icon-trash"></i> </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </umb-box-content>
+    </umb-box>
+</div>
+

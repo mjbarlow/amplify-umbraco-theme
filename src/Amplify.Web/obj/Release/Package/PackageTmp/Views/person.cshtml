@@ -1,0 +1,80 @@
+﻿@inherits Amplify.Core.ViewPages.AmplifyViewPage<Person>
+@using Umbraco.Web.PublishedModels
+@using Amplify.Core.Extensions
+@{
+    Layout = "master.cshtml";
+}
+
+@Html.Partial("~/Views/Partials/PageHeader.cshtml", Model)
+
+<section class="amplify-section section is-medium has-background-amplified amplify-section-top">
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-6-tablet">
+                <div class="amplify-card amplify-image-card card">
+                    @if (Model.Photo.HasValue())
+                    {
+                        <div class="image-card">
+                            <figure class="image is-square">
+                                @RazorHelper.ResponsiveImage(Model.Photo, Model.Name, "is-background", Model.ItemsPerRow)
+                            </figure>
+                        </div>
+                    }
+                <div class="card-content content is-centered has-text-centered has-margin-bottom-5">
+                    <h4 class="is-size-5 has-text-dark">@Model.Name</h4>
+                    @if (Model.Position.HasValue())
+                    {
+                        <p class="is-italic">@Model.Position @Html.Raw("&ndash;") @Model.Location</p>
+                    }
+
+                    @if (Model.FullBio.HasValue())
+                    {
+                        <div class="has-margin-bottom-5 content has-margin-top-4">
+                            @Model.FullBio
+                        </div>
+                    }
+                    else if (Model.Bio.HasValue())
+                    {
+                        <div class="has-margin-bottom-5 content has-margin-top-4">
+                            @Model.Bio
+                        </div>
+                    }
+                    <div class="level is-mobile">
+                        <div class="level-item">
+                            @if (Model.Email.HasValue())
+                            {
+                                @RenderSocialLink($"mailto:{Model.Email}", "fas fa-envelope", Model.Email)
+                            }
+                            @if (Model.FacebookUsername.HasValue())
+                            {
+                                @RenderSocialLink($"http://facebook.com/{Model.Email}", "fab fa-facebook-f", $"@{Model.FacebookUsername}")
+                            }
+                            @if (Model.TwitterUsername.HasValue())
+                            {
+                                @RenderSocialLink($"http://twitter.com/{Model.TwitterUsername}", "fab fa-twitter", $"@{Model.TwitterUsername}")
+                            }
+                            @if (Model.LinkedInUsername.HasValue())
+                            {
+                                @RenderSocialLink($"http://linkedin.com/{Model.LinkedInUsername}", "fab fa-linkedin", $"@{Model.LinkedInUsername}")
+                            }
+                            @if (Model.InstagramUsername.HasValue())
+                            {
+                                @RenderSocialLink($"http://linkedin.com/{Model.InstagramUsername}", "fab fa-instagram", $"@{Model.InstagramUsername}")
+                            }
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@helper RenderSocialLink(string href, string iconClass, string value)
+{
+    <a href="@href" title="@value" target="_blank" class="has-margin-left-1 has-margin-right-2 button is-link is-inverted">
+        <span class="icon is-large">
+            <i class="@iconClass fa-lg"></i>
+        </span>
+    </a>
+}

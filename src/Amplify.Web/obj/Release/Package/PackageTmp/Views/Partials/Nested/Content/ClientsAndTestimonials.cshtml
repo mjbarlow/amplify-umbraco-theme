@@ -1,0 +1,102 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Web.PublishedModels.ClientsAndTestimonials>
+@using Amplify.Core.Extensions
+
+@{
+    var alignment = RazorHelper.AlignmentClass(Model.TextAlignment);
+    var textClass = RazorHelper.TextColorClass(Model.TextColor.Label);
+    var bgClass = RazorHelper.BackgroundClass(Model.TestimonialBoxBgColor.Label);
+}
+
+@SectionHelper.RenderSectionStart(
+    backgroundClass: Model.BgColor.Label,
+    bgTexture: Model.BgTexture?.Url,
+    gradientAlias: Model.BgGradient,
+    textClass: Model.TextColor.Label,
+    paddingSize: Model.Spacing,
+    className: "amplify-clients-testimonials-section")
+
+@Html.Partial($"~/Views/Partials/Nested/Component/TitleItem.cshtml", new TitleItem(Model))
+
+@if (Model.Testimonials.HasValue())
+{
+    <div class="column is-12 is-half-desktop" data-aos="fade-left">
+        <div class="amplify-testimonial box @Model.TextAlignment @bgClass @textClass has-margin-bottom-4">
+            @if(Model.Testimonials.Count() > 1 )
+            {
+                @:<div class="glide-container">
+                @:<div class="glide glideMini">
+                @:<div class="glide__track" data-glide-el="track">
+                @:<ul class="glide__slides">
+             
+            }
+            @foreach (var item in Model.Testimonials.Select((value, i) => new { i, value }))
+            {
+                if (Model.Testimonials.Count() > 1)
+                {
+                    @:<li class="glide__slide">
+                }
+                <article>
+                    @if (item.value.Content.HasValue())
+                    {
+                        <div class="is-italic is-size-5 is-size-4-tablet">
+                            @item.value.Content
+                        </div>
+                    }
+                    <div class="media has-margin-top-5 @alignment">
+                        @if (item.value.Image.HasValue())
+                        {
+                            <figure class="media-left has-margin-right-4">
+                                <span class="image is-64x64">
+                                    @RazorHelper.GetThumbnailImage(item.value.Image, item.value.Person, "is-rounded")
+                                </span>
+                            </figure>
+                        }
+                        <div class="media-content">
+                            <div class="content">
+                                <p>
+                                    <strong>@item.value.Person</strong><br />
+                                    @item.value.Position - @item.value.Location
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                if (Model.Testimonials.Count() > 1)
+                {
+                    @:</li>
+                }
+            }
+            @if (Model.Testimonials.Count() > 1)
+            {
+                @:</ul>
+                @:</div>
+                  <div class="glide__bullets" data-glide-el="controls[nav]">
+                      @foreach (var item in Model.Testimonials.Select((value, i) => new { i, value }))
+                      {
+                          <button class="glide__bullet" data-glide-dir="=@item.i"></button>
+                      }
+                  </div>
+                @:</div>
+                @:</div>
+            }
+        </div>
+    </div>
+}
+
+@if (Model.Clients.HasValue())
+{
+<div class="amplify-client-logos column is-half-desktop" data-aos="fade-right">
+    <div class="columns is-multiline is-mobile">
+        @foreach (var client in Model.Clients)
+        {
+            <div class="column is-half-mobile is-one-third-tablet is-half-desktop is-one-third-widescreen">
+                <div class="align-content-vertical-center amplify-logo">
+                    @RazorHelper.GetSmallImage(client.Image, alt: client.ClientName, classList: "hasRatio")
+                </div>
+            </div>
+        }
+    </div>
+</div>
+}
+
+@SectionHelper.RenderSectionEnd()

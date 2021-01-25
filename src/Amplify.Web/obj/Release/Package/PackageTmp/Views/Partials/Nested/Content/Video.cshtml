@@ -1,0 +1,69 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Video>
+@using Umbraco.Web.PublishedModels
+@using Amplify.Core.Extensions
+
+@if (Model.VideoPicker.HasValue() || Model.VideoUrl.HasValue())
+{
+    if (Model.HasMargin)
+    {
+        @:<div class="has-margin-top-4 has-margin-top-5-desktop has-margin-bottom-5 has-margin-bottom-6-desktop amplify-video">
+    }
+    <div @(Model.HasMargin ? "" :  "data-aos=\"zoom-in\"") >
+        @if (Model.VideoPicker.HasValue())
+        {
+            var posterUrl = "";
+
+            if (Model.Poster.HasValue())
+            {
+                posterUrl = Model.Poster.Url;
+            }
+
+            <video poster="@posterUrl" playsinline controls>
+                <source src="@Model.VideoPicker.Url" type="video/mp4" />
+            </video>
+        }
+        else
+        {
+
+            if (Model.VideoUrl.HasValue())
+            {
+                var url = Model.VideoUrl.Trim();
+                var isUrl = Uri.TryCreate(url, UriKind.Absolute, out Uri videoUri);
+                var src = "";
+
+                if (isUrl)
+                {
+
+                    switch (videoUri.Host)
+                    {
+                        case "www.youtube.com":
+                            var currentDomain = Request.Url.GetLeftPart(UriPartial.Authority);
+                            src = videoUri.GetLeftPart(UriPartial.Path) + $"?origin={currentDomain}&amp;iv_load_policy=3&amp;modestbranding=1&amp;playsinline=1&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1";
+                            break;
+
+                        case "player.vimeo.com":
+                            src = videoUri.GetLeftPart(UriPartial.Path) + $"?loop=false&amp;byline=false&amp;portrait=false&amp;title=false&amp;speed=true&amp;transparent=0&amp;gesture=media";
+                            break;
+                    }
+
+                    if (src.HasValue())
+                    {
+                        <div class="plyr__video-embed image is-16by9">
+                            <iframe src="@src"
+                                    allowfullscreen
+                                    allowtransparency
+                                    allow="autoplay">
+                            </iframe>
+                        </div>
+                    }
+
+                }
+            }
+        }
+    </div>
+    if(Model.HasMargin)
+    {
+        @:</div>
+    }
+
+}

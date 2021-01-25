@@ -1,0 +1,368 @@
+﻿/* Dashboard Section */
+
+.amplify .handle {
+  cursor:move;
+}
+
+.amplify .control-group.color-picker-preval select {
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-flex: 1;
+        flex: 1 0 100px;
+        margin-top: 1px;
+        margin-right: 15px;
+        margin-left:10px;
+        width: auto;
+}
+
+.amplify .control-group.color-picker-preval div.color-picker-prediv pre {
+    min-width: 160px;
+    margin-left:10px;
+    margin-right:0;
+}
+
+.amplify .control-group.color-picker-preval div.color-picker-prediv pre.amplify-hsl {
+    min-width: 160px;
+    margin-left:10px;
+    margin-right: 0;
+}
+
+.amplify .amplify-values-colors {
+   width:100%;
+}
+
+.amplify .control-group.color-picker-preval .sp-replacer {
+    border: 1px solid #d8d7d9;
+    background: transparent;
+    margin-right: 0;
+    padding: 3px;
+    border-radius:3px;
+}
+
+.amplify .sp-preview {
+    width:23px;
+    height: 23px;
+    border: none;
+    cursor: pointer;
+    margin-top: auto;
+    margin-bottom: auto;
+    -webkit-box-flex: 0;
+    flex: 0 0 auto;
+}
+
+.amplify .sp-preview-inner {
+    position: relative;
+    top: unset;
+    left: unset;
+    bottom: unset;
+    right: unset;
+    width: 100%;
+    height: 100%;
+    border-radius: 2px;
+}
+
+.amplify .umb-prevalues-multivalues__left span {
+    height:33px;
+    line-height: 33px;
+    font-weight:bold;
+    margin-right:5px;
+}
+
+.amplify .amplify-color-preview {
+    min-width: 160px;
+    margin-right:15px;
+    margin-left:10px;
+    height:20px;
+    padding: 5px 10px;
+    margin-bottom:0;
+    font-family: monospace;
+}
+
+.amplify .amplify-margin-left {
+    margin-left:10px !important
+}
+
+.amplify .amplify-margin-right {
+    margin-right: 10px !important;
+}
+
+.amplify-margin-left-medium {
+    margin-left: 20px !important;
+}
+
+.amplify .control-group.color-picker-preval .thumbnail {
+    padding: 0;
+}
+
+.amplify .amplify-no-margin-auto {
+    margin-left: 0;
+}
+
+.amplify .control-group.color-picker-preval .thumbnail-gradient {
+    border: 1px solid #d8d7d9 ;
+    width: 100px;
+    height: 28px;
+}
+
+.amplify .input-small {
+    max-width: 60px;
+}
+
+.amplify-settings {
+    display:flex;
+}
+
+.amplify-settings .amplify-main-settings {
+    margin-right: 14px;
+}
+
+.amplify-settings > div {
+    width: 50%;
+}
+
+/* Buttons Property editor*/
+
+.amplify-buttons-editor
+.amplify-buttons {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px 15px;
+    margin-bottom: 1px;
+    background: #f3f3f5;
+}
+
+.amplify-buttons-editor 
+.amplify-buttons .dash-box i {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self:center;
+    font-size:18px;
+    margin-right:5px;   
+}
+
+.amplify-buttons-editor
+.umb-iconpicker-item .dash-box svg {
+    height: 100%;
+}
+
+.amplify-buttons-editor
+.ui-sortable-disabled 
+.sort-handle {
+    cursor: default;
+}
+.amplify-buttons-editor
+.amplify-buttons
+.sort-handle {
+    font-size: 14px;
+    color: #d8d7d9;
+    margin-right: 15px;
+    cursor: move;
+}
+
+.amplify-buttons-editor
+.amplify-buttons > div {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+}
+
+.amplify-buttons-editor .amplify-buttons 
+> div.amplify-buttons-settings {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.amplify-buttons-editor
+.amplify-buttons > div.edit-buttons {
+    flex: 0 1 0;
+    position: relative;
+}
+
+.amplify-buttons-editor
+.amplify-buttons > div.edit-buttons > i {
+    font-size:18px;
+}
+.amplify-buttons-editor
+.amplify-buttons > div.edit-buttons > .icon-umb-settings {
+    margin-right: 10px;
+}
+
+.amplify-buttons-editor .amplify-buttons .dash-box {
+    border: 1px dashed #bbbabf;
+    padding: 5px 10px;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+    height: 38px;
+}
+
+.amplify-buttons-editor
+.dash-box-small {
+    flex: 0 1 10%;
+}
+
+.amplify-buttons-editor
+.dash-box-fill {
+    flex: 1 1 40%;
+}
+
+.amplify-buttons-editor
+.dash-box .full-width-input {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex: auto;
+}
+
+
+.amplify-buttons-editor
+.amplify-buttons .dash-box > a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.amplify-buttons-editor
+.amplify-buttons .dash-box a i {
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.amplify-buttons-editor
+.amplify-buttons .dash-box a i svg {
+    height:100%;
+}
+
+.amplify-buttons-editor
+.amplify-buttons .dash-box 
+.umb-node-preview__description
+{
+   font-size: 14px;
+}
+
+.amplify-buttons-editor
+.amplify-buttons .dash-box
+.umb-node-preview__name {
+    display: none;
+}
+
+.amplify-buttons-editor
+.amplify-buttons .dash-box
+.umb-node-preview
+{
+    width:100%;
+}
+
+.amplify-buttons-editor
+.amplify-buttons a {
+    text-decoration: none;
+}
+
+.amplify-buttons-editor
+.amplify-buttons a:hover {
+    text-decoration: none;
+}
+
+.amplify-buttons-editor 
+.amplify-dropdown {
+    margin-top:5px;
+    margin-bottom:5px;
+}
+
+.amplify-buttons-editor
+.umb-toggle__label--left {
+    font-size:12px;
+}
+
+.amplify-button {
+    background-color: #fff;
+    border-color: #dbdbdb;
+    border-width: 1px;
+    color: #363636;
+    cursor: pointer;
+    justify-content: center;
+    padding-bottom: calc(.5em - 1px);
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: calc(.5em - 1px);
+    text-align: center;
+    white-space: nowrap;
+    align-items: center;
+    border-radius: 4px;
+    box-shadow: none;
+    display: inline-flex;
+    font-size: 1rem;
+    height: 2.5em;
+    border-style: solid;
+    line-height: 24px;
+    box-sizing: border-box;
+}
+
+.amplify .color-picker-preval {
+    cursor: unset;
+}
+
+.amplify-extras {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.amplify-extras > div {
+    padding: 5vh 5vh;
+    text-align: center;
+}
+
+.amplify-title {
+    font-size: 180%;
+}
+
+.amplify-extras p {
+    line-height: 1.3;
+}
+.amplify-banner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} 
+
+.amplify-banner > .amplify-dash-image {
+    margin:60px 0;
+}
+
+.amplify-banner a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.amplify-banner .amplify-logo {
+   margin:30px 0;
+   width: 280px;
+}
+.amplify-pane-fade {
+    color: #FFF;
+    margin: -20px;
+    background: radial-gradient(closest-corner circle at 90% 120%, #D16FF5 0%, transparent 100%), linear-gradient(to right, #009FE3, #8019C1);
+    height: 100%;
+}
+
+.amplify-dashboard .umb-pane {
+    margin-bottom:0;
+}

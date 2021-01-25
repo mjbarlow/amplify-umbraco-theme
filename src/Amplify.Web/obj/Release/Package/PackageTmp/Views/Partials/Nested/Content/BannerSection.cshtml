@@ -1,0 +1,55 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Web.PublishedModels.BannerSection>
+@using Amplify.Core.Extensions
+
+@{
+    var alignment = "";
+    var textAlignment = "";
+    var spacing = "";
+}
+
+@if (Model.SectionConfig.HasValue())
+{
+    var config = Model.SectionConfig as SectionSettings;
+    var bgImage = Model.BackgroundImage.HasValue() ? Model.BackgroundImage.Url : "";
+    @SectionHelper.RenderSectionStart(config, className: $"amplify-banner-section hero hero-banner", renderContainer: false, sectionClass: false, bgImage: bgImage)
+    alignment = RazorHelper.AlignmentClass(config.TextAlignment);
+    textAlignment = config.TextAlignment;
+    spacing = (textAlignment == "has-text-centered") ? "has-margin-auto" : "";
+}
+else
+{
+    @SectionHelper.RenderSectionStart(className: $"amplify-banner-section hero hero-banner", renderContainer: false, sectionClass: false)
+}
+
+<div class="hero-body">
+    <div class="container">
+        <div class="columns">
+            <div class="column @textAlignment">
+                <div class="has-margin-bottom-6 has-margin-bottom-0-tablet has-width-80 @textAlignment @spacing">
+                    @if (Model.Title.HasValue())
+                    {
+                        <h4 class="is-size-4 is-size-3-tablet has-margin-top-6 has-margin-top-0-tablet has-margin-bottom-3">@Model.Title</h4>
+                    }
+                    @if (Model.Subtitle.HasValue())
+                    {
+                        <div class="is-size-5 is-size-4-tablet has-margin-bottom-4">
+                            @Model.Subtitle
+                        </div>
+                    }
+                    @if (Model.Buttons.HasValue())
+                    {
+                        <div class="buttons is-grouped @alignment has-margin-bottom-4">
+                            @foreach (var button in Model.Buttons)
+                            {
+                                @RazorHelper.RenderButton(button)
+                            }
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@SectionHelper.RenderSectionEnd(renderContainer: false)
+

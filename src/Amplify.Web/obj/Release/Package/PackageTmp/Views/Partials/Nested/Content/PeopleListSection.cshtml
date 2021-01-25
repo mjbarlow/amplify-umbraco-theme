@@ -1,0 +1,30 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<PeopleListSection>
+@using Umbraco.Web.PublishedModels
+@using Amplify.Core.Extensions
+
+
+@SectionHelper.RenderSectionStart(
+    backgroundClass: Model.BgColor.Label,
+    bgTexture: Model.BgTexture?.Url,
+    gradientAlias: Model.BgGradient,
+    textClass: Model.TextColor.Label,
+    paddingSize: Model.Spacing,
+    className: "amplify-people-list")
+
+@Html.Partial($"~/Views/Partials/Nested/Component/TitleItem.cshtml", new TitleItem(Model))
+
+@if (Model.People.HasValue())
+{
+    foreach (var personNode in Model.People)
+    {
+        <div class="column @RazorHelper.ColumnClass(Model.ItemsPerRow?.ToString())">
+            @Html.Partial($"~/Views/Partials/Nested/Item/PersonItem.cshtml", personNode)
+        </div>
+    }
+}
+
+
+@Html.Partial($"~/Views/Partials/Nested/Component/LinkComponent.cshtml", new LinkComponent(Model))
+@SectionHelper.RenderSectionEnd()
+
+

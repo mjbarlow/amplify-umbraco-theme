@@ -1,0 +1,57 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Person>
+@using Umbraco.Web.PublishedModels
+@using Amplify.Core.Extensions
+
+<div class="amplify-card amplify-image-card card has-equal-height" data-aos="fade-up">
+    @if (Model.Photo.HasValue())
+    {
+        <a href="@Model.Url">
+            <div class="image has-spacing image is-3by2">
+                @RazorHelper.ResponsiveImage(Model.Photo, Model.Name, "is-background", Model.ItemsPerRow)
+            </div>
+        </a>
+    }
+    <div class="card-content has-equal-height">
+        <div class="content has-equal-height">
+            <div class="content-top has-margin-bottom-5">
+                <a class="has-text-dark" href="@Model.Url">
+                    <h4 class="is-size-5">@Model.Name</h4>
+                </a>
+                @if (Model.Bio.HasValue())
+                {
+                    @Model.Bio
+                }
+            </div>
+            <div class="content-bottom">
+                <div class="level is-mobile">
+                    <div class="level-left">
+                        <a class="button is-link has-icons-left" href="@Model.Url">View</a>
+                    </div>
+                    <div class="level-right">
+                        @if (Model.Email.HasValue())
+                        {
+                            @RazorHelper.RenderSocialLinkContent($"mailto:{Model.Email}", "fas fa-envelope", Model.Email)
+                        }
+                        @if (Model.FacebookUsername.HasValue())
+                        {
+                            @RazorHelper.RenderSocialLinkContent($"http://facebook.com/{Model.Email}", "fab fa-facebook-f", $"@{Model.FacebookUsername}")
+                        }
+                        @if (Model.TwitterUsername.HasValue())
+                        {
+                            @RazorHelper.RenderSocialLinkContent($"http://twitter.com/{Model.TwitterUsername}", "fab fa-twitter", $"@{Model.TwitterUsername}")
+                        }
+                        @if (Model.LinkedInUsername.HasValue())
+                        {
+                            @RazorHelper.RenderSocialLinkContent($"http://linkedin.com/{Model.LinkedInUsername}", "fab fa-linkedin", $"@{Model.LinkedInUsername}")
+                        }
+                        @if (Model.InstagramUsername.HasValue())
+                        {
+                            @RazorHelper.RenderSocialLinkContent($"http://linkedin.com/{Model.InstagramUsername}", "fab fa-instagram", $"@{Model.InstagramUsername}")
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

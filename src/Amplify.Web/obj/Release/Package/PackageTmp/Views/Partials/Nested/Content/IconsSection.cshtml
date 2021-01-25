@@ -1,0 +1,31 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<IconsSection>
+@using Umbraco.Web.PublishedModels
+@using Umbraco.Web
+@using Amplify.Core.Extensions
+
+@{
+    var spacingClass = Model.HasMargin ? "has-margin-bottom-5" : "";
+
+    if (Model.SectionConfig.HasValue())
+    {
+        var config = Model.SectionConfig as SectionSettings;
+        @SectionHelper.RenderSectionStart(config, className: $"amplify-icon-section {spacingClass} {Model.CustomClass}", columnsClass: "amplify-pods")
+    }
+    else
+    {
+        @SectionHelper.RenderSectionStart(className: $"amplify-icon-section {spacingClass} {Model.CustomClass}", columnsClass: "amplify-pods")
+    }
+}
+
+@Html.Partial($"~/Views/Partials/Nested/Component/TitleItem.cshtml", new TitleItem(Model))
+   
+    @foreach (var icon in Model.Icons)
+    {
+        <div data-aos="fade-up" class="column has-margin-bottom-5 @RazorHelper.ColumnClass(Model.ItemsPerRow?.ToString())">
+            @Html.Partial($"~/Views/Partials/Nested/Item/IconItem.cshtml", icon)
+        </div>
+    }
+
+@Html.Partial($"~/Views/Partials/Nested/Component/LinkComponent.cshtml", new LinkComponent(Model))
+
+@SectionHelper.RenderSectionEnd()

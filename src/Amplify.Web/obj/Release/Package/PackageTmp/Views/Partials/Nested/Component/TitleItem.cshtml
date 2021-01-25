@@ -1,0 +1,21 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<TitleItem>
+@using Umbraco.Web.PublishedModels
+@using Amplify.Core.Extensions
+
+@if (Model.Title.HasValue() || Model.SubTitle.HasValue())
+{
+    <div class="column is-12" >
+        <div class="columns is-centered">
+            <div class="column amplify-title is-two-thirds has-text-centered has-margin-bottom-4 has-margin-bottom-6-desktop" data-aos="fade-up">
+                @if (Model.Title.HasValue())
+                {
+                    <h2 class="title is-size-3 is-size-2-tablet is-spaced">@Model.Title</h2>
+                }
+                @if (Model.SubTitle.HasValue())
+                {
+                    <h4 class="subtitle is-size-5 is-size-4-tablet">@Model.SubTitle</h4>
+                }
+            </div>
+        </div>
+    </div>
+}

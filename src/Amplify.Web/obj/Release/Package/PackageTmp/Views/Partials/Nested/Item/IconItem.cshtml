@@ -1,0 +1,33 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<IconComposition>
+@using Umbraco.Web.PublishedModels
+@using Amplify.Core.Extensions
+
+
+@{ 
+    var borderColor = Model.BorderColor.Value.HasValue() ? $"border-color:{Model.BorderColor.Value};" : "border-width: 0 !important;";
+    var iconColor =  Model.IconColor.Value.HasValue() ? $"color:{Model.IconColor.Value};" : "";
+    var bgGradient = RazorHelper.BackgroundClass(Model.FillGradient);
+
+}
+<div class="icon-item has-text-centered">
+    @if (Model.Icon.Label.HasValue())
+    {
+        <div class="has-line-circle @bgGradient" style="@borderColor @iconColor">
+            @RazorHelper.RenderFaIcon(Model.Icon)
+        </div>
+    }
+    @if (Model.Title.HasValue())
+    {
+        <h4 class="is-size-4-tablet is-size-5 has-text-weight-semibold">@Model.Title</h4>
+    }
+    @if (Model.SubTitle.HasValue())
+    {
+        @RazorHelper.AddClass(Model.SubTitle, "is-size-5", "p")
+    }
+    @if (Model.Button.HasValue() && Model.Button.Link.HasValue())
+    {
+        <div class="buttons is-centered has-margin-top-5">
+            @RazorHelper.RenderButton(Model.Button)
+        </div>
+    }
+</div>

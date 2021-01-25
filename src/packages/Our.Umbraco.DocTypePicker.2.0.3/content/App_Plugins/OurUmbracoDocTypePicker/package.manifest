@@ -1,0 +1,44 @@
+﻿{
+	// you can define multiple editors
+	"propertyEditors": [
+		{
+			/*this must be a unique alias*/
+			"alias": "OurUmbracoDocTypePicker",
+			/*the name*/
+			"name": "Document Type Picker",
+			/*the icon*/
+			"icon": "icon-bulleted-list",
+			/*grouping for "Select editor" dialog*/
+			group: "Lists",
+			/*the HTML file we will load for the editor*/
+			"editor": {
+				"view": "~/App_Plugins/OurUmbracoDocTypePicker/doctypepicker.html",
+				"valueType": "JSON"
+			},
+			"prevalues": {
+				"fields": [
+					{
+						"label": "List type for render",
+						"description": "List type for render",
+						"key": "multiple",
+						"view": "~/App_Plugins/OurUmbracoDocTypePicker/selection.html"
+					},
+					{
+						"label": "Use toggles in multiple mode",
+						"description": "Use toggle controls instead of dropdown",
+						"key": "useToggle",
+						"view": "boolean"
+					}
+				]
+			}
+		}
+	]
+	,
+	"css": [
+		"~/App_Plugins/OurUmbracoDocTypePicker/doctypepicker.css"
+	],
+	// array of files we want to inject into the application on app_start
+	"javascript": [
+	    "~/App_Plugins/OurUmbracoDocTypePicker/doctypepicker.controller.js"
+	]
+}

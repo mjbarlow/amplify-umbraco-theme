@@ -1,0 +1,31 @@
+﻿.optionButtonsPropertyEditor .btn {
+    width: 130px;
+    height: 80px;
+    margin: 3px;
+    font-weight: 700;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #d8d7d9;
+    background: #ffffff;
+}
+
+.optionButtonsPropertyEditor .btn-selection {
+    background: #f5c1bc;
+}
+.optionButtonsPropertyEditor .btn div.ico-columns {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+}
+
+.optionButtonsPropertyEditor .btn div.ico-columns > span.ico-column {
+    border-radius: 3px;
+    border: 3px solid #fff;
+    height: 25px;
+    margin: 0 2px 5px;
+    flex: 1;
+}
+
+.optionButtonsPropertyEditor .btn-info div.ico-columns > span.ico-column {
+    border-color: #bbbbbb;
+}

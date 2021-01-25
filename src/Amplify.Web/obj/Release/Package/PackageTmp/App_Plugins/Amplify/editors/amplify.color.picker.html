@@ -1,0 +1,17 @@
+﻿<div ng-controller="amplifyStyleSettingsController as vm">
+
+    <umb-color-swatches colors="vm.config.items"
+                        selected-color="model.value"
+                        size="vm.config.size"
+                        use-label="vm.config.useLabel"
+                        on-select="vm.selectColor(color)">
+    </umb-color-swatches>
+
+    <div ng-if="!vm.isConfigured">
+        <localize key="colorpicker_noColors">You haven't defined any colors</localize>
+    </div>
+
+    <input type="hidden" name="selectedColor" ng-model="model.selectedColor" val-property-validator="validateMandatory" />
+
+</div>
+

@@ -1,0 +1,185 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<FooterSection>
+@using Umbraco.Web.PublishedModels;
+@using Amplify.Core.Extensions;
+
+@if (Model.SectionConfig.HasValue())
+{
+    var config = Model.SectionConfig as SectionSettings;
+    @SectionHelper.RenderSectionStart(config, className: $"amplify-footer-section")
+}
+else
+{
+    @SectionHelper.RenderSectionStart(className: $"amplify-footer-section")
+}
+
+@foreach (var navColumn in Model.SectionContent)
+{
+    switch (navColumn.ContentType.Alias)
+    {
+        case LinksColumn.ModelTypeAlias:
+            var linksColumn = navColumn as LinksColumn;
+            <div class="column  is-half-tablet is-one-quarter-desktop">
+                @if (linksColumn.Title.HasValue())
+                {
+                    <h5 class="title is-6">@linksColumn.Title</h5>
+                }
+                <ul>
+                    @foreach (var link in linksColumn.ChildLinks)
+                    {
+                        <li class="has-margin-bottom-3">@RazorHelper.RenderLink(link, classList: "has-text-info")</li>
+                    }
+                </ul>
+            </div>
+            break;
+        case ArticleColumn.ModelTypeAlias:
+            var articleColumn = navColumn as ArticleColumn;
+            <div class="column amplify-footer-column  is-half-tablet is-one-quarter-desktop">
+                @if (articleColumn.Title.HasValue())
+                {
+                    <h5 class="title is-6">@articleColumn.Title</h5>
+                }
+                @foreach (var article in articleColumn.Articles)
+                {
+                    if (articleColumn.IsFeatured)
+                    {
+                        @RenderFeatured(article)
+                    }
+                    else
+                    {
+                        @RenderArticle(article)
+                    }
+
+                }
+            </div>
+            break;
+        case LatestArticles.ModelTypeAlias:
+            var latestArticles = navColumn as LatestArticles;
+            if (latestArticles.Article.HasValue())
+            {
+                var articles = latestArticles.Article.Children.OrderByDescending(x => x.Value<DateTime>("displayDate")).Take((int)latestArticles.ItemsToShow);
+                <div class="column amplify-footer-column  is-half-tablet is-one-quarter-desktop">
+                    @if (latestArticles.Title.HasValue())
+                    {
+                        <h5 class="title is-6">@latestArticles.Title</h5>
+                    }
+                    @foreach (var article in articles)
+                    {
+                        @RenderArticle(article)
+                    }
+                </div>
+            }
+            break;
+
+        case SocialLinksColumn.ModelTypeAlias:
+            var socialLinkColumn = navColumn as SocialLinksColumn;
+            <div class="column amplify-footer-social is-half-tablet is-one-quarter-desktop ">
+                @if (socialLinkColumn.Title.HasValue())
+                {
+                    <h5 class="title is-6">@socialLinkColumn.Title</h5>
+                }
+
+                @foreach (var faLink in socialLinkColumn.ChildLinks)
+                {
+                    if (faLink.Link.HasValue())
+                    {
+                        <a href="@faLink.Link.Url" title="@faLink.Link.Name" class="button is-link has-margin-bottom-4 has-margin-right-2" target="@faLink.Link.Target">
+                            @if (faLink.ClassName.HasValue())
+                            {
+                                <span class="icon is-large">
+                                    <i class="@faLink.ClassName fa-lg"></i>
+                                </span>
+                            }
+        
+                        </a>
+                    }
+                }
+            </div>
+            break;
+
+        case ContactInformation.ModelTypeAlias:
+            var contactInformation = navColumn as ContactInformation;
+
+            <div class="column is-half-tablet amplify-contact-information">
+                 @if (contactInformation.Title.HasValue())
+                {
+                    <h5 class="title is-6">@contactInformation.Title</h5>
+                }
+                @Html.Partial("~/views/partials/nested/content/contactinformation.cshtml", Model)
+            </div>
+            break;
+
+        case AlignedTextColumn.ModelTypeAlias:
+            var alignedTextColumn = navColumn as AlignedTextColumn;
+                <div class="column is-half-tablet amplify-aligned-text">
+                    @if (alignedTextColumn.Title.HasValue())
+                    {
+                        <h5 class="title is-6">@alignedTextColumn.Title</h5>
+                    }
+                    @if (alignedTextColumn.Content.HasValue()){
+                        foreach (var item in alignedTextColumn.Content) {
+                            @Html.Partial("~/views/partials/nested/content/alignedText.cshtml", item)
+                        }
+                    }
+                    
+
+                </div>
+            break;
+    }
+}
+
+@SectionHelper.RenderSectionEnd()
+
+
+@helper RenderArticle(IPublishedContent article)
+{
+    var item = article as Article;
+    <article class="media has-padding-right-4-desktop">
+        @if (item.Image.HasValue())
+        {
+            <figure class="media-left  has-margin-right-4">
+                <a class="image is-64x64" href="@item.Url">
+                    @RazorHelper.GetThumbnailImage(item.Image, item.Title)
+                </a>
+            </figure>
+        }
+        <div class="media-content">
+            <div class="content">
+                <p>
+                    <small>@item.DisplayDate.ToDisplayDate()</small><br />
+                    <a href="@item.Url" class="has-text-info">
+                        @if (item.Title.HasValue())
+                        {
+                            @item.Title
+                        }
+                    </a>
+                </p>
+            </div>
+        </div>
+    </article>
+}
+
+@helper RenderFeatured(IPublishedContent article)
+{
+    var item = article as Article;
+    <article class="has-padding-right-4-desktop has-margin-bottom-4 amplify-footer-featured">
+        @if (item.Image.HasValue())
+        {
+            <figure class="has-margin-bottom-4">
+                <a class="image is-3by2" href="@item.Url">
+                    @RazorHelper.GetFeaturedThumbnailImage(item.Image, item.Title)
+                </a>
+            </figure>
+        }
+        <div class="content">
+            <p>
+                <small>@item.DisplayDate.ToDisplayDate()</small><br />
+                <a href="@item.Url" class="has-text-info">
+                    @if (item.Title.HasValue())
+                    {
+                        @item.Title
+                    }
+                </a>
+            </p>
+        </div>
+    </article>
+}

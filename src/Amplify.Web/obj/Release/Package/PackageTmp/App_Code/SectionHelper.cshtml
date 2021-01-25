@@ -1,0 +1,87 @@
+﻿@using Amplify.Core.Extensions
+@using Umbraco.Web.PublishedModels
+@using Current = Umbraco.Web.Composing.Current;
+@using Amplify.Core.Services;
+@using System.Linq;
+@using Umbraco.Core;
+
+
+@helper RenderSectionStart(
+    string backgroundClass = "",
+    string gradientAlias = "",
+    string textClass = "",
+    string bgTexture = "",
+    bool isFullWidth = false,
+    bool isCentered = false,
+    string className = "",
+    string paddingSize = "is-medium",
+    bool renderContainer = true,
+    bool sectionClass = true,
+    bool mobileColumns = false,
+    string columnsClass = "")
+   {
+        var siteService = Current.Factory.GetInstance<ISiteService>();
+        var bgClass = RazorHelper.BackgroundClass(backgroundClass);
+        var gradient = gradientAlias.HasValue() ? siteService.Gradients.Where(x => x.Alias == gradientAlias).FirstOrDefault() : null;
+        var gradientClass = RazorHelper.BackgroundClass(gradientAlias);
+
+        @:<section class="amplify-section @(sectionClass ? "section" : "" ) @paddingSize @className @(isFullWidth ? "is-full-width" : "") @bgClass @RazorHelper.BackgroundClass(gradientClass) @gradientClass @RazorHelper.TextColorClass(textClass)">
+        if (bgTexture.HasValue())
+        {
+            if (gradient != null)
+            {
+                var gradientCss = gradient != null ? $", linear-gradient({gradient.Degree}deg, {gradient.StartColor} 0%, {gradient.EndColor} 100%)" : "";
+                <div class="amplify-texture-overlay" style="background-image:url('@bgTexture') @gradientCss ; background-blend-mode: multiply;"></div>
+            }
+            else
+            {
+                <div class="amplify-texture-overlay @bgClass" style="background-image:url('@bgTexture'); background-blend-mode: multiply;"></div>
+            }
+        }
+        if (renderContainer)
+        {
+            @:<div class="container">
+            @:<div class="columns is-multiline @columnsClass  @(isCentered ? "is-centered" : "") @(mobileColumns ? "is-mobile" :"")">
+        }
+}
+
+@helper RenderSectionStart(SectionSettings sectionSettings, string className, bool renderContainer = true,
+    bool sectionClass = true, bool mobileColumns = false, string bgImage = null, string columnsClass = "")
+{
+    
+var bg = bgImage.HasValue() ? bgImage : sectionSettings.BgTexture?.Url;
+
+@RenderSectionStart(
+    backgroundClass: sectionSettings.BgColor.Label,
+    bgTexture: bgImage,
+    gradientAlias: sectionSettings.BgGradient,
+    textClass: sectionSettings.TextColor.Label,
+    paddingSize: sectionSettings.Spacing,
+    className: className,
+    renderContainer: renderContainer,
+    sectionClass: sectionClass,
+    mobileColumns: mobileColumns,
+    columnsClass: columnsClass)
+}
+
+@helper RenderSectionEnd(bool renderContainer = true)
+{
+    if (renderContainer)
+    {
+        @:</div>
+        @:</div>
+    }
+    @:</section>
+}
+
+@helper RenderContentSectionStart(string backgroundColorClass = "", bool isFullWidth = false, bool isCentered = false, string className = "")
+{
+    @:<section class="section @className @(isFullWidth ? "is-full-width" : "") @RazorHelper.BackgroundClass(backgroundColorClass)">
+    @:<div class="columns is-multiline @(isCentered ? "is-centered" : "")">
+}
+
+@helper RenderContentSectionEnd()
+{
+    @:</div>
+    @:</section>
+}

@@ -1,0 +1,16 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<QuoteContent>
+@using Umbraco.Web.PublishedModels
+@using Amplify.Core.Extensions
+
+@if (Model.QuoteText.HasValue())
+{
+    <div class="has-margin-bottom-5">
+        <blockquote class="is-size-4">
+            @Model.QuoteText
+            @if (Model.QuoteAuthor.HasValue())
+            {
+                <small>- @Model.QuoteAuthor</small>
+            }
+        </blockquote>
+    </div>
+}

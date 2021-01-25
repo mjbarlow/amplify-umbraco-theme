@@ -1,0 +1,67 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<IEnumerable<IPublishedElement>>
+@using Umbraco.Web.PublishedModels
+@using Amplify.Core.Extensions
+
+@if (Model.HasValue())
+{
+    @foreach (var navColumn in navbarSection.NavColumns)
+    {
+        switch (navColumn.ContentType.Alias)
+        {
+            case LinksColumn.ModelTypeAlias:
+                var linksColumn = navColumn as LinksColumn;
+                <div class="column">
+                    @if (linksColumn.Title.HasValue())
+                    {
+                        <div class="navbar-item">
+                            <h6 class="title is-6 has-text-dark has-margin-bottom-0">@linksColumn.Title</h6>
+                        </div>
+                    }
+                    @foreach (var link in linksColumn.ChildLinks)
+                    {
+                        @RazorHelper.RenderFaLink(link, classList: "navbar-item")
+                    }
+                </div>
+                break;
+            case ArticleColumn.ModelTypeAlias:
+                var articleColumn = navColumn as ArticleColumn;
+                <div class="column amplify-nav-article-column">
+                    @if (articleColumn.Title.HasValue())
+                    {
+                        <h6 class="title is-6 has-text-dark has-margin-bottom-4">@articleColumn.Title</h6>
+                    }
+                    @foreach (var article in articleColumn.Articles)
+                    {
+                        if (articleColumn.IsFeatured)
+                        {
+                            @Html.Partial("~/views/partials/nested/item/navarticlefeatured.cshtml", article)
+                        }
+                        else
+                        {
+                            @Html.Partial("~/views/partials/nested/item/navarticle.cshtml", article)
+                        }
+
+                    }
+                </div>
+                break;
+            case LatestArticles.ModelTypeAlias:
+                var latestArticles = navColumn as LatestArticles;
+                if (latestArticles.Article.HasValue())
+                {
+                    var articles = latestArticles.Article.Children.OrderByDescending(x => x.Value<DateTime>("displayDate")).Take((int)latestArticles.ItemsToShow);
+                    <div class="column amplify-nav-article-column">
+                        @if (latestArticles.Title.HasValue())
+                        {
+                            <h6 class="title is-6 has-text-dark has-margin-bottom-4">@latestArticles.Title</h6>
+                        }
+                        @foreach (var article in articles)
+                        {
+                            @Html.Partial("~/views/partials/nested/item/navarticle.cshtml", article)
+                        }
+                    </div>
+                }
+                break;
+        }
+    }
+
+}

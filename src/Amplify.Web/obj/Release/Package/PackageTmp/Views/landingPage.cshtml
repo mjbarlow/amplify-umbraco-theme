@@ -1,0 +1,8 @@
+﻿@inherits  Amplify.Core.ViewPages.AmplifyViewPage<LandingPage>
+@using Umbraco.Web.PublishedModels;
+
+@{
+    Layout = "master.cshtml";
+}
+
+@Html.Partial("~/Views/Partials/Renderers/RenderContent.cshtml", Model.NestedContent)

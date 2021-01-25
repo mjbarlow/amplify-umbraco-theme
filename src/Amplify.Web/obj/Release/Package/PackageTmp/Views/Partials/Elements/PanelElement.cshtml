@@ -1,0 +1,26 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<PanelElement>
+@using Umbraco.Web.PublishedModels
+@using Amplify.Core.Extensions
+
+<article class="tile is-child notification is-light">
+    @if (Model.Title.HasValue())
+    {
+        <p class="title">@Model.Title</p>
+    }
+    @if (Model.Subtitle.HasValue())
+    {
+        <p class="subtitle">@Model.Subtitle</p>
+    }
+    <div class="content">
+        @if (Model.Content.HasValue())
+        {
+            @Model.Content
+        }
+        @if (Model.Link.HasValue())
+        {
+            <p>
+                <a class="is-link button" href="@Model.Link.Url" target="@Model.Link.Target">@Model.Link.Name</a>
+            </p>
+        }
+    </div>
+</article>

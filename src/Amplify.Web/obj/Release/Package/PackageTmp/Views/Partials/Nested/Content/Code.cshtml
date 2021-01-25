@@ -1,0 +1,12 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Code>
+@using Umbraco.Web.PublishedModels
+@using Amplify.Core.Extensions
+
+@if (Model.CodeContent.HasValue())
+{
+<pre class="has-margin-bottom-5">
+@Model.CodeContent
+</pre>
+}
+
+

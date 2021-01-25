@@ -1,0 +1,16 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<LinkComponent>
+@using Umbraco.Web.PublishedModels
+@using Amplify.Core.Extensions
+
+@if (Model.Button.HasValue() && Model.Button.Link.HasValue())
+{
+    <div class="column is-12">
+        <div class="columns is-centered amplify-button">
+            <div class="column is-one-third has-text-centered has-margin-top-6-desktop has-margin-top-4 has-margin-bottom-4" data-aos="zoom-in">
+                <div class="buttons is-centered">
+                    @RazorHelper.RenderButton(Model.Button)
+                </div>
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,19 @@
+﻿{
+	propertyEditors: [
+	{
+		alias: "OptionButtonsPropertyEditor",
+		name: "Option Buttons Property Editor",
+		icon: "icon-columns",
+		group: "lists",
+		editor: {
+			view: "~/App_Plugins/OptionButtonsPropertyEditor/OptionButtonsPropertyEditor.html"
+		}
+	}
+	],
+	javascript: [
+		"~/App_Plugins/OptionButtonsPropertyEditor/js/OptionButtonsPropertyEditor.controller.js"
+	],
+	css: [
+		"~/App_Plugins/OptionButtonsPropertyEditor/css/OptionButtonsPropertyEditor.style.css"
+	]
+}

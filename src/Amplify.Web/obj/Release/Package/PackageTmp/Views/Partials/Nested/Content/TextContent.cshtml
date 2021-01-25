@@ -1,0 +1,10 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<TextContent>
+@using Umbraco.Web.PublishedModels
+@using Amplify.Core.Extensions
+
+@if (Model.Text.HasValue())
+{
+    <div class="is-size-5 block-spacing">
+        @Model.Text
+    </div>
+}

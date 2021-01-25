@@ -1,0 +1,103 @@
+﻿<div ng-controller="amplifyColorsController as vm">
+
+    <umb-box>
+        <umb-box-header title="Colors & Color Variables" description="Save the color and variable settings.">
+            <umb-button-group default-button="vm.saveButton.defaultButton"
+                                sub-buttons="vm.saveButton.subButtons"
+                                direction="down"
+                                float="right"
+                                button-style="success"
+                                state="vm.saveButton.state">
+            </umb-button-group>
+        </umb-box-header>
+    </umb-box>
+    <div id="amplifyColors">
+        <div class="amplify-settings">
+            <div class="amplify-main-settings">
+                <umb-box>
+                    <umb-box-header title="Color Variables" description="Assign colours to your colour variables for use in your Amplify theme.">
+                    </umb-box-header>
+                    <umb-box-content>
+                        <div class="control-group  umb-prevalues-multivalues__add color-picker-preval">
+                            <div class="umb-prevalues-multivalues__left">
+                                <span>$</span><input name="newColorVariable" val-highlight="{{colorVariableError}}" type="text" ng-model="vm.newColorVariable.Alias" placeholder="Sass variable name..." />
+                                <select ng-model="vm.newColorVariable.Value">
+                                    <option selected value="">Assign a color variable</option>
+                                    <option ng-repeat="color in vm.colors" value="{{color.Alias}}">{{color.Alias}}</option>
+                                </select>
+                            </div>
+                            <div class="umb-prevalues-multivalues__right">
+                                <button class="btn btn-info add" ng-disabled="vm.addColorVariableDisabled()" ng-click="vm.addColorVariable()">
+                                    <localize key="general_add">Add</localize>
+                                </button>
+                            </div>
+                        </div>
+                        <div ui-sortable="vm.sortableOptions" ng-model="vm.colorVariables" class="amplify-values-colors umb-prevalues-multivalues">
+                            <div class="control-group umb-prevalues-multivalues__listitem color-picker-preval" ng-repeat="variable in vm.colorVariables">
+                                <i class="icon icon-navigation handle"></i>
+                                <div class="umb-prevalues-multivalues__left">
+                                    <div class="thumbnail" hex-bg-color="{{vm.hslToHex(variable.Value)}}" hex-bg-orig="transparent"></div>
+                                    <div class="color-picker-prediv">
+                                        <pre>{{variable.Alias}}</pre>
+                                        <select ng-model="variable.Value">
+                                            <option ng-repeat="color in vm.colors" value="{{color.Alias}}">{{color.Alias}}</option>
+                                        </select>
+                                        <button class="umb-node-preview__action umb-node-preview__action--red" ng-click="vm.resetVariable(vm.colorVariables, $index)"><localize key="amplify_reset">Reset</localize></button>
+                                        <a class="umb-node-preview__action umb-node-preview__action--red amplify-margin-left" localize="title" title="Delete" ng-click="vm.deleteVariable(vm.colorVariables, $index); $event.stopPropagation();" prevent-default=""> <i class="icon icon-trash"></i> </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </umb-box-content>
+                </umb-box>
+            </div>
+            <div>
+                <umb-box>
+                    <umb-box-header title="Colors" description="Set your color scheme for your Amplify theme.">
+
+                    </umb-box-header>
+                    <umb-box-content>
+                        <div class="control-group  umb-prevalues-multivalues__add color-picker-preval">
+                            <div class="umb-prevalues-multivalues__left">
+                                <spectrum-colorpicker ng-model="vm.newColor.Value"
+                                                      class="amplify-color-picker"
+                                                      options="{preferredFormat: hsl,  showInitial: false, chooseText: 'Choose', cancelText: 'Cancel', preferredFormat: 'hsl', showInput: true}"
+                                                      on-change="vm.spectrumColorUpdate(color, true, '')">
+                                </spectrum-colorpicker>
+
+                                <span class="amplify-margin-left">$</span><input name="newColor" val-highlight="" type="text" ng-model="vm.newColor.Alias" placeholder="Color variable name..." />
+                                <pre class="amplify-hsl amplify-color-preview">{{vm.newColor.Value}}</pre>
+                            </div>
+                            <div class="umb-prevalues-multivalues__right">
+                                <button ng-disabled="vm.addColorDisabled()" class="btn btn-info add" ng-click="vm.addColor()"><localize key="general_add">Add</localize></button>
+                            </div>
+                        </div>
+
+                        <div ui-sortable="vm.sortableOptions" ng-model="vm.colors" class="amplify-values-colors umb-prevalues-multivalues">
+                            <div class="control-group umb-prevalues-multivalues__listitem color-picker-preval" ng-repeat="variable in vm.colors">
+                                <i class="icon icon-navigation handle"></i>
+                                <div class="umb-prevalues-multivalues__left">
+                                    <spectrum-colorpicker data-newcolor="false"
+                                                          ng-model="variable.Value"
+                                                          class="amplify-color-picker"
+                                                          options="{preferredFormat: hsl,  showInitial: false, chooseText: 'Choose', cancelText: 'Cancel', preferredFormat: 'hsl', showInput: true}"
+                                                          on-change="vm.spectrumColorUpdate(color, false, variable.Alias)">
+                                    </spectrum-colorpicker>
+
+                                    <div class="color-picker-prediv">
+                                        <pre>{{variable.Alias}}</pre>
+                                        <pre class="amplify-hsl">{{variable.Value}}</pre>
+                                    </div>
+                                    <div class="umb-prevalues-multivalues__right">
+                                        <button class="umb-node-preview__action umb-node-preview__action--red" ng-click="vm.resetVariable(vm.colors, $index)"><localize key="amplify_reset">Reset</localize></button>
+                                        <a class="umb-node-preview__action umb-node-preview__action--red amplify-margin-left" localize="title" title="Delete" ng-click="vm.deleteVariable(vm.colors, $index); $event.stopPropagation();" prevent-default=""> <i class="icon icon-trash"></i> </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </umb-box-content>
+                </umb-box>
+            </div>
+        </div>
+    </div>
+</div>

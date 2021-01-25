@@ -1,0 +1,37 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Article>
+@using Umbraco.Web.PublishedModels
+@using Amplify.Core.Extensions
+
+<div class="amplify-card amplify-image-card card has-equal-height"  data-aos="fade-up">
+    @if (Model.Image.HasValue())
+    {
+        <a href="@Model.Url">
+            <div class="image has-spacing image is-3by2">
+                @RazorHelper.ResponsiveImage(Model.Image, Model.Title, "is-background", Model.ItemsPerRow)
+            </div>
+        </a>
+    }
+    <div class="card-content has-equal-height">
+        <div class="content has-equal-height">
+            <div class="content-top has-margin-bottom-5">
+        
+                    <small class="has-text-grey">@Model.DisplayDate.ToDisplayDate()</small>
+                    @if (Model.Title.HasValue())
+                    {
+                        <a class="has-text-dark" href="@Model.Url">
+                            <h4 class="is-size-5">@Model.Title</h4>
+                        </a>
+                    }
+            
+                @if (Model.Subtitle.HasValue())
+                {
+                    @RazorHelper.Truncate(Model.Subtitle, 20)
+                }
+            </div>
+            <div class="content-bottom">
+                <a href="@Model.Url" class="button is-link">@Umbraco.GetDictionaryValue("General.Read.More")</a>
+            </div>
+        </div>
+    </div>
+</div>
+

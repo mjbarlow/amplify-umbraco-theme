@@ -1,0 +1,39 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<IPublishedContent>
+@using Umbraco.Web.PublishedModels
+@using Amplify.Core.Extensions;
+
+@if (Model.ContentType != null)
+{
+    var content = new HeaderTitleComposition(Model);
+    var settings = Model.Value<IPublishedContent>("sectionConfig") as HeaderSettings;
+
+    if (settings != null)
+    {
+        var alignment = RazorHelper.AlignmentClass(settings?.TextAlignment);
+        var isCentered = settings?.TextAlignment == "has-text-centered";
+        var width = RazorHelper.WidthClass(settings?.Width);
+
+        if (content.Title.HasValue())
+        {
+            @SectionHelper.RenderSectionStart(
+                        backgroundClass: settings.BgColor.Label,
+                        bgTexture: settings.BgTexture?.Url,
+                        gradientAlias: settings.BgGradient,
+                        textClass: settings.TextColor.Label,
+                        paddingSize: settings.Spacing,
+                        isCentered: isCentered,
+                        className: "amplify-page-header")
+
+            <div class="column has-margin-top-5 has-margin-top-7-desktop @settings.TextAlignment @width">
+                <h1 class="title is-size-3 is-size-2-desktop">@content.Title</h1>
+                @if (content.Subtitle.HasValue())
+                {
+                    <h2 class="subtitle is-size-5 is-size-4-desktop">@content.Subtitle</h2>
+                }
+
+                @Html.Action("RenderShareLinks", "Site", new { title = content.Title, textClass = RazorHelper.TextColorClass(settings.TextColor.Label), noColumn = true })
+            </div>
+            @SectionHelper.RenderSectionEnd()
+        }
+    }
+}

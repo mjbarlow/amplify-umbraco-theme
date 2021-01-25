@@ -1,0 +1,41 @@
+﻿@inherits Amplify.Core.ViewPages.AmplifyViewPage<SignUpFormSection>
+@using Umbraco.Web.PublishedModels
+@using Amplify.Core.Extensions
+
+@SectionHelper.RenderSectionStart(
+    backgroundClass: Model.BgColor.Label,
+    bgTexture: Model.BgTexture?.Url,
+    gradientAlias: Model.BgGradient,
+    textClass: Model.TextColor.Label,
+    paddingSize: Model.Spacing,
+    isCentered: true,
+    className: "amplify-products-list")
+
+<div class="column is-one-third" data-aos="fade-left">
+    <article>
+        @if (Model.Title.HasValue())
+        {
+            <h3 class="title is-size-3 is-size-2-tablet">@Model.Title</h3>
+        }
+        @if (Model.Content.HasValue())
+        {
+            <div class="subtitle is-size-5 is-size-4-tablet">
+                @Model.Content
+            </div>
+        }
+    </article>
+</div>
+
+<div class="column is-one-third" data-aos="fade-right">
+    <div id="subscribeForm"></div>
+</div>
+<script>
+    window.amplify.form = {
+        formTitle: '@Html.Raw(HttpUtility.JavaScriptStringEncode(Model.FormTitle))',
+        submittedTitle: '@Html.Raw(HttpUtility.JavaScriptStringEncode(Model.SubmittedTitle))',
+        submittedText: '@Html.Raw(HttpUtility.JavaScriptStringEncode(Model.SubmittedText.ToString()))',
+        submittedImage: '@Html.Raw(HttpUtility.JavaScriptStringEncode(Model.SubmittedImage?.Url))'
+    }
+</script>
+@SectionHelper.RenderSectionEnd()
+

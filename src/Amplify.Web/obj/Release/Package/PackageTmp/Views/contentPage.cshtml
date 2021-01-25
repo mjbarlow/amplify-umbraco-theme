@@ -1,0 +1,55 @@
+﻿@inherits  Amplify.Core.ViewPages.AmplifyViewPage<ContentPage>
+@using Umbraco.Web.PublishedModels
+@using Amplify.Core.Extensions
+
+@{
+    Layout = "master.cshtml";
+}
+
+@Html.Partial("~/Views/Partials/PageHeaderNew.cshtml", Model)
+
+@if (Model.Image.HasValue())
+{
+    <section class="section  has-padding-top-4 has-padding-bottom-4">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-11">
+                    <div class="image  @Model.ImageRatio">
+                        @if (Model.Image.HasValue())
+                        {
+                            <img src="@Model.Image.Url" class="is-background" />
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+
+<section class="section">
+    <div class="container">
+        <div class="columns @(!Model.HideSideNav ? "" : "is-centered")">
+            @if (!Model.HideSideNav)
+            {
+                <div class="column is-2-tablet">
+                    <aside class="menu amplify-menu">
+                        <a href="@(Model.Level == 2 ? Model.Url : Model.Parent.Url)" class="menu-label has-text-weight-semibold amplify-menu-link has-text-link">
+                            <span>@(Model.Level == 2 ? Model.Name : Model.Parent.Name)</span>
+                        </a>
+                        <a class="menu-label has-text-weight-semibold amplify-menu-header has-text-link">
+                            <span>@(Model.Level == 2 ? Model.Name : Model.Parent.Name)</span>
+                        </a>
+                        <ul class="menu-list amplify-menu-list">
+                            @Html.Partial("~/Views/Partials/Navigation/SubNavigation.cshtml")
+                        </ul>
+                    </aside>
+                </div>
+            }
+            <div class="column is-8-tablet @(!Model.HideSideNav ? "" : "is-center")">
+                <div class="content is-medium">
+                    @Html.Partial("~/Views/Partials/Renderers/RenderPageContent.cshtml", Model.NestedContent)
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

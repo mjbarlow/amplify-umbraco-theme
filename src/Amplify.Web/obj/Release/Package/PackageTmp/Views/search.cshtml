@@ -1,0 +1,283 @@
+﻿@inherits Amplify.Core.ViewPages.AmplifyViewPage<Search>
+@using Umbraco.Web.PublishedModels
+@using Amplify.Core.Extensions
+@{
+    Layout = "master.cshtml";
+    var width = RazorHelper.WidthClass(Model.ContentWidth);
+    var searchQuery = Request.QueryString["q"] ?? "";
+    var culture = Model.GetCultureFromDomains();
+    var documentTypes = Model.AllowListedDocumentTypes.ToObject<string[]>();
+}
+
+@Html.Partial("~/Views/Partials/PageHeaderNew.cshtml", Model)
+
+@SectionHelper.RenderSectionStart(
+backgroundClass: Model.ContentBgColor.Label,
+bgTexture: Model.ContentBgTexture?.Url,
+gradientAlias: Model.ContentBgGradient,
+textClass: Model.ContentTextColor.Label,
+paddingSize: Model.ContentSpacing,
+isCentered: false,
+className: "amplify-search")
+
+<div class="column @width">
+    <div class="amplify-search-form">
+        <form action="@Model.Url" method="GET" id="search">
+            <div class="field has-addons">
+                <div class="control is-expanded">
+                    <input class="input is-medium" placeholder="@Umbraco.GetDictionaryValue("Search.Placeholder")" type="text" name="q" value="@searchQuery" />
+                </div>
+                <div class="control">
+                    <button type="submit" class="button is-medium is-link">
+                        @Umbraco.GetDictionaryValue("Search.Button")
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    @if (searchQuery.HasValue())
+    {
+        <div class="amplify-search-results has-margin-top-5">
+            <div class="content is-medium">
+                @{
+                    var results = Umbraco.ContentQuery.Search(searchQuery, culture: culture)
+                        .Where(x => x.Content.TemplateId != 0)
+                        .Where(x => documentTypes.Contains(x.Content.ContentType.Id.ToString()))
+                        .ToList();
+
+                    var articles = results.Where(x => x.Content.ContentType.Alias == Article.ModelTypeAlias);
+                    var products = results.Where(x => x.Content.ContentType.Alias == Product.ModelTypeAlias);
+                    var team = results.Where(x => x.Content.ContentType.Alias == Person.ModelTypeAlias);
+                   
+                    var content = results.Where(x => x.Content.ContentType.Alias != Person.ModelTypeAlias
+                    && x.Content.ContentType.Alias != Article.ModelTypeAlias 
+                    && x.Content.ContentType.Alias != Product.ModelTypeAlias
+                    );
+
+                    long resultCount = results != null && results.Any() ? results.Count() : 0;
+
+                    <h1 class="title is-size-3">@(string.Format(Umbraco.GetDictionaryValue("Search.Results"), resultCount, searchQuery))</h1>
+                }
+                @if (results.Any())
+                {
+                    <div class="box">
+                        @if (articles.Any())
+                        {
+                            <h4>@Umbraco.GetDictionaryValue("Search.Articles")</h4>
+                            <div class="has-margin-bottom-5">
+                                @foreach (var result in articles)
+                                {
+                                    var article = new Article(result.Content);
+                                    <article class="media">
+                                        @if (article.Image.HasValue())
+                                        {
+                                            <div class="media-left  has-margin-right-4 has-margin-top-3">
+                                                <a href="@article.Url">
+                                                    <div class="image is-64x64">
+                                                        @RazorHelper.GetThumbnailImage(article.Image, article.Title)
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        }
+                                        <div class="media-content">
+                                            <div class="content">
+                                                <small class="has-text-grey">@article.DisplayDate.ToDisplayDate()</small><br />
+                                                <a href="@article.Url" class="has-text-dark">
+                                                    @if (article.Title.HasValue())
+                                                    {
+                                                        <span class="is-size-5 has-text-weight-semibold ">@article.Title</span>
+                                                    }
+
+                                                    @if (article.Subtitle.HasValue())
+                                                    {
+                                                        var subtitle = RazorHelper.Truncate(article.Subtitle, 20);
+                                                        subtitle = RazorHelper.AddClass(subtitle, "has-margin-bottom-0", "p");
+                                                        @subtitle
+                                                    }
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </article>
+                                    if (article.Id != articles.Last().Content.Id)
+                                    {
+                                        <hr />
+                                    }
+                                }
+                            </div>
+                        }
+
+                        @if (products.Any())
+                        {
+                            <h4>@Umbraco.GetDictionaryValue("Search.Products")</h4>
+                            <div class="has-margin-bottom-5">
+                                @foreach (var result in products)
+                                {
+                                    var product = new Product(result.Content);
+                                    <article class="media">
+                                        @if (product.Image.HasValue())
+                                        {
+                                            <div class="media-left  has-margin-right-4 has-margin-top-3">
+                                                <a href="@product.Url">
+                                                    <div class="image is-64x64">
+                                                        @RazorHelper.GetThumbnailImage(product.Image, product.ProductName)
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        }
+                                        <div class="media-content">
+                                            <div class="content">
+                                                <a href="@result.Content.Url" class="has-text-dark">
+                                                    @if (product.ProductName.HasValue())
+                                                    {
+                                                        <span class="is-size-5 has-text-weight-semibold">@product.ProductName</span>
+                                                    }
+                                                    @if (product.Description.HasValue())
+                                                    {
+                                                        @RazorHelper.Truncate(product.Description, 20)
+                                                    }
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </article>
+
+                                    if (product.Id != products.Last().Content.Id)
+                                    {
+                                        <hr />
+                                    }
+                                }
+                            </div>
+                        }
+
+                        @if (team.Any())
+                        {
+                            <h4>@Umbraco.GetDictionaryValue("Search.Team")</h4>
+                            <div class="has-margin-bottom-5">
+                                @foreach (var result in team)
+                                {
+
+                                    var person = new Person(result.Content);
+
+                                    <article class="media">
+                                        @if (person.Photo.HasValue())
+                                        {
+                                            <div class="media-left  has-margin-right-4 has-margin-top-3">
+                                                <a href="@person.Url">
+                                                    <div class="image is-64x64">
+                                                        @RazorHelper.GetThumbnailImage(person.Photo, person.Name)
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        }
+                                        <div class="media-content">
+                                            <div class="content">
+                                                <a href="@result.Content.Url" class="has-text-dark">
+                                                    <span class="is-size-5 has-text-weight-semibold">@person.Name</span>
+                                                    @if (person.Bio.HasValue())
+                                                    {
+                                                        @RazorHelper.Truncate(person.Bio, 20)
+                                                    }
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </article>
+
+                                    if (person.Id != team.Last().Content.Id)
+                                    {
+                                        <hr />
+                                    }
+
+                                }
+                            </div>
+                        }
+
+                        @if (content.Any())
+                        {
+                            <h4>@Umbraco.GetDictionaryValue("Search.Content")</h4>
+                            <div class="has-margin-bottom-5">
+                                @foreach (var result in content)
+                                {
+                                    var title = result.Content.Value<string>("title");
+                                    title = title.HasValue() ? title : result.Content.Name;
+                                    var subtitle = result.Content.Value<IHtmlString>("subtitle") ?? new HtmlString("");
+                                    var hasImage = result.Content.HasProperty("image");
+
+                                    <article class="media">
+                                        @if (hasImage)
+                                        {
+                                            var image = result.Content.Value<IPublishedContent>("image");
+                                            if (image.HasValue())
+                                            {
+                                                <div class="media-left  has-margin-right-4 has-margin-top-3">
+                                                    <a href="@result.Content.Url">
+                                                        <div class="image is-64x64">
+                                                            @RazorHelper.GetThumbnailImage(image, title)
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            }
+
+                                        }
+                                        <div class="media-content">
+                                            <div class="content">
+                                                <a href="@result.Content.Url" class="has-text-dark">
+                                                    <span class="is-size-5 has-text-weight-semibold">@title</span>
+                                                    @if (subtitle.HasValue())
+                                                    {
+                                                        @RazorHelper.Truncate(subtitle, 20)
+                                                    }
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </article>
+
+                                    if (result.Content.Id != content.Last().Content.Id)
+                                    {
+                                        <hr />
+                                    }
+
+                                }
+                            </div>
+                        }
+                    </div>
+                }
+            </div> 
+        </div>
+    }
+</div>
+@SectionHelper.RenderSectionEnd()
+
+
+
+@*<article class="media">
+    @if (product.Image.HasValue())
+    {
+        <div class="media-left  has-margin-right-4 has-margin-top-3">
+            <a href="@product.Url">
+                <div class="image is-64x64">
+                    @RazorHelper.GetThumbnailImage(product.Image, product.ProductName)
+                </div>
+            </a>
+        </div>
+    }
+    <div class="media-content">
+        <div class="content">
+            <p class="has-margin-bottom-2">
+                @if (hasDate)
+                {
+                    var date = result.Content.Value<DateTime>("displayDate");
+                    <small class="has-text-grey">@date.ToDisplayDate()</small><br />
+                }
+                <a href="@result.Content.Url" class="has-text-dark">
+                    @if (title.HasValue())
+                    {
+                        <span class="is-size-5 has-text-weight-semibold">@title</span>
+                    }
+                    @if (subtitle.HasValue())
+                    {
+                        @RazorHelper.Truncate(subtitle, 20)
+                    }
+                </a>
+            </p>
+        </div>
+    </div>
+</article>*@

@@ -1,0 +1,36 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<IPublishedContent>
+@using Umbraco.Web.PublishedModels
+@using Amplify.Core.Extensions;
+
+@if (Model.ContentType != null)
+{
+    var content = new HeaderTitleComposition(Model);
+    <section class="section is-medium has-text-dark has-background-white has-padding-bottom-0 amplify-article-header">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-8 has-text-centered ">
+                    <div class="has-width-80-percent">
+                        <div class="has-margin-bottom-4">
+                            @if (content.Title.HasValue())
+                            {
+                                <h1 class="is-size-3 is-size-2-desktop has-no-text-transform regular-font has-margin-bottom-3">@content.Title</h1>
+                            }
+                            @if (content.Subtitle.HasValue())
+                            {
+                                <div class="is-size-5">
+                                    @content.Subtitle.StripHtml()
+                                </div>
+                            }
+                        </div>
+                    </div>
+                        @*<div class="has-margin-bottom-4">
+                            <div class="columns is-centered">
+                                @Html.Action("RenderShareLinks", "Site", new { Title = content.Title, TextClass = "has-text-info", NoColumn = false, HasLargeIcons = false, IsCentered = true })
+                            </div>
+                        </div>*@
+                   
+                </div>
+            </div>
+        </div>
+    </section>
+}

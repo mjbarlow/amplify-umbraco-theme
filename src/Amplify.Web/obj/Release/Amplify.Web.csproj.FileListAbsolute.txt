@@ -1,0 +1,615 @@
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\x64\libsass.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\amd64\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\amd64\Microsoft.VC90.CRT\msvcr90.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\amd64\sqlceca40.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\amd64\sqlcecompact40.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\amd64\sqlceer40EN.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\amd64\sqlceme40.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\amd64\sqlceqp40.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\amd64\sqlcese40.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\x86\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\x86\Microsoft.VC90.CRT\msvcr90.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\x86\sqlceca40.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\x86\sqlcecompact40.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\x86\sqlceer40EN.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\x86\sqlceme40.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\x86\sqlceqp40.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\x86\sqlcese40.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Amplify.Web.dll.config
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Amplify.Web.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Amplify.Web.pdb
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\roslyn\csc.exe
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\roslyn\csc.exe.config
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\roslyn\csc.rsp
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\roslyn\csi.exe
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\roslyn\csi.exe.config
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\roslyn\csi.rsp
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\roslyn\Microsoft.Managed.Core.targets
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\roslyn\System.AppContext.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\roslyn\System.Collections.Immutable.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\roslyn\System.Console.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\roslyn\System.Globalization.Calendars.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\roslyn\System.IO.Compression.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\roslyn\System.IO.FileSystem.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\roslyn\System.Net.Http.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\roslyn\System.Net.Sockets.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\roslyn\System.Reflection.Metadata.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\roslyn\System.ValueTuple.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\roslyn\System.Xml.XmlDocument.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\roslyn\System.Xml.XPath.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\roslyn\vbc.exe
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\roslyn\vbc.exe.config
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\roslyn\vbc.rsp
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\roslyn\VBCSCompiler.exe
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\roslyn\VBCSCompiler.exe.config
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\AdvancedStringBuilder.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Amplify.Core.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\ClientDependency.Core.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\ClientDependency.Core.Mvc.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\CSharpTest.Net.Collections.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Examine.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\FaLinksPropertyEditor.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\HtmlAgilityPack.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\ICSharpCode.SharpZipLib.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\IdentityModel.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\ImageProcessor.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\ImageProcessor.Web.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\LibSassHost.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\LightInject.Annotation.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\LightInject.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\LightInject.Mvc.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\LightInject.Web.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\LightInject.WebApi.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Lucene.Net.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Markdown.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Microsoft.AspNet.Identity.Core.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Microsoft.AspNet.SignalR.Core.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Microsoft.CodeAnalysis.CSharp.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Microsoft.CodeAnalysis.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Microsoft.IdentityModel.Logging.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Microsoft.IdentityModel.Protocols.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Microsoft.IdentityModel.Tokens.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Microsoft.IO.RecyclableMemoryStream.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Microsoft.Owin.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Microsoft.Owin.Security.Cookies.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Microsoft.Owin.Security.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Microsoft.Owin.Security.Facebook.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Microsoft.Owin.Security.Google.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Microsoft.Owin.Security.OAuth.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Microsoft.Owin.Security.OpenIdConnect.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Microsoft.Owin.Security.Twitter.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Microsoft.Web.Infrastructure.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\MiniProfiler.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\MiniProfiler.Shared.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Newtonsoft.Json.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\NPoco.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Our.Umbraco.DocTypePicker.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Owin.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Semver.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Serilog.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Serilog.Enrichers.Process.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Serilog.Enrichers.Thread.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Serilog.Filters.Expressions.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Serilog.Formatting.Compact.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Serilog.Formatting.Compact.Reader.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Serilog.Settings.AppSettings.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Serilog.Sinks.Async.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Serilog.Sinks.File.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Serilog.Sinks.Map.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Superpower.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\System.Buffers.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\System.Collections.Immutable.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\System.Data.SqlServerCe.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\System.Data.SqlServerCe.Entity.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\System.Diagnostics.DiagnosticSource.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\System.IdentityModel.Tokens.Jwt.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\System.Memory.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\System.Net.Http.Formatting.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\System.Numerics.Vectors.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\System.Reflection.Metadata.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\System.Text.Encoding.CodePages.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\System.Text.Encodings.Web.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\System.Threading.Tasks.Dataflow.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\System.Threading.Tasks.Extensions.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\System.ValueTuple.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\System.Web.Helpers.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\System.Web.Http.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\System.Web.Http.WebHost.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\System.Web.Mvc.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\System.Web.Razor.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\System.Web.WebPages.Deployment.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\System.Web.WebPages.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\System.Web.WebPages.Razor.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Umbraco.Core.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Umbraco.Examine.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Umbraco.ModelsBuilder.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Umbraco.ModelsBuilder.Embedded.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Umbraco.Web.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Umbraco.Web.PublishedModels.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Umbraco.Web.UI.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\UmbracoIdentity.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\uSync8.BackOffice.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\uSync8.Core.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Amplify.Integrations.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\sib_api_v3_sdk.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\RestSharp.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Amplify.Core.pdb
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Amplify.Core.dll.config
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Umbraco.Web.PublishedModels.pdb
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Umbraco.Web.PublishedModels.dll.config
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\AdvancedStringBuilder.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\ClientDependency.Core.pdb
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\ClientDependency.Core.Mvc.pdb
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\CSharpTest.Net.Collections.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Examine.pdb
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\HtmlAgilityPack.pdb
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\HtmlAgilityPack.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\IdentityModel.pdb
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\IdentityModel.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\ImageProcessor.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\ImageProcessor.Web.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\LibSassHost.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\LightInject.pdb
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\LightInject.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\LightInject.Annotation.pdb
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\LightInject.Mvc.pdb
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\LightInject.Web.pdb
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\LightInject.Web.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\LightInject.WebApi.pdb
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\LightInject.WebApi.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\LightInject.WebApi.dll.config
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Lucene.Net.pdb
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Lucene.Net.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Microsoft.AspNet.Identity.Core.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Microsoft.AspNet.SignalR.Core.pdb
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Microsoft.AspNet.SignalR.Core.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Microsoft.CodeAnalysis.pdb
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Microsoft.CodeAnalysis.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Microsoft.CodeAnalysis.CSharp.pdb
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Microsoft.CodeAnalysis.CSharp.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Microsoft.IdentityModel.JsonWebTokens.pdb
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Microsoft.IdentityModel.JsonWebTokens.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Microsoft.IdentityModel.Logging.pdb
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Microsoft.IdentityModel.Logging.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Microsoft.IdentityModel.Protocols.pdb
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Microsoft.IdentityModel.Protocols.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Microsoft.IdentityModel.Protocols.OpenIdConnect.pdb
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Microsoft.IdentityModel.Protocols.OpenIdConnect.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Microsoft.IdentityModel.Tokens.pdb
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Microsoft.IdentityModel.Tokens.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Microsoft.IO.RecyclableMemoryStream.pdb
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Microsoft.Owin.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Microsoft.Owin.Security.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Microsoft.Owin.Security.Cookies.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Microsoft.Owin.Security.Facebook.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Microsoft.Owin.Security.Google.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Microsoft.Owin.Security.OAuth.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Microsoft.Owin.Security.OpenIdConnect.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Microsoft.Owin.Security.Twitter.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\MiniProfiler.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\MiniProfiler.Shared.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Newtonsoft.Json.pdb
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Newtonsoft.Json.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Semver.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Serilog.pdb
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Serilog.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Serilog.Enrichers.Thread.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Serilog.Filters.Expressions.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Serilog.Formatting.Compact.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Serilog.Formatting.Compact.Reader.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Serilog.Sinks.Async.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Serilog.Sinks.File.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Serilog.Sinks.Map.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Superpower.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\System.Buffers.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\System.Collections.Immutable.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\System.Diagnostics.DiagnosticSource.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\System.IdentityModel.Tokens.Jwt.pdb
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\System.IdentityModel.Tokens.Jwt.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\System.Memory.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\System.Net.Http.Formatting.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\System.Numerics.Vectors.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\System.Reflection.Metadata.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\System.Text.Encodings.Web.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\System.Threading.Tasks.Dataflow.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\System.Threading.Tasks.Extensions.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\System.ValueTuple.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\System.Web.Helpers.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\System.Web.Http.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\System.Web.Http.WebHost.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\System.Web.Mvc.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\System.Web.Razor.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\System.Web.WebPages.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\System.Web.WebPages.Deployment.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\System.Web.WebPages.Razor.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Umbraco.Core.pdb
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Umbraco.Core.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Umbraco.Examine.pdb
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Umbraco.Examine.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Umbraco.ModelsBuilder.pdb
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Umbraco.ModelsBuilder.Embedded.pdb
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Umbraco.ModelsBuilder.Embedded.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Umbraco.Web.pdb
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Umbraco.Web.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Umbraco.Web.UI.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\UmbracoIdentity.pdb
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Amplify.Integrations.pdb
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Amplify.Integrations.dll.config
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\RestSharp.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\cs\Microsoft.CodeAnalysis.resources.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\de\Microsoft.CodeAnalysis.resources.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\es\Microsoft.CodeAnalysis.resources.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\fr\Microsoft.CodeAnalysis.resources.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\it\Microsoft.CodeAnalysis.resources.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\ja\Microsoft.CodeAnalysis.resources.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\ko\Microsoft.CodeAnalysis.resources.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\pl\Microsoft.CodeAnalysis.resources.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\pt-BR\Microsoft.CodeAnalysis.resources.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\ru\Microsoft.CodeAnalysis.resources.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\tr\Microsoft.CodeAnalysis.resources.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\obj\Release\Amplify.Web.csprojAssemblyReference.cache
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\obj\Release\Amplify.Web.csproj.CopyComplete
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\obj\Release\Amplify.Web.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\obj\Release\Amplify.Web.pdb
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\EPPlus.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Umbraco.Forms.Core.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Umbraco.Forms.Core.Providers.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Umbraco.Forms.Web.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Umbraco.Licensing.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\EPPlus.xml
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\bin\Nustache.Core.dll
+C:\inetpub\wwwroot\Umbraco8\amplify\Amplify.Web\obj\Release\Amplify.Web.csproj.CoreCompileInputs.cache
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\x64\libsass.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\amd64\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\amd64\Microsoft.VC90.CRT\msvcr90.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\amd64\sqlceca40.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\amd64\sqlcecompact40.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\amd64\sqlceer40EN.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\amd64\sqlceme40.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\amd64\sqlceqp40.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\amd64\sqlcese40.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\x86\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\x86\Microsoft.VC90.CRT\msvcr90.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\x86\sqlceca40.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\x86\sqlcecompact40.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\x86\sqlceer40EN.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\x86\sqlceme40.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\x86\sqlceqp40.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\x86\sqlcese40.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Amplify.Web.dll.config
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Amplify.Web.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Amplify.Web.pdb
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\roslyn\csc.exe
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\roslyn\csc.exe.config
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\roslyn\csc.rsp
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\roslyn\csi.exe
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\roslyn\csi.exe.config
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\roslyn\csi.rsp
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\roslyn\Microsoft.Managed.Core.targets
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\roslyn\System.AppContext.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\roslyn\System.Collections.Immutable.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\roslyn\System.Console.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\roslyn\System.Globalization.Calendars.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\roslyn\System.IO.Compression.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\roslyn\System.IO.FileSystem.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\roslyn\System.Net.Http.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\roslyn\System.Net.Sockets.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\roslyn\System.Reflection.Metadata.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\roslyn\System.ValueTuple.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\roslyn\System.Xml.XmlDocument.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\roslyn\System.Xml.XPath.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\roslyn\vbc.exe
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\roslyn\vbc.exe.config
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\roslyn\vbc.rsp
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\roslyn\VBCSCompiler.exe
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\roslyn\VBCSCompiler.exe.config
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\AdvancedStringBuilder.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Amplify.Core.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\AutoMapper.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\ClientDependency.Core.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\ClientDependency.Core.Mvc.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\CSharpTest.Net.Collections.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\EPPlus.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Examine.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\FaLinksPropertyEditor.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\HtmlAgilityPack.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\ICSharpCode.SharpZipLib.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\ImageProcessor.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\ImageProcessor.Web.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\LibSassHost.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\LightInject.Annotation.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\LightInject.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\LightInject.Mvc.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\LightInject.Web.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\LightInject.WebApi.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Lucene.Net.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Markdown.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Microsoft.AspNet.Identity.Core.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Microsoft.AspNet.SignalR.Core.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Microsoft.CodeAnalysis.CSharp.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Microsoft.CodeAnalysis.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Microsoft.IdentityModel.Logging.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Microsoft.IdentityModel.Protocols.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Microsoft.IdentityModel.Tokens.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Microsoft.IO.RecyclableMemoryStream.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Microsoft.Owin.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Microsoft.Owin.Security.Cookies.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Microsoft.Owin.Security.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Microsoft.Owin.Security.OAuth.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Microsoft.Web.Infrastructure.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\MiniProfiler.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\MiniProfiler.Shared.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Newtonsoft.Json.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\NPoco.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Our.Umbraco.DocTypePicker.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Owin.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Semver.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Serilog.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Serilog.Enrichers.Process.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Serilog.Enrichers.Thread.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Serilog.Filters.Expressions.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Serilog.Formatting.Compact.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Serilog.Formatting.Compact.Reader.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Serilog.Settings.AppSettings.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Serilog.Sinks.Async.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Serilog.Sinks.File.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Serilog.Sinks.Map.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Superpower.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\System.Buffers.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\System.Collections.Immutable.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\System.Data.SqlServerCe.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\System.Data.SqlServerCe.Entity.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\System.Diagnostics.DiagnosticSource.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\System.IdentityModel.Tokens.Jwt.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\System.Memory.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\System.Net.Http.Formatting.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\System.Numerics.Vectors.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\System.Reflection.Metadata.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\System.Runtime.CompilerServices.Unsafe.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\System.Text.Encoding.CodePages.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\System.Text.Encodings.Web.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\System.Threading.Tasks.Dataflow.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\System.Threading.Tasks.Extensions.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\System.ValueTuple.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\System.Web.Helpers.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\System.Web.Http.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\System.Web.Http.WebHost.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\System.Web.Mvc.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\System.Web.Razor.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\System.Web.WebPages.Deployment.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\System.Web.WebPages.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\System.Web.WebPages.Razor.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Umbraco.Core.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Umbraco.Examine.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Umbraco.Forms.Core.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Umbraco.Forms.Core.Providers.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Umbraco.Forms.Web.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Umbraco.Licensing.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Umbraco.ModelsBuilder.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Umbraco.ModelsBuilder.Embedded.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Umbraco.Web.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Umbraco.Web.PublishedModels.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Umbraco.Web.UI.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\uSync8.BackOffice.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\uSync8.Core.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Nustache.Core.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Amplify.Integrations.SendInBlue.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\sib_api_v3_sdk.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\RestSharp.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Amplify.Core.pdb
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Amplify.Core.dll.config
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Umbraco.Web.PublishedModels.pdb
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Umbraco.Web.PublishedModels.dll.config
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\AdvancedStringBuilder.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\AutoMapper.pdb
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\AutoMapper.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\ClientDependency.Core.pdb
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\ClientDependency.Core.Mvc.pdb
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\CSharpTest.Net.Collections.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\EPPlus.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Examine.pdb
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\HtmlAgilityPack.pdb
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\HtmlAgilityPack.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\ICSharpCode.SharpZipLib.pdb
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\ICSharpCode.SharpZipLib.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\ImageProcessor.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\ImageProcessor.Web.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\LibSassHost.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\LightInject.pdb
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\LightInject.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\LightInject.Annotation.pdb
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\LightInject.Mvc.pdb
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\LightInject.Web.pdb
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\LightInject.Web.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\LightInject.WebApi.pdb
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\LightInject.WebApi.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\LightInject.WebApi.dll.config
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Lucene.Net.pdb
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Lucene.Net.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Microsoft.AspNet.Identity.Core.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Microsoft.AspNet.SignalR.Core.pdb
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Microsoft.AspNet.SignalR.Core.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Microsoft.CodeAnalysis.pdb
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Microsoft.CodeAnalysis.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Microsoft.CodeAnalysis.CSharp.pdb
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Microsoft.CodeAnalysis.CSharp.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Microsoft.IdentityModel.JsonWebTokens.pdb
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Microsoft.IdentityModel.JsonWebTokens.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Microsoft.IdentityModel.Logging.pdb
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Microsoft.IdentityModel.Logging.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Microsoft.IdentityModel.Protocols.pdb
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Microsoft.IdentityModel.Protocols.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Microsoft.IdentityModel.Tokens.pdb
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Microsoft.IdentityModel.Tokens.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Microsoft.IO.RecyclableMemoryStream.pdb
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Microsoft.Owin.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Microsoft.Owin.Security.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Microsoft.Owin.Security.Cookies.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Microsoft.Owin.Security.OAuth.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\MiniProfiler.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\MiniProfiler.Shared.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Newtonsoft.Json.pdb
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Newtonsoft.Json.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Semver.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Serilog.pdb
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Serilog.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Serilog.Enrichers.Thread.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Serilog.Filters.Expressions.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Serilog.Formatting.Compact.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Serilog.Formatting.Compact.Reader.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Serilog.Sinks.Async.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Serilog.Sinks.File.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Serilog.Sinks.Map.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Superpower.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\System.Buffers.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\System.Collections.Immutable.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\System.Diagnostics.DiagnosticSource.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\System.IdentityModel.Tokens.Jwt.pdb
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\System.IdentityModel.Tokens.Jwt.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\System.Memory.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\System.Net.Http.Formatting.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\System.Numerics.Vectors.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\System.Reflection.Metadata.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\System.Runtime.CompilerServices.Unsafe.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\System.Text.Encodings.Web.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\System.Threading.Tasks.Dataflow.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\System.Threading.Tasks.Extensions.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\System.ValueTuple.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\System.Web.Helpers.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\System.Web.Http.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\System.Web.Http.WebHost.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\System.Web.Mvc.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\System.Web.Razor.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\System.Web.WebPages.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\System.Web.WebPages.Deployment.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\System.Web.WebPages.Razor.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Umbraco.Core.pdb
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Umbraco.Core.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Umbraco.Examine.pdb
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Umbraco.Examine.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Umbraco.ModelsBuilder.pdb
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Umbraco.ModelsBuilder.Embedded.pdb
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Umbraco.ModelsBuilder.Embedded.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Umbraco.Web.pdb
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Umbraco.Web.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Umbraco.Web.UI.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Amplify.Integrations.SendInBlue.pdb
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\Amplify.Integrations.SendInBlue.dll.config
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\RestSharp.xml
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\cs\Microsoft.CodeAnalysis.resources.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\de\Microsoft.CodeAnalysis.resources.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\es\Microsoft.CodeAnalysis.resources.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\fr\Microsoft.CodeAnalysis.resources.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\it\Microsoft.CodeAnalysis.resources.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\ja\Microsoft.CodeAnalysis.resources.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\ko\Microsoft.CodeAnalysis.resources.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\pl\Microsoft.CodeAnalysis.resources.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\ru\Microsoft.CodeAnalysis.resources.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\tr\Microsoft.CodeAnalysis.resources.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\bin\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\obj\Release\Amplify.Web.csprojAssemblyReference.cache
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\obj\Release\Amplify.Web.csproj.CoreCompileInputs.cache
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\obj\Release\Amplify.Web.csproj.CopyComplete
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\obj\Release\Amplify.Web.dll
+D:\wwwroot\Umbraco 8\Amplify\amplify\Amplify.Web\obj\Release\Amplify.Web.pdb

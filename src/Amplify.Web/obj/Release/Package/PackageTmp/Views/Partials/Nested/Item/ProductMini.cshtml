@@ -1,0 +1,23 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Product>
+@using Umbraco.Web.PublishedModels
+@using Amplify.Core.Extensions
+
+<div class="amplify-card amplify-image-card card has-equal-height">
+    @if (Model.Image.HasValue())
+    {
+        <a href="@Model.Url">
+            <div class="image has-spacing image is-2by1">
+                @RazorHelper.ResponsiveImage(Model.Image, Model.ProductName, "is-background", Model.ItemsPerRow)
+            </div>
+        </a>
+    }
+    <div class="card-content">
+        @if (Model.ProductName.HasValue())
+        {
+            <a class="has-text-dark" href="@Model.Url">
+                <h4 class="is-size-5 has-margin-bottom-0 has-text-weight-semibold">@Model.ProductName</h4>
+            </a>
+        }
+    </div>
+</div>
+

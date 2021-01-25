@@ -1,0 +1,28 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<MiniIconsListSection>
+@using Umbraco.Web.PublishedModels
+
+@{
+    var alignment = RazorHelper.AlignmentClass(Model.TextAlignment);
+}
+
+@SectionHelper.RenderSectionStart(
+    backgroundClass: Model.BgColor.Label,
+    bgTexture: Model.BgTexture?.Url,
+    gradientAlias: Model.BgGradient,
+    textClass: Model.TextColor.Label,
+    paddingSize: Model.Spacing,
+    className: "amplify-mini-icon-section",
+    mobileColumns: true)
+
+@Html.Partial($"~/Views/Partials/Nested/Component/TitleItem.cshtml", new TitleItem(Model))
+
+@foreach (var icon in Model.Icons)
+{
+    <div class="column is-half-mobile has-margin-bottom-4 @alignment  @RazorHelper.ColumnClass(Model.ItemsPerRow?.ToString())">
+        @Html.Partial($"~/Views/Partials/Nested/Item/MiniIconItem.cshtml", icon)
+    </div>
+}
+
+@Html.Partial($"~/Views/Partials/Nested/Component/LinkComponent.cshtml", new LinkComponent(Model))
+
+@SectionHelper.RenderSectionEnd()

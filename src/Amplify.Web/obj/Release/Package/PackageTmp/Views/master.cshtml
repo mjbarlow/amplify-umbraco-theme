@@ -1,0 +1,110 @@
+﻿@inherits Amplify.Core.ViewPages.AmplifyViewPage
+@using ClientDependency.Core.Mvc
+@using Amplify.Core.Extensions
+@using Umbraco.Core.Composing;
+@using Amplify.Core.BackOffice
+@{
+    Layout = null;
+
+    var siteConfig = SiteService.SiteConfig;
+    var nav = siteConfig.Nav;
+    nav.AlternateNavBg = Model.Value<bool?>("transparentNavigation") ?? false;
+    nav.ModelAlias = Model.ContentType.Alias;
+    
+
+    var hideMainNav = Model.Value<bool>("hideMainNav");
+    var hideFooter = Model.Value<bool>("hideFooter");
+
+    var title = Model.Value<string>("title").HasValue() ? Model.Value<string>("title") : Model.Name;
+    var metaDescription = Model.Value<string>("seoMetaDescription").HasValue() ? Model.Value<string>("seoMetaDescription") : "";
+
+    var author = Model.Value<IPublishedContent>("SelectedAuthor").HasValue() ? Model.Value<IPublishedContent>("SelectedAuthor").Name : "";
+
+    if (!author.HasValue())
+    {
+        author = Model.Value<string>("author").HasValue() ? Model.Value<string>("author") : siteConfig.AppConfig.SiteName;
+    }
+}
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>@title - @siteConfig.AppConfig.SiteName</title>
+    @if (metaDescription.HasValue())
+    {
+        <meta name="description" content="@metaDescription">
+    }
+    @RenderSection("Header", required: false)
+    <meta name="author" content="@author">
+    <link rel="stylesheet" href="@Url.Content("~/themes/amplify/fontawesome/css/all.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/themes/amplify/glightbox/glightbox.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/themes/amplify/aos/aos.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/themes/amplify/style.css")" />
+    <link rel="canonical" href="@Model.FullUrl()" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="theme-color" content="#ffffff">
+
+    <script>
+        window.amplify = {}
+    </script>
+    <style>
+    @foreach(var font in Current.Configs.Amplify().Fonts.Where(x => x.Enabled))
+    {
+       @: @@import url('https://fonts.googleapis.com/css2?family=@(font.Value)&display=swap');
+    }
+
+    </style>
+
+    @if (siteConfig.AppConfig.AnalyticsCode.HasValue())
+    {
+        @Html.Raw(siteConfig.AppConfig.AnalyticsCode)
+    }
+    @Html.RenderCssHere()
+
+
+</head>
+<body>
+
+    @if (siteConfig.Nav != null && !hideMainNav)
+    {
+        @Html.Partial("~/Views/Partials/NavExtended.cshtml", siteConfig.Nav)
+    }
+
+    <main>
+        <div class="amplify-overlay"></div>
+        @if (siteConfig.Alert.HasValue() && siteConfig.Alert.IsEnabled)
+        {
+            @Html.Partial("~/Views/Partials/Alert.cshtml", siteConfig.Alert)
+        }
+
+        @RenderBody()
+    </main>
+
+    @if (siteConfig.Footer.HasValue() && !hideFooter)
+    {
+        <div class="amplify-footer">
+            @Html.Partial("~/Views/Partials/Renderers/RenderContent.cshtml", siteConfig.Footer.FooterContent)
+        </div>
+    }
+
+    @if (siteConfig.AppConfig.HasValue())
+    {
+        @Html.Partial("~/Views/Partials/CookieNotification.cshtml", new CookieNotification(siteConfig.AppConfig))
+    }
+    <a href="#" id="backToTop" class="amplify-top"></a>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js" integrity="sha256-bu/BP02YMudBc96kI7yklc639Mu4iKGUNNcam8D2nLc=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js" integrity="sha256-9GycpJnliUjJDVDqP0UEu/bsm9U+3dnQUH8+3W10vkY=" crossorigin="anonymous"></script>
+    <script src="@Url.Content("~/js/app.js")"></script>
+    <script src="@Url.Content("~/js/chunk-vendors.js")"></script>
+    @Html.RenderJsHere()
+</body>
+</html>

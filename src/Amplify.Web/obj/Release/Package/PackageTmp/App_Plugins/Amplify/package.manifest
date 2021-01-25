@@ -1,0 +1,73 @@
+﻿{
+	"propertyEditors": [
+		{
+			"alias": "amplifyColorPicker",
+			"name": "amplify Color Picker",
+			"icon": "icon-color-bucket",
+			"group": "pickers",
+			"editor": {
+				"valueType": "TEXT",
+				"view": "~/app_plugins/amplify/editors/amplify.color.picker.html"
+			}
+		},
+		{
+			"alias": "amplifyGradientPicker",
+			"name": "amplify Gradient Picker",
+			"icon": "icon-palette",
+			"group": "pickers",
+			"editor": {
+				"valueType": "TEXT",
+				"view": "~/app_plugins/amplify/editors/amplify.gradient.picker.html"
+			}
+		},
+		{
+			"alias": "amplifyButton",
+			"name": "amplify Button",
+			"icon": "icon-checkbox-empty",
+			"group": "pickers",
+			"editor": {
+				"valueType": "TEXT",
+				"view": "~/app_plugins/amplify/editors/amplify.button.html"
+			},
+			"prevalues": {
+				"fields": [
+					{
+						"label": "Minimum number of items",
+						"description": "",
+						"key": "minNumber",
+						"view": "number"
+					},
+					{
+						"label": "Maximum number of items",
+						"description": "",
+						"key": "maxNumber",
+						"view": "number"
+					}
+				]
+			}
+		}
+	],
+	"javascript": [
+		"~/app_plugins/amplify/amplify.vendor.js",
+		"~/app_plugins/amplify/amplify.modules.js",
+		"~/app_plugins/amplify/editors/amplify.color.picker.controller.js",
+		"~/app_plugins/amplify/editors/amplify.gradient.picker.controller.js",
+		"~/app_plugins/amplify/editors/amplify.button.controller.js",
+		"~/app_plugins/amplify/dashboard/amplify.dashboard.controller.js",
+		"~/app_plugins/amplify/controllers/amplify.controllers.js",
+		"~/app_plugins/amplify/amplify.service.js"
+	],
+	"css": [
+		"~/app_plugins/amplify/amplify.css",
+		"~/app_plugins/amplify/backoffice.css",
+		"~/themes/amplify/fontawesome/css/all.min.css"
+	],
+	"dashboards": [
+		{
+			"alias": "amplifyDashboard",
+			"view": "/app_plugins/amplify/dashboard/amplify.dashboard.html",
+			"sections": [ "amplifySection" ],
+			"weight": -10
+		}
+	]
+}

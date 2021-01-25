@@ -1,0 +1,68 @@
+﻿@inherits Amplify.Core.ViewPages.AmplifyViewPage<ShareLinkSettings>
+@using Umbraco.Web.PublishedModels
+@using Amplify.Core.Extensions
+
+@{ 
+    var iconSize = Model.HasLargeIcons ? "is-large" : "is-medium";
+    var iconClass = Model.HasLargeIcons ? "fa-2x" : "fa-lg";
+}
+
+@if (Model.HasValue() && Model.EnableShareBar)
+{
+    if (!Model.NoColumn)
+    {
+        @:<div class="column @(Model.IsCentered ? "is-one-third-tablet is-centered" : "")">
+    }
+    <div class="@Model.Alignment">
+        <div class="level is-mobile @(Model.NoColumn ? "":"")">
+            <div class="level-left">
+                <h4 class="is-size-6 has-text-weight-semibold level-item @(Model.HasLargeIcons ? "is-size-4" :"")">@Umbraco.GetDictionaryValue("Share.Text")</h4>
+                @if (Model.EnableFacebook)
+                {
+                    <div class="level-item alignment">
+                        <a class="@Model.TextClass" href="https://www.facebook.com/sharer/sharer.php?u=@Uri.EscapeDataString(Request.Url.AbsoluteUri)" target="_blank">
+                            <span class="icon @iconSize">
+                                <i class="fab fa-facebook @iconClass"></i>
+                            </span>
+                        </a>
+                    </div>
+                }
+                @if (Model.EnableLinkedIn)
+                {
+                    <div class="level-item">
+                        <a class="@Model.TextClass" href="https://www.linkedin.com/shareArticle?mini=true&url=@Uri.EscapeDataString(Request.Url.AbsoluteUri)&title=@Uri.EscapeDataString(Model.Title)">
+                            <span class="icon @iconSize">
+                                <i class="fab fa-linkedin @iconClass"></i>
+                            </span>
+                        </a>
+                    </div>
+                }
+                @if (Model.EnableTwitter)
+                {
+                    <div class="level-item">
+                        <a class="@Model.TextClass" href="http://twitter.com/share?url=@Uri.EscapeDataString(Request.Url.AbsoluteUri)&text=@Uri.EscapeDataString(Model.Title)">
+                            <span class="icon @iconSize">
+                                <i class="fab fa-twitter @iconClass"></i>
+                            </span>
+                        </a>
+                    </div>
+                }
+                @if (Model.EnableEmail)
+                {
+                    var subject = Umbraco.GetDictionaryValue("Share.From");
+                    <div class="level-item">
+                        <a class="@Model.TextClass" href="mailto:?subject=@Uri.EscapeDataString(subject)&body=@Uri.EscapeDataString(Request.Url.AbsoluteUri)">
+                            <span class="icon @iconSize">
+                                <i class="fas fa-envelope @iconClass"></i>
+                            </span>
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    if (!Model.NoColumn)
+    {
+        @:  </div>
+    }
+}

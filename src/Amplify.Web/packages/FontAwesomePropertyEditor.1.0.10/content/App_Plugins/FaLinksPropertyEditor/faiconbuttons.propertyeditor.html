@@ -1,0 +1,8 @@
+﻿<div ng-controller="FaIconButtons.PropertyEditor.Controller as vm" class="faLinks-propertyeditor faiconbuttons">
+    <p>
+        <button ng-repeat="item in vm.buttons" title="{{item.label}}" ng-class="vm.setClasses(item)" type="button" ng-click="vm.add(item.value)" class="btn">
+            <i ng-if="item.svg" ng-bind-html="trustAsHtml(item.svg)"></i>
+            <div ng-if="vm.showLabel" ng-bind="item.label"></div>
+        </button>
+    </p>
+</div>

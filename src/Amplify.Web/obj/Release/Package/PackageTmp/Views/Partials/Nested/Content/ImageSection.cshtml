@@ -1,0 +1,110 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ImageSection>
+@using Umbraco.Web.PublishedModels
+@using Amplify.Core.Extensions
+
+@{
+    var alignment = RazorHelper.AlignmentClass(Model.TextAlignment);
+}
+
+@SectionHelper.RenderSectionStart(
+    backgroundClass: Model.BgColor.Label,
+    bgTexture: Model.BgTexture?.Url,
+    gradientAlias: Model.BgGradient,
+    textClass: Model.TextColor.Label,
+    paddingSize: Model.Spacing,
+    className: "amplify-image-section",
+    isFullWidth: true,
+    renderContainer: false)
+
+
+<div class="columns is-multiline has-margin-0">
+    @if (Model.ImageAlignment == "Left" || Model.ImageAlignment == "Right")
+    {
+        if (Model.ImageAlignment == "Left")
+        {
+            <div class="column has-padding-0" data-aos="fade-left">
+                @RenderImage()
+            </div>
+        }
+        else
+        {
+            <div class="column is-hidden-mobile has-padding-0 @Model.TextAlignment" data-aos="fade-left">
+                <div class="align-content-vertical-center">
+                    @RenderImageText()
+                </div>
+            </div>
+        }
+
+        <div class="column @Model.TextAlignment has-padding-0" data-aos="fade-right">
+            @if (Model.ImageAlignment == "Left")
+            {
+                <div class="align-content-vertical-center has-margin-left-4-tablet">
+                    @RenderImageText()
+                </div>
+            }
+            else
+            {
+                @RenderImage()
+                <div class="is-hidden-tablet">
+                    <div class="align-content-vertical-center">
+                        @RenderImageText()
+                    </div>
+                </div>
+            }
+        </div>}
+    else
+    {
+        <div class="column @Model.TextAlignment image-full has-padding-0" data-aos="zoom-in">
+            @RenderImage()
+            <div class="has-margin-top-4 has-margin-top-6-tablet">
+                @RenderImageText()
+            </div>
+        </div>
+
+    }
+    </div>
+    @SectionHelper.RenderSectionEnd()
+
+    @helper RenderImage()
+    {
+        if(Model.SectionWidth == "is-8-desktop")
+        {
+            @:<div class="has-centered-content">
+        }
+        <div class="image has-margin-bottom-5 has-margin-bottom-0-tablet @(Model.SectionWidth == "is-8-desktop" ? "has-width-80-all has-margin-auto" : "")">
+            @if (Model.Image.HasValue())
+            {
+                <img src="@Model.Image.Url" class="is-background" />
+                @*@RazorHelper.ResponsiveImage(Model.Image, classList: "is-background,", itemsPerRow: "2")*@
+            }
+        </div>
+        if(Model.SectionWidth == "is-8-desktop")
+        {
+            @:</div>
+        }
+    }
+
+    @helper RenderImageText()
+    {
+        <div class="text-inner has-margin-left-4 has-margin-right-4 has-margin-left-6-tablet has-margin-right-6-tablet">
+            @if (Model.Title.HasValue())
+            {
+                <h3 class="title is-size-3 is-size-2-tablet is-spaced">@Model.Title</h3>
+            }
+            @if (Model.SubTitle.HasValue())
+            {
+                <div class="subtitle is-size-5 is-size-4-tablet">
+                    @Model.SubTitle
+                </div>
+            }
+            @if (Model.Buttons.HasValue())
+            {
+                <div class="has-margin-bottom-5">
+                    @foreach (var button in Model.Buttons)
+                    {
+                        @RazorHelper.RenderButton(button)
+                    }
+                </div>
+            }
+        </div>
+    }

@@ -1,0 +1,62 @@
+﻿{
+	// you can define multiple editors
+	"propertyEditors": [
+		{
+			/*this must be a unique alias*/
+			"alias": "OurUmbracoDocTypePicker",
+			/*the name*/
+			"name": "Document Type Picker",
+			/*the icon*/
+			"icon": "icon-bulleted-list",
+			/*grouping for "Select editor" dialog*/
+			group: "Lists",
+			/*the HTML file we will load for the editor*/
+			"editor": {
+				"view": "~/App_Plugins/OurUmbracoDocTypePicker/doctypepicker.html",
+				"valueType": "JSON"
+			},
+			"prevalues": {
+				"fields": [
+					{
+						"label": "List type for render",
+						"description": "List type for render",
+						"key": "multiple",
+						"view": "~/App_Plugins/OurUmbracoDocTypePicker/selection.html"
+					},
+					{
+						"label": "Use toggle for multiple options",
+						"description": "Use toggle controls instead of dropdown select",
+						"key": "useToggle",
+						"view": "boolean"
+					},
+					{
+						"label": "Filter for document types with templates",
+						"description": "Can be used to filter out settings document types that don't have templates",
+						"key": "templateFilter",
+						"view": "~/App_Plugins/OurUmbracoDocTypePicker/templatefilter.html"
+					},
+					{
+						"label": "All document types, pages only or elements only",
+						"description": "Filter the document types by page/element type",
+						"key": "elementFilter",
+						"view": "~/App_Plugins/OurUmbracoDocTypePicker/elementfilter.html"
+					},
+					{
+						"label": "Filter term",
+						"description": "Only include the document types that contain this term",
+						"key": "filterTerm",
+						"view": "textstring"
+					}
+				]
+			}
+		}
+	]
+	,
+	"css": [
+		"~/App_Plugins/OurUmbracoDocTypePicker/doctypepicker.css"
+	],
+	// array of files we want to inject into the application on app_start
+	"javascript": [
+	    "~/App_Plugins/OurUmbracoDocTypePicker/doctypepicker.controller.js"
+	]
+}

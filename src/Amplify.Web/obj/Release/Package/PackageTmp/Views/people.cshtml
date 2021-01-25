@@ -1,0 +1,31 @@
+﻿@inherits Amplify.Core.ViewPages.AmplifyViewPage<People>
+@using Umbraco.Web.PublishedModels
+@using Amplify.Core.Extensions
+
+@{
+    Layout = "master.cshtml";
+    var people = Model.Children.Select(x => new Person(x));
+}
+@Html.Partial("~/Views/Partials/PageHeaderNew.cshtml", Model)
+
+@SectionHelper.RenderSectionStart(
+backgroundClass: Model.ContentBgColor.Label,
+bgTexture: Model.ContentBgTexture?.Url,
+gradientAlias: Model.ContentBgGradient,
+textClass: Model.ContentTextColor.Label,
+paddingSize: Model.ContentSpacing,
+isCentered: false,
+className: "amplify-people")
+
+@if (people.HasValue())
+{
+    foreach (var person in people)
+    {
+        <div class="column @RazorHelper.ColumnClass(Model.ItemsPerRow?.ToString())">
+            @Html.Partial("~/Views/Partials/Nested/Item/PersonItem.cshtml", person)
+        </div>
+    }
+}
+@SectionHelper.RenderSectionEnd()
+
+

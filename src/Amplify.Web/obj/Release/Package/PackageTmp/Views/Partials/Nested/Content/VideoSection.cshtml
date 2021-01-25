@@ -1,0 +1,46 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<VideoSection>
+@using Umbraco.Web.PublishedModels
+
+@{
+    var isFullWidth = Model.SectionWidth == "is-fullwidth";
+    var columnWidth = "";
+
+    switch (Model.SectionWidth)
+    {
+        case "is-6-desktop":
+            columnWidth = "is-offset-2-desktop is-8-desktop";
+            break;
+
+        case "is-8-desktop":
+            columnWidth = "is-12";
+            break;
+    }
+}
+
+@SectionHelper.RenderSectionStart(
+    backgroundClass: Model.BgColor.Label,
+    bgTexture: Model.BgTexture?.Url,
+    gradientAlias: Model.BgGradient,
+    textClass: Model.TextColor.Label,
+    paddingSize: Model.Spacing,
+    className: "amplify-video",
+    renderContainer: !isFullWidth,
+    sectionClass: true)
+
+@Html.Partial($"~/Views/Partials/Nested/Component/TitleItem.cshtml", new TitleItem(Model))
+
+@if (!isFullWidth)
+{
+    @:<div class="column @columnWidth">
+}
+
+@Html.Partial($"~/Views/Partials/Nested/Content/Video.cshtml", new Video(Model))
+
+@if (!isFullWidth)
+{
+    @:</div>
+}
+
+@Html.Partial($"~/Views/Partials/Nested/Component/LinkComponent.cshtml", new LinkComponent(Model))
+
+@SectionHelper.RenderSectionEnd(renderContainer: false)

@@ -1,0 +1,11 @@
+﻿.doctypepicker {
+    
+}
+
+.doctypepicker select {
+    width:100%;
+}
+
+.doctypepicker .umb-toggle {
+    margin-bottom:5px;
+}

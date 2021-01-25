@@ -1,0 +1,29 @@
+﻿@inherits Amplify.Core.ViewPages.AmplifyViewPage<Products>
+@using Umbraco.Web.PublishedModels
+@using Amplify.Core.Extensions
+@{
+    Layout = "master.cshtml";
+    var products = Model.Children.Select(x => new Product(x));
+}
+@Html.Partial("~/Views/Partials/PageHeaderNew.cshtml", Model)
+
+
+@SectionHelper.RenderSectionStart(
+backgroundClass: Model.ContentBgColor.Label,
+bgTexture: Model.ContentBgTexture?.Url,
+gradientAlias: Model.ContentBgGradient,
+textClass: Model.ContentTextColor.Label,
+paddingSize: Model.ContentSpacing,
+isCentered: false,
+className: "amplify-products")
+
+@if (products.HasValue())
+{
+    foreach (Product product in products)
+    {
+        <div class="column @RazorHelper.ColumnClass(Model.ItemsPerRow?.ToString())">
+            @Html.Partial("~/Views/Partials/Nested/Item/ProductItem.cshtml", product)
+        </div>
+    }
+}
+@SectionHelper.RenderSectionEnd()

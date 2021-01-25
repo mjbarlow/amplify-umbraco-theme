@@ -1,0 +1,26 @@
+﻿<div class="umb-pane" ng-controller="UmbracoForms.Editors.Form.DeleteController as vm">
+    <p>
+        Are you sure you want to delete {{currentNode.name}} ?
+    </p>
+    <p>
+        Please note this can take lots of time depending on the number of records.
+    </p>
+    <div>
+
+        <div class="umb-pane btn-toolbar umb-btn-toolbar">
+            <div class="control-group umb-control-group">
+                <a href="" class="btn btn-link" ng-click="vm.cancelDelete()"><localize key="general_cancel">Cancel</localize></a>
+
+                <umb-button
+                        action="vm.deleteForm(currentNode.id)"
+                        type="button"
+                        button-style="primary"
+                        state="vm.buttonState"
+                        label="OK"
+                        disabled="vm.buttonState === 'busy'">
+                </umb-button>
+
+            </div>
+        </div>
+    </div>
+</div>

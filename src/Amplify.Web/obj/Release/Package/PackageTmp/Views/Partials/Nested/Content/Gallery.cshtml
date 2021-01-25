@@ -1,0 +1,36 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Gallery>
+@using Umbraco.Web.PublishedModels
+@using Amplify.Core.Extensions
+
+@{
+    var columnClass = RazorHelper.ColumnClass(Model.RowItems);
+    var gapClass = Model.NoSpacing ? "is-gapless" : "";
+    var marginClass = Model.HasMargin ? "has-margin-bottom-5" : "";
+}
+
+@if (Model.Items.HasValue())
+{
+    <div class="amplify-gallery @marginClass">
+        <div class="columns is-multiline @gapClass">
+            @foreach (var item in Model.Items)
+            {
+                if (item.HasValue())
+                {
+                    <div class="column @columnClass">
+                        @if (item.Image.HasValue())
+                        {
+                            var slideUrl = item.Video.HasValue() ? item.Video.Url : (item.VideoUrl.HasValue() ? item.VideoUrl : item.Image.Url);
+                            <div class="gallery-box">
+                                <div class="inner">
+                                    <a href="@slideUrl" class="glightbox image is-square" data-glightbox="@(item.Title.HasValue() ?   $"title: {item.Title};" : "") @(item.Description.HasValue() ?  $"description: {item.Description};" : "") @(item.TextAlignment.HasValue() ? $"descPosition: {item.TextAlignment};"  : "")">
+                                        @(RazorHelper.GetThumbnailImage(item.Image,item.Title,"is-background"))
+                                    </a>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                }
+            }
+        </div>
+    </div>
+}

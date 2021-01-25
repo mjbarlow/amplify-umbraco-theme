@@ -1,0 +1,36 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<IPublishedElement>
+@using Umbraco.Web.PublishedModels
+@using Amplify.Core.Extensions
+
+@{
+    var root = Umbraco.AssignedContentItem.Root();
+    var appSettings = (AppConfig)root.DescendantOfType(AppConfig.ModelTypeAlias);
+    var nav = (Nav)root.DescendantOfType(Nav.ModelTypeAlias);
+}
+
+@if (appSettings.HasValue())
+{
+    var array = new[] {appSettings.SiteName, appSettings.Address1, appSettings.Address2, appSettings.Town, appSettings.City, appSettings.Region, appSettings.PostZipCode, appSettings.Country };
+    string fullAddress = string.Join(", ", array.Where(s => !string.IsNullOrEmpty(s)));
+
+    if (fullAddress.HasValue())
+    {
+        <p class="has-margin-bottom-3">
+            @RazorHelper.RenderFaIcon(new FaLinksPropertyEditor.Models.FaIcon() { ClassName = "fas fa-map-marker-alt has-text-info" }) @fullAddress
+        </p>
+    }
+    if (appSettings.Telephone.HasValue())
+    {
+        <p class="has-margin-bottom-3">
+            @RazorHelper.RenderFaIcon(new FaLinksPropertyEditor.Models.FaIcon() { ClassName = "fas fa-phone has-text-info", }) @appSettings.Telephone
+        </p>
+    }
+    if (appSettings.Email.HasValue())
+    {
+        <p class="has-margin-bottom-3">
+            @RazorHelper.RenderFaIcon(new FaLinksPropertyEditor.Models.FaIcon() { ClassName = "fas fa-envelope has-text-info", }) @appSettings.Email
+        </p>
+    }
+}
+
+

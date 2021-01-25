@@ -1,0 +1,73 @@
+﻿@inherits  Amplify.Core.ViewPages.AmplifyViewPage<Contact>
+@using Umbraco.Web.PublishedModels
+@using Amplify.Core.Extensions
+@{
+    Layout = "master.cshtml";
+}
+
+<div class="columns">
+    <div class="column  has-margin-top-6-tablet has-margin-top-5 has-margin-bottom-5">
+        <section class="section has-margin-top-4">
+            <div class="content has-width-80-tablet  has-margin-bottom-5">
+                @if (Model.Title.HasValue())
+                {
+                    <h4 class="is-size-3-desktop is-size-4 has-text-weight-semibold">@Model.Title</h4>
+                }
+                @if (Model.Subtitle.HasValue())
+                {
+                    @Model.Subtitle
+                }
+                <div class="has-margin-bottom-5 has-margin-top-5">
+                    @{
+                        var array = new[] { Model.Address1, Model.Address2, Model.Town, Model.City, Model.Region, Model.PostZipCode, Model.Country };
+                        string fullAddress = string.Join(", ", array.Where(s => !string.IsNullOrEmpty(s)));
+                        <h4 class="is-size-5">Amplify Office</h4>
+                        <p>
+                            @if (fullAddress.HasValue())
+                            {
+                                @fullAddress <br />
+                            }
+                            @if (Model.Telephone.HasValue())
+                            {
+                                @:Tel: @Model.Telephone<br />
+                            }
+                            @if (Model.Email.HasValue())
+                            {
+                                @:Email: @Model.Email<br />
+                            }
+                        </p>
+                    }
+                </div>
+                <hr/>
+
+                @if (Model.ContactFormHeader.HasValue())
+                {
+                    <h4 class="is-size-5">@Model.ContactFormHeader</h4>
+                }
+                @if (Model.ContactIntro.HasValue())
+                {
+                    @Model.ContactIntro
+                }
+                @if (Model.ContactForm != null)
+                {
+                    @Umbraco.RenderMacro("renderUmbracoForm", new { FormGuid = Model.ContactForm, FormTheme = "amplify", ExcludeScripts = "1" })
+                }
+            </div>
+        </section>
+    </div>
+    <div class="column has-padding-0">
+        @if (Model.MapEmbedLink.HasValue())
+        {
+            <div class="iframe-container" style="width:100%; height: 100%">
+                <iframe class="iframe has-background-light"
+                        frameborder="0"
+                        scrolling="no"
+                        marginheight="0"
+                        marginwidth="0"
+                        src="@Model.MapEmbedLink">
+                </iframe>
+            </div>
+        }
+    </div>
+  
+</div>

@@ -1,0 +1,88 @@
+﻿<div ng-controller="amplifyFontStacksController as vm">
+    <umb-box>
+        <umb-box-header title="Fontstacks & Fontstack Variables" description="Save the fontstack and variable settings.">
+            <umb-button-group default-button="vm.saveButton.defaultButton"
+                                sub-buttons="vm.saveButton.subButtons"
+                                direction="down"
+                                float="right"
+                                button-style="success"
+                                state="vm.saveButton.state">
+            </umb-button-group>
+        </umb-box-header>
+    </umb-box>
+    <div id="amplifyFonts">
+        <div class="amplify-settings">
+            <div class="amplify-main-settings">
+                <umb-box>
+                    <umb-box-header title="Fontstack Variables" description="Assign fontstacks to your fontstack variables for use in your Amplify theme.">
+                    </umb-box-header>
+                    <umb-box-content>
+                        <div class="control-group  umb-prevalues-multivalues__add color-picker-preval">
+                            <div class="umb-prevalues-multivalues__left">
+                                <span>$</span><input name="newVariable" val-highlight="{{fontVariableError}}" type="text" ng-model="vm.newFontVariable.Alias" placeholder="Sass variable name..." />
+                                <select ng-model="vm.newFontVariable.Value">
+                                    <option selected value="">Assign a font variable</option>
+                                    <option ng-repeat="font in vm.fonts" value="{{font.Alias}}">{{font.Alias}}</option>
+                                </select>
+                            </div>
+                            <div class="umb-prevalues-multivalues__right">
+                                <button class="btn btn-info add" ng-disabled="vm.addFontVariableDisabled()" ng-click="vm.addFontVariable()">
+                                    <localize key="general_add">Add</localize>
+                                </button>
+                            </div>
+                        </div>
+                        <div ui-sortable="vm.sortableOptions" ng-model="vm.fontVariables" class="amplify-values-colors umb-prevalues-multivalues">
+                            <div class="control-group umb-prevalues-multivalues__listitem color-picker-preval" ng-repeat="variable in vm.fontVariables">
+                                <i class="icon icon-navigation handle"></i>
+                                <div class="umb-prevalues-multivalues__left">
+                                    <div class="color-picker-prediv">
+                                        <pre>{{variable.Alias}}</pre>
+                                        <select ng-model="variable.Value">
+                                            <option ng-repeat="font in vm.fonts" value="{{font.Alias}}">{{font.Alias}}</option>
+                                        </select>
+                                        <button class="umb-node-preview__action umb-node-preview__action--red" ng-click="vm.reset(vm.fontVariables, $index)"><localize key="amplify_reset">Reset</localize></button>
+                                        <a class="umb-node-preview__action umb-node-preview__action--red amplify-margin-left" localize="title" title="Delete" ng-click="vm.delete(vm.fontVariables, $index); $event.stopPropagation();"> <i class="icon icon-trash"></i> </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </umb-box-content>
+                </umb-box>
+            </div>
+            <div>
+                <umb-box>
+                    <umb-box-header title="Fontstacks" description="Set your fontstacks for your Amplify theme."></umb-box-header>
+                    <umb-box-content>
+                        <div class="control-group umb-prevalues-multivalues__add color-picker-preval">
+                            <div class="umb-prevalues-multivalues__left">
+                                <span class="amplify-margin-left">$</span>
+                                <input name="newFont" val-highlight="" type="text" ng-model="vm.newFont.Alias" placeholder="Font variable name..." />
+                                <input name="newFont" val-highlight="" type="text" ng-model="vm.newFont.Value" placeholder="Font stack..." />
+                            </div>
+                            <div class="umb-prevalues-multivalues__right">
+                                <button ng-disabled="vm.addFontDisabled()" class="btn btn-info add" ng-click="vm.addFont()">
+                                    <localize key="general_add">Add</localize>
+                                </button>
+                            </div>
+                        </div>
+                        <div ui-sortable="vm.sortableOptions" ng-model="vm.fonts" class="amplify-values-colors umb-prevalues-multivalues">
+                            <div class="control-group umb-prevalues-multivalues__listitem color-picker-preval" ng-repeat="variable in vm.fonts">
+                                <i class="icon icon-navigation handle"></i>
+                                <div class="umb-prevalues-multivalues__left">
+                                    <div class="color-picker-prediv">
+                                        <pre>{{variable.Alias}}</pre>
+                                        <input val-highlight="" class="amplify-margin-left" type="text" ng-model="variable.Value" placeholder="Font stack..." />
+                                    </div>
+                                    <div class="umb-prevalues-multivalues__right">
+                                        <button class="umb-node-preview__action umb-node-preview__action--red" ng-click="vm.reset(vm.fonts, $index)"><localize key="amplify_reset">Reset</localize></button>
+                                        <a class="umb-node-preview__action umb-node-preview__action--red amplify-margin-left" localize="title" title="Delete" ng-click="vm.delete(vm.fonts, $index); $event.stopPropagation();"> <i class="icon icon-trash"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </umb-box-content>
+                </umb-box>
+            </div>
+        </div>
+    </div>
+</div>

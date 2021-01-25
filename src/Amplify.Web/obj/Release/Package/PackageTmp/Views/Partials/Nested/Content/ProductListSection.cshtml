@@ -1,0 +1,23 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ProductListSection>
+@using Umbraco.Web.PublishedModels
+
+@SectionHelper.RenderSectionStart(
+    backgroundClass: Model.BgColor.Label,
+    bgTexture: Model.BgTexture?.Url,
+    gradientAlias: Model.BgGradient,
+    textClass: Model.TextColor.Label,
+    paddingSize: Model.Spacing,
+    className: "amplify-products-list")
+
+@Html.Partial($"~/Views/Partials/Nested/Component/TitleItem.cshtml", new TitleItem(Model))
+
+@foreach (var productNode in Model.Products)
+{
+    <div class="column @RazorHelper.ColumnClass(Model.ItemsPerRow.ToString())">
+        @Html.Partial($"~/Views/Partials/Nested/Item/ProductItem.cshtml", productNode)
+    </div>
+}
+
+@Html.Partial($"~/Views/Partials/Nested/Component/LinkComponent.cshtml", new LinkComponent(Model))
+@SectionHelper.RenderSectionEnd()
+

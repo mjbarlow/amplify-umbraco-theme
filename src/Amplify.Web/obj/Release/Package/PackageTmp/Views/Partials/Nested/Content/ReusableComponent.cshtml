@@ -1,0 +1,103 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ReusableComponent>
+@using Umbraco.Web.PublishedModels
+
+@{
+    string viewPath = "~/views/partials/nested/content/{0}.cshtml";
+    object obj = null;
+    string alias = string.Empty;
+
+    switch (Model.Component.ContentType.Alias)
+    {
+        case AccordionComponent.ModelTypeAlias:
+            obj = new Accordion(Model.Component);
+            alias = Accordion.ModelTypeAlias;
+            break;
+
+        case BannerStripComponent.ModelTypeAlias:
+            obj = new BannerStripSection(Model.Component)
+            {
+                HasMargin = true
+            };
+            alias = BannerStripSection.ModelTypeAlias;
+            break;
+
+        case CodeComponent.ModelTypeAlias:
+            obj = new Code(Model.Component);
+            alias = Code.ModelTypeAlias;
+            break;
+
+        case GalleryComponent.ModelTypeAlias:
+            obj = new Gallery(Model.Component);
+            alias = Gallery.ModelTypeAlias;
+            break;
+
+        case IconsListComponent.ModelTypeAlias:
+            obj = new IconsSection(Model.Component)
+            {
+                HasMargin = true
+            };
+            alias = IconsSection.ModelTypeAlias;
+            break;
+
+        case ImageComponent.ModelTypeAlias:
+            obj = new ImageContent(Model.Component);
+            alias = ImageContent.ModelTypeAlias;
+            break;
+
+        case MarkdownComponent.ModelTypeAlias:
+            obj = new Markdown(Model.Component);
+            alias = Markdown.ModelTypeAlias;
+            break;
+
+        case QuoteComponent.ModelTypeAlias:
+            obj = new QuoteContent(Model.Component);
+            alias = QuoteContent.ModelTypeAlias;
+            break;
+
+        case ShareLinksComponent.ModelTypeAlias:
+            obj = new ShareLinks(Model.Component)
+            {
+                HasMargin = true
+            };
+            alias = ShareLinks.ModelTypeAlias;
+            break;
+
+        case SliderComponent.ModelTypeAlias:
+            obj = new Slider(Model.Component)
+            {
+                HasMargin = true
+            };
+            alias = Slider.ModelTypeAlias;
+            break;
+
+        case TabsComponent.ModelTypeAlias:
+            obj = new Tabs(Model.Component);
+            alias = Tabs.ModelTypeAlias;
+            break;
+
+        case TitleItemComponent.ModelTypeAlias:
+            obj = new TitleItem(Model.Component);
+            alias = TitleItem.ModelTypeAlias;
+            break;
+
+        case UmbracoFormComponent.ModelTypeAlias:
+            obj = new UmbracoFormItem(Model.Component);
+            alias = UmbracoFormItem.ModelTypeAlias;
+            break;
+
+        case VideoComponent.ModelTypeAlias:
+            obj = new Video(Model.Component)
+            {
+                HasMargin = true
+            };
+            alias = Video.ModelTypeAlias;
+            break;
+    }
+
+    if (obj != null)
+    {
+        @Html.Partial(String.Format(viewPath, alias), obj)
+    }
+}
+
+

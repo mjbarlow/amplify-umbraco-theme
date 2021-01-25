@@ -1,0 +1,52 @@
+﻿@inherits Amplify.Core.ViewPages.AmplifyViewPage<Sitemap>
+@using Umbraco.Web.PublishedModels
+@using Amplify.Core.Extensions
+@{
+	Layout = "master.cshtml";
+	var siteHomePage = Model.Root();
+	var documentTypes = Model.AllowedListedDocumentTypes.ToObject<string[]>();
+	var width = RazorHelper.WidthClass(Model.ContentWidth);
+}
+
+@Html.Partial("~/Views/Partials/PageHeaderNew.cshtml", Model)
+
+@SectionHelper.RenderSectionStart(
+backgroundClass: Model.ContentBgColor.Label,
+bgTexture: Model.ContentBgTexture?.Url,
+gradientAlias: Model.ContentBgGradient,
+textClass: Model.ContentTextColor.Label,
+paddingSize: Model.ContentSpacing,
+isCentered: false,
+className: "amplify-sitemap")
+
+<div class="column @width">
+	<div>
+		<div class="content is-medium">
+            <div class="box">
+                @renderLinkChildren(siteHomePage, 10, documentTypes)
+            </div>
+		</div>
+	</div>
+</div>
+
+@SectionHelper.RenderSectionEnd()
+
+@helper renderLinkChildren(IPublishedContent parentPage, int maxSiteMapDepth, string[] documentTypes)
+{
+	<ul>
+		@foreach (var page in parentPage.Children.Where(f => documentTypes.Contains(f.ContentType.Id.ToString())
+		&& !f.Value<bool>("hideFromXmlSiteMap")))
+		{
+			<li>
+				<a href="@page.Url">
+					<span>@page.Name</span>
+				</a>
+				@if (page.Level < maxSiteMapDepth && page.Children.Any(f => documentTypes.Contains(f.ContentType.Id.ToString())
+				&& !f.Value<bool>("hideFromXmlSiteMap")))
+				{
+					@renderLinkChildren(page, maxSiteMapDepth, documentTypes)
+				}
+			</li>
+		}
+	</ul>
+}

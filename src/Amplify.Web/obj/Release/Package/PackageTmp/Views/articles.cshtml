@@ -1,0 +1,92 @@
+﻿    @inherits  Amplify.Core.ViewPages.AmplifyViewPage<Articles>
+@using Umbraco.Web.PublishedModels
+@using Amplify.Core.Extensions;
+
+@{
+    Layout = "master.cshtml";
+
+    var articles = Model.Children.Select(x => new Article(x)).OrderBy(x => x.CreateDate).ToList();
+
+    var tag = Request.QueryString["tag"]?.ToLower();
+
+    if (tag.HasValue())
+    {
+        articles = articles.Where(x => x.Categories.Select(y => y.ToLower()).Contains(tag)).ToList();
+    }
+
+    var hasPaging = true;
+    var numberOfPosts = (int)Model.ItemsToShow;
+    var pageCount = (int)Math.Ceiling((double)articles.Count / (double)numberOfPosts);
+    var page = SetPageNumber(pageCount);
+    var pagedItems = articles.Skip((page - 1) * numberOfPosts).Take(numberOfPosts).ToList();
+
+}
+
+@Html.Partial("~/Views/Partials/PageHeaderNew.cshtml", Model)
+
+@SectionHelper.RenderSectionStart(
+backgroundClass: Model.ContentBgColor.Label,
+bgTexture: Model.ContentBgTexture?.Url,
+gradientAlias: Model.ContentBgGradient,
+textClass: Model.ContentTextColor.Label,
+paddingSize: Model.ContentSpacing,
+isCentered: false,
+className: "amplify-articles")
+
+@if (!articles.HasValue())
+{
+    <div class="column has-text-centered">
+        <p class="is-size-4">@Umbraco.GetDictionaryValue("Articles.No.Articles")</p>
+    </div>
+    return;
+}
+
+@if (pagedItems.Count > 0)
+{
+
+    if (tag.HasValue())
+    {
+        <div class="column is-12">
+            <p class="is-size-4"> @Umbraco.GetDictionaryValue("Articles.Filter.By") <strong>@tag</strong></p>
+        </div>
+    }
+
+    foreach (var item in pagedItems)
+    {
+        <div class="column @RazorHelper.ColumnClass(Model.ItemsPerRow?.ToString())">
+            @Html.Partial("~/Views/Partials/Nested/Item/Article.cshtml", item)
+        </div>
+    }
+
+    if (articles.Count > numberOfPosts && hasPaging)
+    {
+        <div class="column is-12">
+            <div class="buttons is-centered">
+                @for (int i = 1; i <= pageCount; i++)
+                {
+                    <a class="button is-medium @(page == i ? "is-info" : "is-light")" href="@("?page=" + i)">@i</a>
+                }
+            </div>
+        </div>
+    }
+
+}
+
+@SectionHelper.RenderSectionEnd()
+
+@functions {
+    //gets the page from the querystring and sets it to one if it is out of range
+    int SetPageNumber(int pageCount)
+    {
+        var page = 1;
+        if (!string.IsNullOrEmpty(Request.QueryString["page"]))
+        {
+            int.TryParse(Request.QueryString["page"], out page);
+            if (page <= 0 || page > pageCount)
+            {
+                page = 1;
+            }
+        }
+        return page;
+    }
+}

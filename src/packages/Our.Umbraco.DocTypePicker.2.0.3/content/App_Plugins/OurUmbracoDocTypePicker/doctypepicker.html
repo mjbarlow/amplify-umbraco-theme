@@ -1,0 +1,37 @@
+﻿<div class="doctypepicker" ng-controller="OurUmbracoDocTypePicker.DocTypePicker" ng-switch="model.config.multiple">
+
+    <select name="dropDownList"
+            class="umb-property-editor umb-dropdown"
+            ng-switch-default
+            ng-change="updateSingleDropdownValue()"
+            ng-model="model.singleDropdownValue"
+            ng-options="item.name for item in model.config.items track by item.id"
+            ng-required="model.validation.mandatory">
+        <option></option>
+    </select>
+
+    <!--NOTE: This ng-switch is required because ng-multiple doesn't actually support dynamic bindings with multi-select lists -->
+    <div ng-switch-when="true">
+
+        <select ng-if="!model.config.useToggle" 
+                name="dropDownList"
+                class="umb-property-editor umb-dropdown"
+                multiple
+                ng-model="model.value"
+                ng-options="item.id as item.name for item in model.config.items"
+                ng-required="model.validation.mandatory">
+        </select>
+
+        <div ng-if="model.config.useToggle" ng-repeat="item in model.config.items">
+            <umb-toggle input-id="{{item.name}}"
+                        checked="item.checked"
+                        on-click="updateMultiToggle(item)"
+                        show-labels="true"
+                        label-position="right"
+                        label-on="{{item.name}}"
+                        label-off="{{item.name}}">
+            </umb-toggle>
+        </div>
+
+    </div>
+</div>
