@@ -30,19 +30,23 @@ admin@admin.com
 - Completely responsive
 - Built with Bulma and Vue frameworks 
 
+<br/><br/>
+
 **Important info for using your own models**
 
 To use your own models, add Umbraco.ModelsBuilder and Umbraco.ModelsBuilder.UI via nuget. Then build the solution.
 
 Change the modelsbuilder mode In the web.config to: 
 <br/><br/>
+
 ```
 <add key="Umbraco.ModelsBuilder.Enable" value="true" />
 <add key="Umbraco.ModelsBuilder.ModelsMode" value="Dll" />
 ```
-<br/><br/>
+
 Then in the umbraco backoffice go to settings > Modelsbuilder and click build models.
 <br/><br/>
+
 **Plus lots more!**
 
 I've added tons of new features into Amplify Umbraco 8 theme, above is just a snapshot of what's included!
