@@ -29,7 +29,6 @@ admin@admin.com
 - Site maps 
 - Completely responsive
 - Built with Bulma and Vue frameworks 
-
 <br/><br/>
 
 **Important info for using your own models**
