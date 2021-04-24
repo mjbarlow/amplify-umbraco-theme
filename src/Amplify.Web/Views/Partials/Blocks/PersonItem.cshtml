@@ -33,7 +33,7 @@
                         }
                         @if (Model.FacebookUsername.HasValue())
                         {
-                            @RazorHelper.RenderSocialLinkContent($"http://facebook.com/{Model.Email}", "fab fa-facebook-f", $"@{Model.FacebookUsername}")
+                            @RazorHelper.RenderSocialLinkContent($"http://facebook.com/{Model.FacebookUsername}", "fab fa-facebook-f", $"@{Model.FacebookUsername}")
                         }
                         @if (Model.TwitterUsername.HasValue())
                         {
