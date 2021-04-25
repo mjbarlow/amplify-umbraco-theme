@@ -1808,6 +1808,7 @@ C:\inetpub\wwwroot\amplify\Amplify_GITHUB\amplify-umbraco-theme\src\Amplify.Web\
 C:\inetpub\wwwroot\amplify\Amplify_GITHUB\amplify-umbraco-theme\src\Amplify.Web\obj\Debug\Amplify.Web.csproj.CopyComplete
 C:\inetpub\wwwroot\amplify\Amplify_GITHUB\amplify-umbraco-theme\src\Amplify.Web\obj\Debug\Amplify.Web.dll
 C:\inetpub\wwwroot\amplify\Amplify_GITHUB\amplify-umbraco-theme\src\Amplify.Web\obj\Debug\Amplify.Web.pdb
+C:\inetpub\wwwroot\Amplify\amplify-umbraco-theme\src\Amplify.Web\bin\amd64\sqlceme40.dll
 C:\inetpub\wwwroot\Amplify\amplify-umbraco-theme\src\Amplify.Web\bin\x86\libsass.dll
 C:\inetpub\wwwroot\Amplify\amplify-umbraco-theme\src\Amplify.Web\bin\x64\libsass.dll
 C:\inetpub\wwwroot\Amplify\amplify-umbraco-theme\src\Amplify.Web\bin\amd64\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest
@@ -1815,7 +1816,6 @@ C:\inetpub\wwwroot\Amplify\amplify-umbraco-theme\src\Amplify.Web\bin\amd64\Micro
 C:\inetpub\wwwroot\Amplify\amplify-umbraco-theme\src\Amplify.Web\bin\amd64\sqlceca40.dll
 C:\inetpub\wwwroot\Amplify\amplify-umbraco-theme\src\Amplify.Web\bin\amd64\sqlcecompact40.dll
 C:\inetpub\wwwroot\Amplify\amplify-umbraco-theme\src\Amplify.Web\bin\amd64\sqlceer40EN.dll
-C:\inetpub\wwwroot\Amplify\amplify-umbraco-theme\src\Amplify.Web\bin\amd64\sqlceme40.dll
 C:\inetpub\wwwroot\Amplify\amplify-umbraco-theme\src\Amplify.Web\bin\amd64\sqlceqp40.dll
 C:\inetpub\wwwroot\Amplify\amplify-umbraco-theme\src\Amplify.Web\bin\amd64\sqlcese40.dll
 C:\inetpub\wwwroot\Amplify\amplify-umbraco-theme\src\Amplify.Web\bin\x86\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest
