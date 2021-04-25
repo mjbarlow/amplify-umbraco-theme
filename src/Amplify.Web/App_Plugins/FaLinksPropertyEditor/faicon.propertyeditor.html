@@ -20,11 +20,10 @@
                 <div>
                     <div class="list-view-layout__remove">
                         <i class="icon-trash" ng-click="vm.showPrompt(item)"></i>
-                        <umb-confirm-action show="vm.promptIsVisible"
+                        <umb-confirm-action ng-if="item.deletePrompt"
                                             direction="left"
-                                            on-delete="vm.remove($index)"
-                                            on-confirm="vm.confirmAction()"
-                                            on-cancel="vm.hidePrompt()">
+                                            on-confirm="vm.remove($index, item)"
+                                            on-cancel="vm.hidePrompt(item)">
                         </umb-confirm-action>
                     </div>
                 </div>

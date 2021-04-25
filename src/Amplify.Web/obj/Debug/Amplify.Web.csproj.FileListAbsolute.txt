@@ -1972,6 +1972,7 @@ C:\inetpub\wwwroot\Amplify\amplify-umbraco-theme\src\Amplify.Web\bin\Umbraco.Web
 C:\inetpub\wwwroot\Amplify\amplify-umbraco-theme\src\Amplify.Web\bin\Umbraco.Web.UI.dll
 C:\inetpub\wwwroot\Amplify\amplify-umbraco-theme\src\Amplify.Web\bin\uSync8.BackOffice.dll
 C:\inetpub\wwwroot\Amplify\amplify-umbraco-theme\src\Amplify.Web\bin\uSync8.Core.dll
+C:\inetpub\wwwroot\Amplify\amplify-umbraco-theme\src\Amplify.Web\bin\uSync8.HistoryView.dll
 C:\inetpub\wwwroot\Amplify\amplify-umbraco-theme\src\Amplify.Web\bin\AdvancedStringBuilder.xml
 C:\inetpub\wwwroot\Amplify\amplify-umbraco-theme\src\Amplify.Web\bin\AngleSharp.xml
 C:\inetpub\wwwroot\Amplify\amplify-umbraco-theme\src\Amplify.Web\bin\AutoMapper.pdb
@@ -2046,6 +2047,7 @@ C:\inetpub\wwwroot\Amplify\amplify-umbraco-theme\src\Amplify.Web\bin\System.Net.
 C:\inetpub\wwwroot\Amplify\amplify-umbraco-theme\src\Amplify.Web\bin\System.Numerics.Vectors.xml
 C:\inetpub\wwwroot\Amplify\amplify-umbraco-theme\src\Amplify.Web\bin\System.Reflection.Metadata.xml
 C:\inetpub\wwwroot\Amplify\amplify-umbraco-theme\src\Amplify.Web\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\inetpub\wwwroot\Amplify\amplify-umbraco-theme\src\Amplify.Web\bin\System.Text.Encoding.CodePages.xml
 C:\inetpub\wwwroot\Amplify\amplify-umbraco-theme\src\Amplify.Web\bin\System.Text.Encodings.Web.xml
 C:\inetpub\wwwroot\Amplify\amplify-umbraco-theme\src\Amplify.Web\bin\System.Threading.Tasks.Dataflow.xml
 C:\inetpub\wwwroot\Amplify\amplify-umbraco-theme\src\Amplify.Web\bin\System.Threading.Tasks.Extensions.xml
@@ -2094,9 +2096,7 @@ C:\inetpub\wwwroot\Amplify\amplify-umbraco-theme\src\Amplify.Web\bin\ru\Microsof
 C:\inetpub\wwwroot\Amplify\amplify-umbraco-theme\src\Amplify.Web\bin\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
 C:\inetpub\wwwroot\Amplify\amplify-umbraco-theme\src\Amplify.Web\bin\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
 C:\inetpub\wwwroot\Amplify\amplify-umbraco-theme\src\Amplify.Web\bin\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\inetpub\wwwroot\Amplify\amplify-umbraco-theme\src\Amplify.Web\obj\Debug\Amplify.Web.csprojAssemblyReference.cache
 C:\inetpub\wwwroot\Amplify\amplify-umbraco-theme\src\Amplify.Web\obj\Debug\Amplify.Web.csproj.CoreCompileInputs.cache
 C:\inetpub\wwwroot\Amplify\amplify-umbraco-theme\src\Amplify.Web\obj\Debug\Amplify.Web.csproj.CopyComplete
 C:\inetpub\wwwroot\Amplify\amplify-umbraco-theme\src\Amplify.Web\obj\Debug\Amplify.Web.dll
 C:\inetpub\wwwroot\Amplify\amplify-umbraco-theme\src\Amplify.Web\obj\Debug\Amplify.Web.pdb
-C:\inetpub\wwwroot\Amplify\amplify-umbraco-theme\src\Amplify.Web\bin\System.Text.Encoding.CodePages.xml

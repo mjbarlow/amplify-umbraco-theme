@@ -17,9 +17,9 @@
 .falinks-picker .umb-iconpicker-item i {
     padding: 10px;
 }
-.falinks-propertyeditor,
+
 .list-view-falinks {
-    max-width: 800px;
+    max-width: 1024px;
 }
 
 .list-view-falink {
@@ -185,21 +185,26 @@
 
     .list-view-falink__link .umb-node-preview__icon {
         width: 15px;
+        height: 15px;
         font-size: 15px;
-        margin-top: 3px;
-        margin-left: 5px;
     }
 
     .list-view-falink__link .umb-node-preview__name {
         overflow: hidden;
         font-size: 13px;
         margin-top: 0;
-        max-width: 110px;
+        max-width: 125px;
         overflow: hidden;
     }
 
     .list-view-falink__link .umb-node-preview__description {
         display: none;
+    }
+
+    .list-view-falink__link .umb-node-preview__icon {
+        margin-left: 5px;
+        margin-top: -3px;
+        margin-right: 5px;
     }
 
 .faiconbuttons .btn {
