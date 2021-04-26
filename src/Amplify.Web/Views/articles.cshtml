@@ -4,7 +4,7 @@
 @{
     Layout = "master.cshtml";
 
-    var articles = Model.Children.Select(x => new Article(x)).OrderBy(x => x.CreateDate).ToList();
+    var articles = Model.Children.Select(x => new Article(x)).OrderByDescending(x => x.DisplayDate).ToList();
 
     var tag = Request.QueryString["tag"]?.ToLower();
 
