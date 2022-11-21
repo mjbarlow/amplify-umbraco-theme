@@ -1,3 +1,5 @@
+# PROJECT IS ARCHIVED
+
 # Amplify Theme for Umbraco 8
 Amplify is the open source and extendable theme that will get you started with Umbraco in minutes.  
 The theme is now available under the MIT licence, and is open for collaboration. 
@@ -46,25 +48,6 @@ Change the modelsbuilder mode In the web.config to:
 Then in the umbraco backoffice go to settings > Modelsbuilder and click build models.
 <br/><br/>
 
-**Plus lots more!**
 
-I've added tons of new features into Amplify Umbraco 8 theme, above is just a snapshot of what's included!
-If you have any comments, bug reports or requests for features then please get in touch with me.
-
-Happy Umbracoing!
-
--- Matt
-<br/><br/>
-### Front End Code
-[Front-end Code Project](https://github.com/mjbarlow/amplify-umbraco-frontend)
-
-### Demo
-[amplify.jacker.io](https://amplify.jacker.io/)
-
-### Documentation
-[amplify-docs.jacker.io](https://amplify-docs.jacker.io/)
-
-### Download
-[our.umbraco.com](https://our.umbraco.com/packages/starter-kits/amplify-theme/)
 
 
